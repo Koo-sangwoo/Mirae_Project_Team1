@@ -9,8 +9,13 @@
 <h1>3/13 실행 업무</h1><br>
 구상우 : ERD 초안 만들기, 프로젝트 기본세팅, MyBatis 연동<br>
 박승범 : <br>
-윤민수 : <br>
+윤민수 : <br><br>
+
+<h1>3/14 실행 업무</h1><br>
+구상우 : ERD 완성, 테이블 생성코드 작성, BootStrap 적용 <br>
+박승범 : <br>
+윤민수 : <br><br><br>
 
 
-데이터 ERD
+<h1>데이터 ERD</h1>
 ![team1-ERD](https://user-images.githubusercontent.com/109846153/224894692-31665fe1-408a-41bf-9ad5-24117a1c0b86.png)
