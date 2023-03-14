@@ -47,7 +47,7 @@
     <img src="./resources/images/search-outline.png">
     </a>
     <a class=header_login onclick="로그인하면팝업뜨는메소드" href="#">
-    <img src="./resources/images/person-outline.png">
+    <img src="./resources/images/person-outline.png">	
     </a>
    <!--  <form class="form-inline my-2 my-md-0">
       <input class="form-control" type="text" placeholder="Search"> -->

@@ -13,16 +13,16 @@
 <body>
 <jsp:include page="include/header.jsp"></jsp:include>
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 300px">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="./resources/images/logo.png" class="d-block w-100" alt="..." style="width: 100%; height: 300px">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="./resources/images/person-outline.png" class="d-block w-100" alt="..." style="width: 100%; height: 300px">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="./resources/images/search-outline.png" class="d-block w-100" alt="..." style="width: 100%; height: 300px">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
