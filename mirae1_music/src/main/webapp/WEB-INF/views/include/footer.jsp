@@ -147,7 +147,7 @@
                 미래 IT | 팀장: 구상우 | 팀원: 박승범 윤민수 | 010-0000-0000<br>
                 PLAYNN MUSIC  |  개발일: 0000-00-00
             </div>
-            <a href="https://hiphople.com/release_note">
+            <a href="#">
                 <div class="footer_note">
                     릴리즈 노트
                 </div>
@@ -155,23 +155,18 @@
         </div>
         <div class="app-footer-links">
             <div class="app-footer-links-archive">
-                <h6>아카이브</h6>
+                <h6>커뮤니티</h6>
                 <ul>
-                    <li><a href="https://hiphople.com/subtitle">자막 영상</a></li>
-                    <li><a href="https://hiphople.com/album">앨범 해석</a></li>
-                    <li><a href="https://hiphople.com/lyrics">트랙 해석</a></li>
-                    <li><a href="https://hiphople.com/style">스타일</a></li>
-                    <li><a href="https://hiphople.com/specialpage">스페셜페이지</a></li>
+                    <li><a href="#">K-POP</a></li>
+                    <li><a href="#">J-POP</a></li>
+                    <li><a href="#">POP</a></li>
                 </ul>
             </div>
             <div class="app-footer-links-lemedia">
-                <h6>엘이미디어</h6>
+                <h6>플레인미디어</h6>
                 <ul>
-                <li><a href="https://hiphople.com/about" target="_blank">회사 소개</a></li>
-                <li><a href="https://hiphople.com/advertise">광고 안내</a></li>    
-                <li><a href="https://hiphople.com/news_contact">뉴스 제보</a></li>
-                <li><a href="https://hiphople.com/privacy">이용약관</a></li>
-                <li><a href="https://hiphople.com/notice">공지사항</a></li>
+                <li><a href="#">뉴스</a></li>
+                <li><a href="#">뮤직 비디오</a></li>    
             </ul>
             </div>
         </div>
