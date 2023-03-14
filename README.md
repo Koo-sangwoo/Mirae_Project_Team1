@@ -17,5 +17,5 @@
 윤민수 : <br><br><br>
 
 
-<h1>데이터 ERD</h1>
-[image](https://user-images.githubusercontent.com/109846153/224895288-b228289c-c0c1-473b-bc49-7cd83cd7cb31.png)
+<h1>데이터 ERD</h1> <br>
+https://user-images.githubusercontent.com/109846153/224895288-b228289c-c0c1-473b-bc49-7cd83cd7cb31.png
