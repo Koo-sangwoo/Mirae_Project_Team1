@@ -11,3 +11,4 @@
 박승범 : <br>
 윤민수 : <br>
 
+![team1-ERD](https://user-images.githubusercontent.com/109846153/224894692-31665fe1-408a-41bf-9ad5-24117a1c0b86.png)
