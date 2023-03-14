@@ -10,7 +10,7 @@
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
     <title>Insert title here</title>
 </head>
-<body>
+<body>.
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
   <img src="./resources/images/logo_dark.png" width="150px">
