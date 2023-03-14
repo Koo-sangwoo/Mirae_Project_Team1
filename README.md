@@ -18,4 +18,4 @@
 
 
 <h1>데이터 ERD</h1>
-![team1-ERD](https://user-images.githubusercontent.com/109846153/224894692-31665fe1-408a-41bf-9ad5-24117a1c0b86.png)
+![image](https://user-images.githubusercontent.com/109846153/224895288-b228289c-c0c1-473b-bc49-7cd83cd7cb31.png)
