@@ -43,8 +43,14 @@
       <li class="nav-item">
         <a class="nav-link" href="#">굿즈샵</a>
     </ul>
-    <form class="form-inline my-2 my-md-0">
-      <input class="form-control" type="text" placeholder="Search">
+    <a class=header_search onclick="누르면검색팝업뜨는메소드" href="#">
+    <img src="./resources/images/search-outline.png">
+    </a>
+    <a class=header_login onclick="로그인하면팝업뜨는메소드" href="#">
+    <img src="./resources/images/person-outline.png">
+    </a>
+   <!--  <form class="form-inline my-2 my-md-0">
+      <input class="form-control" type="text" placeholder="Search"> -->
     </form>
   </div>
 </nav>
