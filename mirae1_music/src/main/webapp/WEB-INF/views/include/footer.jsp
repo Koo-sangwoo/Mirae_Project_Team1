@@ -142,7 +142,7 @@
             Designed by CALVINSNAX.        </div> -->
         <div class="app-footer-logo">
             <!-- 푸터 로고 -->
-            <a href="#">
+            <a href="/home">
                 <img src="./resources/images/logo_dark.png" width=50% height=50%>
             </a>
             <!-- 회사 정보, 릴리즈 노트 -->
@@ -150,7 +150,7 @@
                 미래 IT | 팀장: 구상우 | 팀원: 박승범 윤민수 | 010-0000-0000<br>
                 PLAYNN MUSIC  |  개발일: 0000-00-00
             </div>
-            <a href="#">
+            <a href="release_note">
                 <div class="footer_note">
                     릴리즈 노트
                 </div>

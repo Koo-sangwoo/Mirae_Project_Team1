@@ -5,13 +5,14 @@
 <head>
 <!-- <link rel="stylesheet" href="../resources/css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/custom.css">
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
     <title>Insert title here</title>
 </head>
-<body>.
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-custom">
   <a class="navbar-brand" href="#">
   <img src="./resources/images/logo_dark.png" width="150px">
 </a>
