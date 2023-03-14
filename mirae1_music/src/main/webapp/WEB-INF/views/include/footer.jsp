@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
@@ -57,6 +57,9 @@
     }
     .app-footer-links ul li {
         padding-top: 12px;
+    }
+    .app-footer-links ul li:hover{
+        font-weight: bold;
     }
     .footer_company {
         font-size: 0.9rem;
@@ -154,7 +157,7 @@
             </a>
         </div>
         <div class="app-footer-links">
-            <div class="app-footer-links-archive">
+            <div class="app-footer-links-community">
                 <h6>커뮤니티</h6>
                 <ul>
                     <li><a href="#">K-POP</a></li>
@@ -162,7 +165,7 @@
                     <li><a href="#">POP</a></li>
                 </ul>
             </div>
-            <div class="app-footer-links-lemedia">
+            <div class="app-footer-links-playnnmedia">
                 <h6>플레인미디어</h6>
                 <ul>
                 <li><a href="#">뉴스</a></li>
