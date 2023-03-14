@@ -19,7 +19,7 @@
 <style>
     /* CUSTOM STYLE by ATO 230109 */
     .app-footer {
-        background: #1c1c1c;
+        background: black;
         color: #9f9f9f;
         padding:3.5rem 0;
         margin-top: 0.8rem;
@@ -73,16 +73,18 @@
     }
         
     .footer_note {
-        font-size: 0.8rem;
+        font-size: 0.7em;
         border: 1px solid #9f9f9f;
         width: 16%;
         padding: 3px 5px;
         margin-top: 0.8rem;
         text-align: center;
         color: #d1d1d1;
-        margin-left: -1px;
+        margin-left: 1px;
     }
-    
+    .footer_note:hover {
+	font-weight: bold; 
+	}
     
     @media (max-width: 768px) {
         .app-container {
@@ -144,13 +146,13 @@
             Designed by CALVINSNAX.        </div> -->
         <div class="app-footer-logo">
             <!-- 푸터 로고 -->
-            <a href="https://hiphople.com">
-                <img src="./resources/images/logo.png" width=50% height=50%>
+            <a href="#">
+                <img src="./resources/images/logo_dark.png" width=50% height=50%>
             </a>
             <!-- 회사 정보, 릴리즈 노트 -->
             <div class="footer_company">
                 미래 IT | 팀장: 구상우 | 팀원: 박승범 윤민수 | 010-0000-0000<br>
-                PLAIN MUSIC  |  개발일: 0000-00-00
+                PLAYNN MUSIC  |  개발일: 0000-00-00
             </div>
             <a href="https://hiphople.com/release_note">
                 <div class="footer_note">
