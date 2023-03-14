@@ -4,7 +4,8 @@
 <html>
 <head>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/js/bootstrap.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
