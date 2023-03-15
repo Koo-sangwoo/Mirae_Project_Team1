@@ -19,4 +19,5 @@
 
 <h1>데이터 ERD</h1> <br>
 
-![team1-ERD](https://user-images.githubusercontent.com/109846153/224895455-d479d7b3-48fb-4836-b316-49c6cb6d5b68.png)
+![ERD 진짜 최종](https://user-images.githubusercontent.com/109846153/225186500-5ffa1acf-c855-4e1d-850a-39c6e03413c7.png)
+
