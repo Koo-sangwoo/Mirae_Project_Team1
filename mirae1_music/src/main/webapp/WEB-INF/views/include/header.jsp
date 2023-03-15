@@ -44,7 +44,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">굿즈샵</a>
+        <a class="nav-link" href="/product">굿즈샵</a>
     </ul>
     <a class=header_search onclick="누르면검색팝업뜨는메소드" href="#">
     <img src="./resources/images/search-outline.png">
