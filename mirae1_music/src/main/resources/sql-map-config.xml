@@ -8,6 +8,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <setting name="cacheEnabled" value="false" />
         <setting name="jdbcTypeForNull" value="NULL" />
     </settings> 
+	
+	<typeAliases>
+	 <typeAlias type="com.music.pro.vo.product.ProductVO" alias="product"/>
+	</typeAliases>
 
+	<mappers>
+		<mapper resource="mappings/product-Mapper.xml"/>
+	</mappers>
 </configuration>
 
