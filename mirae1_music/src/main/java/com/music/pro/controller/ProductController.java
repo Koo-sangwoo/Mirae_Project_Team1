@@ -14,5 +14,6 @@ public class ProductController {
 	public ModelAndView product(ModelAndView mav) {
 		mav.setViewName("product/product");
 		return mav;
+		//push
 	}
 }
