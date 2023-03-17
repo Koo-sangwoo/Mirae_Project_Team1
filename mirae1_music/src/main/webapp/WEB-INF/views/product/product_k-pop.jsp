@@ -9,6 +9,7 @@
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>K-POP 굿즈 상품</title>
@@ -49,8 +50,8 @@
 	<h1 style="text-align: center">상품</h1>
 	<hr>
 	
-	<form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 200px;">
+	<form class="d-flex" action="/product_search" method="get" >
+        <input class="form-control me-2" type="search" name="keyword" placeholder="Search" aria-label="Search" style="width: 200px;">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 

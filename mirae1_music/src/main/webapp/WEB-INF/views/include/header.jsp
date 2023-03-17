@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <!-- <link rel="stylesheet" href="../resources/css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
@@ -40,7 +44,7 @@
         </div>
       </li>
        <li class="nav-item dropdown show">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Top100</a>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">굿즈</a>
         <div class="dropdown-menu show" aria-labelledby="dropdown03">
           <a class="dropdown-item" href="/product_k-pop">k-pop</a>
           <a class="dropdown-item" href="#">HIPHOP</a>

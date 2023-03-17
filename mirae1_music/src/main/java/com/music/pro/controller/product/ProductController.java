@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.music.pro.model.product.ProductService;
@@ -30,13 +31,20 @@ public class ProductController {
 		return mav;// 리턴~
 	}
 	
-	@RequestMapping(value="/product_detail", method=RequestMethod.GET)
+	@RequestMapping(value="/product_detail", method=RequestMethod.GET)//상품 상세 페이지 컨트롤러
 	public ModelAndView productDetail(ProductVO vo) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("product/product_detail");
-		mav.addObject("detail",service.getProductDetail(vo));
+		mav.setViewName("product/product_detail");// 보여줄 페이지 명 추가
+		mav.addObject("detail",service.getProductDetail(vo));//해당 상품의 정보를 가져오는 메소드를 통해 가져온 값을 detail이란 이름의 속성으로 추가
 		return mav;
 	}
 	
-	
+	@RequestMapping(value="/product_search", method=RequestMethod.GET)
+	public ModelAndView productSearch(@RequestParam(value="keyword")String keyword,ProductVO vo) {
+		ModelAndView mav = new ModelAndView();
+		List<ProductVO> Searchlist = service.productSearch(keyword);
+		mav.addObject("list",Searchlist);
+		mav.setViewName("product/product_k-pop");
+		return mav;
+	}
 }
