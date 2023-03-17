@@ -4,5 +4,7 @@ import com.music.pro.vo.user.UserVO;
 
 public interface UserService {
 	public int insertUser(UserVO vo);
-	public int checkId(UserVO vo) throws Exception;
+	public int updateUser(UserVO vo);
+	public int deleteUser(UserVO vo);
+	public int loginUser(UserVO vo);
 }

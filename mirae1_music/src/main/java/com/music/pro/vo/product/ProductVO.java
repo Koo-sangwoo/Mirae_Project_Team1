@@ -8,9 +8,15 @@ public class ProductVO {
 	private String p_exp;
 	private String releasedate;
 	private String p_category;
+	private String p_keyword;
 	
 	
-	
+	public String getP_keyword() {
+		return p_keyword;
+	}
+	public void setP_keyword(String p_keyword) {
+		this.p_keyword = p_keyword;
+	}
 	public String getP_category() {
 		return p_category;
 	}

@@ -26,4 +26,9 @@ public class ProductServiceImpl implements ProductService {
 		return dao.productDetail(vo);
 	}
 
+	@Override
+	public List<ProductVO> productSearch(String keyword) {
+		return dao.productSearch(keyword);
+	}
+
 }

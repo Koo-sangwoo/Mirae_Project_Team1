@@ -27,25 +27,25 @@ public class RegistrationController {
 		else
 			System.out.println("데이터 추가 성공");
 		
-		return "redirect:/login_form";
+		return "redirect:User/login_form";
 	}
 	
 	@RequestMapping(value = "/registration_form", method = RequestMethod.GET)
 	public String registration(Model model) {
-		return "registration_form";
+		return "User/registration_form";
 	}
 	
-	@RequestMapping(value = "/checkId", method = RequestMethod.GET)
-	public String checkId(UserVO vo) throws Exception{
-		int result = userService.checkId(vo);
-		if(result == 1) {
-			System.out.println("사용 불가한 아이디");
-			return "redirect:/registration_form";
-		}
-		else if(result == 0) {
-			System.out.println("사용 가능한 아이디");
-			return "redirect:/registration_form";
-		}
-		return "redirect:/registration_form";
-	}
+//	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
+//	public String checkId(UserVO vo) throws Exception{
+//		int result = userService.checkId(vo);
+//		if(result == 1) {
+//			System.out.println("사용 불가한 아이디");
+//			return "redirect:/";
+//		}
+//		else if(result == 0) {
+//			System.out.println("사용 가능한 아이디");
+//			return "redirect:/registration_form";
+//		}
+//		return "redirect:/registration_form";
+//	}
 }

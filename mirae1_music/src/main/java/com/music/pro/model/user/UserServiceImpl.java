@@ -17,8 +17,20 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int checkId(UserVO vo) throws Exception {
-		int result = userDAO.checkId(vo);
-		return result;
+	public int updateUser(UserVO vo) {
+		System.out.println("UserServiceImpl에서 updateUser 실행시 출력");
+		return userDAO.updateUser(vo);
+	}
+
+	@Override
+	public int deleteUser(UserVO vo) {
+		System.out.println("UserServiceImpl에서 deleteUser 실행시 출력");
+		return ((UserService) userDAO).deleteUser(vo);
+	}
+
+	@Override
+	public int loginUser(UserVO vo) {
+		System.out.println("UserServiceImpl에서 loginUser 실행시 출력");
+		return userDAO.loginUser(vo);
 	}
 }

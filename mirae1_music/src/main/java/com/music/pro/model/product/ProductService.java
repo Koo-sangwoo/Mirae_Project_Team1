@@ -11,5 +11,7 @@ public interface ProductService {
 	public List<ProductVO> getProductAll();
 
 	public ProductVO getProductDetail(ProductVO vo);
+	
+	public List<ProductVO> productSearch(String search);
 }
 
