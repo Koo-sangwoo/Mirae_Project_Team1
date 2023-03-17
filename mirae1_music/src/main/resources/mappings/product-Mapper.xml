@@ -7,8 +7,12 @@
 	
 	
 	
-	<select id="productAll" resultType="com.music.pro.vo.product.ProductVO">
-		select * from productgoods
+	<select id="productK-pop" resultType="com.music.pro.vo.product.ProductVO">
+		select * from productgoods where p_category = 'k-pop' 
+	</select>
+	
+	<select id="productDetail" resultType="com.music.pro.vo.product.ProductVO">
+		select * from productgoods where p_id = #{p_id}
 	</select>
 	
 </mapper>
