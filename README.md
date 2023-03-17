@@ -26,7 +26,12 @@
 박승범 : 회원 가입 페이지 DB연결 완료, 회원 가입 <br>
 윤민수 :게시판 글쓰기 페이지 , 상세보기 페이지 , board컨트롤러  <br><br><br>
 
+<h1>3/17 실행 업무</h1><br>
+구상우 : 상품 상세 페이지 구현 완료<br>
+박승범 : <br>
+윤민수 : <br><br><br>
+
 <h1>데이터 ERD</h1> <br>
 
-![ERD 진짜 최종](https://user-images.githubusercontent.com/109846153/225186500-5ffa1acf-c855-4e1d-850a-39c6e03413c7.png)
 
+![ERD 진짜 최종](https://user-images.githubusercontent.com/109846153/225786283-2838fbee-63f9-4323-a69f-8b59283e2906.png)
