@@ -15,4 +15,7 @@
 		select * from productgoods where p_id = #{p_id}
 	</select>
 	
+	<select id="productSearch" resultType="com.music.pro.vo.product.ProductVO">
+		select * from productgoods where p_name like '%'||#{p_keyword}||'%' and p_category = 'k-pop'
+	</select>
 </mapper>
