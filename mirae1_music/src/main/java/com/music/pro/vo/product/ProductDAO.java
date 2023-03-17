@@ -16,6 +16,6 @@ public class ProductDAO {
 	
 	public List<ProductVO> getProductAll() { //모든 상품 정보를 가져오는 메서드
 		System.out.println("넘어온다면 찍힌다.");
-		return sqltemplate.selectList("Product.productAll");
+		return sqltemplate.selectList("Product.productK-pop");
 	}
 }

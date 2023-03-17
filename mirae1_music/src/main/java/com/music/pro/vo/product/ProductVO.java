@@ -7,6 +7,7 @@ public class ProductVO {
 	private String p_picture;
 	private String p_exp;
 	private String releasedate;
+	private String p_category;
 	
 	public int getP_id() {
 		return p_id;
