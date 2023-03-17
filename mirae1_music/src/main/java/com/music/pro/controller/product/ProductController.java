@@ -2,6 +2,9 @@ package com.music.pro.controller.product;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,12 +21,20 @@ public class ProductController {
 	@Autowired
 	private ProductService service;
 	
-	@RequestMapping(value="/product", method=RequestMethod.GET)
+	@RequestMapping(value="/product_k-pop", method=RequestMethod.GET)//k-pop카테고리를 가진 굿즈 리스트업
 	public ModelAndView product() {
-		List<ProductVO> list = service.getProductAll();
+		List<ProductVO> list = service.getProductAll();//데이터를 db에서 가져와 list에 셋업
+		ModelAndView mav = new ModelAndView();// 객체생성
+		mav.setViewName("product/product_k-pop");// 보여줄 화면 소스 입력
+		mav.addObject("list",list);// jsp에서 사용할 list객체 값들 속성화
+		return mav;// 리턴~
+	}
+	
+	@RequestMapping(value="/product_detail", method=RequestMethod.GET)
+	public ModelAndView productDetail(ProductVO vo) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("product/test");
-		mav.addObject("list",list);
+		mav.setViewName("product/product_detail");
+		mav.addObject("detail",service.getProductDetail(vo));
 		return mav;
 	}
 	

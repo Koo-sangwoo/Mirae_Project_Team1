@@ -9,6 +9,14 @@ public class ProductVO {
 	private String releasedate;
 	private String p_category;
 	
+	
+	
+	public String getP_category() {
+		return p_category;
+	}
+	public void setP_category(String p_category) {
+		this.p_category = p_category;
+	}
 	public int getP_id() {
 		return p_id;
 	}

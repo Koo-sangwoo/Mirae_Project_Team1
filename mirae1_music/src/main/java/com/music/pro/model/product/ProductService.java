@@ -9,4 +9,7 @@ import com.music.pro.vo.product.ProductVO;
 
 public interface ProductService {
 	public List<ProductVO> getProductAll();
+
+	public ProductVO getProductDetail(ProductVO vo);
 }
+
