@@ -43,19 +43,13 @@
           <a class="dropdown-item" href="#">j-pop Top100</a>
         </div>
       </li>
-       <li class="nav-item dropdown show">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Top100</a>
-        <div class="dropdown-menu show" aria-labelledby="dropdown03">
-          <a class="dropdown-item" href="/product_k-pop">k-pop</a>
-          <a class="dropdown-item" href="#">HIPHOP</a>
-          <a class="dropdown-item" href="#">j-pop Top100</a>
-        </div>
-      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/product">굿즈샵</a>
     </ul>
     <a class=header_search onclick="누르면검색팝업뜨는메소드" href="#">
     <img src="./resources/images/search-outline.png">
     </a>
-    <a class=header_login onclick="로그인하면팝업뜨는메소드" href="#">
+    <a class=header_login onclick="로그인하면팝업뜨는메소드" href="login_form">
     <img src="./resources/images/person-outline.png">	
     </a>
    <!--  <form class="form-inline my-2 my-md-0">
