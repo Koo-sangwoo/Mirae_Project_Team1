@@ -32,5 +32,3 @@
 윤민수 : <br><br><br>
 
 <h1>데이터 ERD</h1> <br>
-
-![erd-최종](https://user-images.githubusercontent.com/109846153/225850813-f9790e20-3bbd-44b0-9d28-97c136e09b6f.png)
