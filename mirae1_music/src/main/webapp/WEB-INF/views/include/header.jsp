@@ -1,7 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
 <!-- <link rel="stylesheet" href="../resources/css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
@@ -43,10 +39,15 @@
           <a class="dropdown-item" href="#">j-pop Top100</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/product">굿즈샵</a>
-    </ul>
-    <a class=header_search onclick="누르면검색팝업뜨는메소드" href="#">
+       <li class="nav-item dropdown show">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Top100</a>
+        <div class="dropdown-menu show" aria-labelledby="dropdown03">
+          <a class="dropdown-item" href="/product_k-pop">k-pop</a>
+          <a class="dropdown-item" href="#">HIPHOP</a>
+          <a class="dropdown-item" href="#">j-pop Top100</a>
+        </div>
+      </li>
+    </ul>  <a class=header_search onclick="누르면검색팝업뜨는메소드" href="#">
     <img src="./resources/images/search-outline.png">
     </a>
     <a class=header_login onclick="로그인하면팝업뜨는메소드" href="login_form">
