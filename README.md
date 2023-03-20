@@ -33,5 +33,4 @@
 
 <h1>데이터 ERD</h1> <br>
 
-
-![ERD 진짜 최종](https://user-images.githubusercontent.com/109846153/225786283-2838fbee-63f9-4323-a69f-8b59283e2906.png)
+![erd-최종](https://user-images.githubusercontent.com/109846153/225850987-48e8a62a-084a-4103-8372-260db6416a55.png)

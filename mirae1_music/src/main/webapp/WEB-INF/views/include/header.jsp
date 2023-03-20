@@ -31,7 +31,7 @@
       <li class="nav-item dropdown show">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">커뮤니티</a>
         <div class="dropdown-menu show" aria-labelledby="dropdown03">
-          <a class="dropdown-item" href="#">pop게시판</a>
+          <a class="dropdown-item" href="/board">pop게시판</a>
           <a class="dropdown-item" href="#">k-pop게시판</a>
           <a class="dropdown-item" href="#">j-pop게시판</a>
           </div>
