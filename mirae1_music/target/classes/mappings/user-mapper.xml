@@ -3,7 +3,8 @@
 <mapper namespace="User">
 	<insert id="insertUser"> <!-- 회원 가입 -->
 		INSERT INTO MEMBER 
-		(m_id, 
+		(m_code,
+		m_id, 
 		m_password, 
 		m_name, 
 		m_address, 
@@ -11,6 +12,7 @@
 		m_gender, 
 		m_nickname, 
 		m_hobby) values (
+		#{m_code},
 		#{m_id}, 
 		#{m_password}, 
 		#{m_name}, 
@@ -34,7 +36,11 @@
 		DELETE MEMBER WHERE m_id=#{m_id}
 	</delete>
 	
-	<select id="checkId" resultType="int">
+	<select id="loginUser" resultType="int">
+		SELECT m_id, m_password FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
+	</select>
+	
+	<select id="checkId" parameterType="String" resultType="int">
 		SELECT COUNT(m_id) FROM MEMBER WHERE m_id=#{m_id}
 	</select>
 	

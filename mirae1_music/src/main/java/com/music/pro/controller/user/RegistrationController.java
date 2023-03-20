@@ -1,14 +1,16 @@
 package com.music.pro.controller.user;
 
-import java.io.PrintWriter;
 
-import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.music.pro.model.user.UserService;
 import com.music.pro.vo.user.UserVO;
@@ -17,17 +19,14 @@ import com.music.pro.vo.user.UserVO;
 public class RegistrationController {
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	
-	@RequestMapping(value = "/registration.do", method = RequestMethod.POST)
-	public String registrationDo(UserVO vo) {
+	@RequestMapping(value = "/registration.do")
+	public String registrationDo(UserVO vo){
 		System.out.println("컨트롤러에서 registrarionDo 실행시 출력");
-		if(userService.insertUser(vo) == 0)
-			System.out.println("데이터 추가 실패");
-		else
-			System.out.println("데이터 추가 성공");
-		
-		return "redirect:User/login_form";
+		userService.insertUser(vo);
+		System.out.println("데이터 추가 성공");
+		return "home";
 	}
 	
 	@RequestMapping(value = "/registration_form", method = RequestMethod.GET)
@@ -35,17 +34,14 @@ public class RegistrationController {
 		return "User/registration_form";
 	}
 	
-//	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
-//	public String checkId(UserVO vo) throws Exception{
-//		int result = userService.checkId(vo);
-//		if(result == 1) {
-//			System.out.println("사용 불가한 아이디");
-//			return "redirect:/";
-//		}
-//		else if(result == 0) {
-//			System.out.println("사용 가능한 아이디");
-//			return "redirect:/registration_form";
-//		}
-//		return "redirect:/registration_form";
-//	}
+	@RequestMapping(value = "/checkId") // 아이디 중복 체크
+	public @ResponseBody int checkId(String m_id) {
+		int result = userService.checkId(m_id);
+		if(result == 1) {
+			System.out.println("중복된 아이디");
+		} else if(result == 0) {
+			System.out.println("사용 가능한 아이디");
+		}
+		return result;
+	}
 }

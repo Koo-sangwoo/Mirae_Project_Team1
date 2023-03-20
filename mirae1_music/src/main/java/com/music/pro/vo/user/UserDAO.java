@@ -17,13 +17,12 @@ public class UserDAO {
 //	@Autowired
 //	private SqlSessionTemplate sqltemplate;
 	@Autowired
-	SqlSession sqlSession;
-	SqlSessionTemplate sqlTemplate;
+	private SqlSession sqlSession;
 	
 	
 	public int insertUser(UserVO vo) {
 		System.out.println("UserDAO의 insertUser 실행시 출력");
-		int result = sqlSession.insert("User.insertUser", vo);
+		int result = sqlSession.insert("User.insertUser", vo); 
 		return result;
 	}
 	
@@ -42,6 +41,12 @@ public class UserDAO {
 	public int loginUser(UserVO vo) {
 		System.out.println("UserDAO의 loginUser 실행시 출력");
 		int result = sqlSession.selectOne("User.loginUser", vo);
+		return result;
+	}
+	
+	public int checkId(String m_id) {
+		System.out.println("UserDAO의 checkId 실행시 출력");
+		int result = sqlSession.selectOne("User.checkId", m_id);
 		return result;
 	}
 }

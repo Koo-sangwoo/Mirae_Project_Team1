@@ -8,7 +8,9 @@
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="./resources/js/registration.js"></script>
+
 <html>
 <head>
 <title>Home</title>
@@ -19,31 +21,37 @@
 	<div class="container">
 		<div class="registration-box">
 			<h1>정보 입력</h1>
-			<form name="regist" method="post" action="registration.do">
+			<form name="regist" id="regist">
+				<!-- method="post" action="registration.do"> -->
+				<div class="form-group">
+					<label for="m_code">관리자 코드: </label><input type="number"
+						class="form-control" id="m_code" name="m_code"
+						placeholder="일반 회원은 넘어가주세요.">
+				</div>
 				<div class="form-group">
 					<label for="m_id">아이디:</label> <input type="text"
 						class="form-control" id="m_id" name="m_id" required><br>
-					<button class="fn_checkId" type="button" id="fn_checkId">중복확인</button>
+					<button class="btn btn-primary" type="button" onclick="idCheck()">중복확인</button>
 				</div>
 				<div class="form-group">
 					<label for="m_password">비밀번호:</label> <input type="password"
-						class="form-control" id="m_password" name="m_password" required>
+						class="form-control" id="m_password" name="m_password" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_name">이름:</label> <input type="text"
-						class="form-control" id="m_name" name="m_name" required>
+						class="form-control" id="m_name" name="m_name" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_address">주소:</label> <input type="text"
-						class="form-control" id="m_address" name="m_address" required>
+						class="form-control" id="m_address" name="m_address" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_phone">전화번호:</label> <input type="tel"
-						class="form-control" id="m_phonenum" name="m_phonenum" required>
+						class="form-control" id="m_phonenum" name="m_phonenum" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_gender">성별:</label> <select class="form-control"
-						id="m_gender" name="m_gender" required>
+						id="m_gender" name="m_gender" required="required">
 						<option value="">선택</option>
 						<option value="m">남자</option>
 						<option value="f">여자</option>
@@ -51,14 +59,15 @@
 				</div>
 				<div class="form-group">
 					<label for="m_nickname">닉네임:</label> <input type="text"
-						class="form-control" id="m_nickname" name="m_nickname" required>
+						class="form-control" id="m_nickname" name="m_nickname" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_hobby">취미:</label>
 					<textarea class="form-control" id="m_hobby" name="m_hobby" rows="3"
-						required></textarea>
+						required="required"></textarea>
 				</div>
-				<button class="btn btn-primary" onclick="inputCheck()">가입완료</button>
+				<button class="btn btn-primary" id="insert" type="button"
+					onclick="insertDo()">가입완료</button>
 			</form>
 		</div>
 	</div>
