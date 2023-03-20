@@ -13,26 +13,17 @@
 <jsp:include page="../include/header.jsp"></jsp:include>
 <script>
 	// 게시물 삭제 확인
-	function deleteB() {
-		swal({
-			 icon: "warning",
-			 text: "정말 게시글을 삭제하시겠습니까?",
-			 closeOnClickOutside : false,
-			 closeOnEsc : false, 
-			 buttons: ["돌아가기", "삭제하기"],
-			}).then(function(isConfirm) {
-			  if (isConfirm) {
-			    swal('삭제 완료!','게시글을 삭제했습니다.','success').then(function(isConfirm)
-			   		{
-						location.href='delete?bno='+${board.bno};
-			    	});
-			  }
-			})
+	function deletecheck() {
+		var result = confirm("게시물을 삭제하시겠습니까?")
+		  if(result == true) {
+			  alert("삭제되었습니다.");
+			  location.href='delete?board_id='+${board.board_id};
+		  }
 	}
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>${board.title}</title>
+<title>${board.board_id}</title>
 </head>
 <body>
 <%-- <%@ include file="../include/menu.jsp" %> --%>
@@ -40,65 +31,61 @@
 	<div style="width:800px;">
 		
 		<script>
-		$("#list_btn").click(function(){
-			self.location="board?"
-					+ "searchOption=${searchOption}&keyword=${keyword}"
-					+ "&search=${search}&curPage=${curPage}";
-		});
+		
 		</script>
 		
 		<br/><br/>
 	<form>
 		<!-- 수정,삭제에 필요한 글번호를 hidden 태그에 저장 -->
-		<input type="hidden" name="bno" value="${board.bno}">
+		<input type="hidden" name="board_id" value="${board.board_id}">
 		<table border="1" bordercolor="#E1DCDC" class="view" cellpadding="0" cellspacing="0" width="100%">
 			<tr>
 			<td width="70">제목</td>
-			<td colspan='3' align="left">${board.title}</td>
+			<td colspan='3' align="left">${board.board_title}</td>
 			</tr>
 				
 			<tr>
 			<td>작성자</td>
-			<td colspan='3' align="left">${board.writer}</td>
+			<td colspan='3' align="left">${board.board_writer}</td>
 			</tr>
 				
 			<tr>
 			<td>작성일</td>
 			<td colspan='3' align="left">
 			<div style="width:150px;float:left;">
-			${board.regdate}  
+			<%-- ${board.regdate}   --%>
 			</div>
 			<div>
-			|&nbsp;&nbsp;&nbsp;조회수 : ${board.viewcnt}
+			&nbsp;&nbsp;&nbsp;조회수 : <%--${board.board_viewcnt}--%>
 			</div>
 			</td>
 			</tr>
 				
 			<tr valign="top">
-			<td colspan='4' height="500px">${board.content}</td>
+			<td colspan='4' height="500px">${board.board_content}</td>
 			</tr>
 		</table>
 	</form>
 	<div style="margin-top: 10px; margin-bottom:20px;">
 	<div align="center" style="float:left; ">
-			<c:if test="${map.previousB != null}">
-			<button class="previous" onClick="location.href='view?bno=${map.previousB.bno}&show=Y'">이전글</button>
+			<c:if test=<%-- "${map.previousB != null}" --%>>
+			<button class="previous" onClick="location.href='view?bno=<%-- ${map.previousB.bno} --%>&show=Y'">이전글</button>
 			</c:if>
-			<c:if test="${map.nextB != null}">
-			<button class="next" onClick="location.href='view?bno=${map.nextB.bno}&show=Y'">다음글</button>
+			<c:if test=<%-- "${map.nextB != null}" --%>>
+			<button class="next" onClick="location.href='view?bno=<%-- ${map.nextB.bno} --%>&show=Y'">다음글</button>
 			</c:if>
-			&nbsp;&nbsp;&nbsp;게시글 번호 : ${board.bno}
+			&nbsp;&nbsp;&nbsp;게시글 번호 : ${board.board_id}
 		</div>
 
 		<div style="float:right;">
 		<!-- 관리자만 공지 -->
-		<c:if test="${member.member_id eq 'Administrator'}">
+		<c:if test="<%-- ${member.member_id eq 'Administrator'} --%>">
 			<a href="write">글쓰기</a>&nbsp;&nbsp;&nbsp;
 		</c:if>
 		<!-- 본인만 수정,삭제 버튼 표시 -->
-		<c:if test="${member.member_id == board.writer}">
-			<a href="updateWrite">수정</a>&nbsp;&nbsp;&nbsp;
-			<a href="#" onClick="deleteB()">삭제</a>&nbsp;&nbsp;&nbsp;
+		<c:if test="<%-- ${member.member_id == board.writer} --%>">
+			<a href="updateWrite?board_id=${board.board_id}">수정</a>&nbsp;&nbsp;&nbsp;
+			<a href="#" onClick="deletecheck()">삭제</a>&nbsp;&nbsp;&nbsp;
 		</c:if>
 		
 		<button type="button" id="list_btn" onClick="location.href='board'">목록</button>
@@ -112,12 +99,12 @@
 	<!-- 현재 글을 기준으로 이전글,다음글 리스트 -->
 	<div align="center">
 		<table class="simpleView" width="800">
-			<c:if test="${map.previousB != null}">
+			<c:if test="<%-- ${map.previousB != null} --%>">
 			<tr class="a">
-				<td onClick="location.href='view?bno=${map.previousB.bno}&show=Y'"
+				<td onClick="location.href='view?bno=<%-- ${map.previousB.bno} --%>&show=Y'"
 				style="cursor: pointer">이전글</td>
-				<td onClick="location.href='view?bno=${map.previousB.bno}&show=Y'"
-				style="cursor: pointer;width:400px;">${map.previousB.title}</td>
+				<td onClick="location.href='view?bno=<%-- ${map.previousB.bno} --%>&show=Y'"
+				style="cursor: pointer;width:400px;"><%--${map.previousB.title}--%></td>
 				<td class="tdS">${map.previousB.writer}</td><td class="tdS">${map.previousB.regdate}</td>
 			</tr>
 			</c:if>

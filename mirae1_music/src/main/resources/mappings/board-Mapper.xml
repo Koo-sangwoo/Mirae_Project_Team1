@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+	
+	<!-- 게시글 리스트 -->
+	<select id="listAllBoard" resultType="com.music.pro.vo.board.BoardVO">
+		SELECT * FROM BOARD ORDER BY BOARD_ID
+	</select>
+	
+	<!-- 게시글 상세보기 -->
+	<select id="readBoard" resultType="com.music.pro.vo.board.BoardVO">
+		SELECT 
+		*
+		FROM 
+		BOARD
+		WHERE
+		board_id = #{board_id}
+	</select>
+	
+	<!-- 글쓰기 -->
+	<insert id="createBoard">
+		INSERT INTO BOARD (
+			BOARD_ID, 
+			BOARD_TITLE, 
+			BOARD_CONTENT 
+			
+		) VALUES(
+			BOARD_SEQ.NEXTVAL, 
+			#{board_title}, 
+			#{board_content} 
+			
+		)
+		</insert>
+		
+		<!-- 글 수정 -->
+	<update id="updateBoard">
+		UPDATE BOARD
+		SET
+	    BOARD_TITLE = #{board_title},
+		BOARD_CONTENT = #{board_content}
+		WHERE
+		BOARD_ID = #{board_id}
+	</update>
+		
+		<!-- 글 삭제 -->
+	<delete id="deleteBoard">
+		DELETE FROM BOARD WHERE BOARD_ID = #{board_id}
+	</delete>
+		
+		
+</mapper>

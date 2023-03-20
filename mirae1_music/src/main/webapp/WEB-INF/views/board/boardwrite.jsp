@@ -4,10 +4,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-	<link rel="stylesheet" type="text/css" href="./board.css">
+	<link rel="stylesheet" href="./resources/css/board.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="./ckeditor/ckeditor.js"></script>
+<script src="./resources/ckeditor/ckeditor.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
+<script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
+<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+
 <jsp:include page="../include/header.jsp"></jsp:include>
 <script>
 function createB() {
@@ -83,7 +87,7 @@ $(document).ready(function(){
 	<div style="width:800px;">
 
 		<br/><br/>
-	<form>
+	<form action="createboard" method="post">
 		<input type="hidden" name="writer" id="writer" value="${member.member_id}"/>
 		<table class="textb" width="100%">
 			<tr>
@@ -106,14 +110,14 @@ $(document).ready(function(){
 		
 			
 			<td  class="asd" align="left">
-			<input type="text" name="title" id="titlebox" maxlength="70" size="70%" placeholder="제목을 입력해주세요"/>
+			<input type="text" name="board_title" id="titlebox" maxlength="70" size="70%" placeholder="제목을 입력해주세요"/>
 			<!-- <span id="titleCount" style="color:green;">50</span><span>/50</span> -->
 			</td>
 			</tr>
 				
 			<tr>
 			<td colspan="2" align="left" height="500px">
-			<textarea name="content" id="content" cols="88" rows="80"></textarea>
+			<textarea name="board_content" id="content" cols="88" rows="80"></textarea>
 		<script>
 			CKEDITOR.replace( 'content', {} );
 		</script>
@@ -121,7 +125,8 @@ $(document).ready(function(){
 			</tr>
 		</table>
 		<br/><br/>
-		<input type="button" class="write" value="작성하기" onClick="createB()" />
+		<input type="submit" class="write" value="작성하기">
+		<!-- <input type="button" class="write" value="작성하기" onClick="createB()" /> -->
 	</form>
 	
 		<button style="float:right;" class="listp"onClick="location.href='board'">목록</button>
