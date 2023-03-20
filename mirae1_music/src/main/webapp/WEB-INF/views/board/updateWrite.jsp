@@ -24,7 +24,7 @@
 	<div style="width:800px;">
 
 		<br/><br/>
-	<form action="updateBoard" method="post">
+	<form action="updateBoard?board_id=${board.board_id}" method="post">
 		<input type="hidden" name="writer" id="writer" value="${member.member_id}"/>
 		<table class="textb" width="100%">
 			<tr>
