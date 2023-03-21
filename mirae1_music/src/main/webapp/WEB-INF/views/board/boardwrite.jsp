@@ -6,7 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" href="./resources/css/board.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="./resources/ckeditor/ckeditor.js"></script>
+<!-- <script src="./resources/ckeditor/ckeditor.js"></script> -->
+<!-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> -->
+<script src="//cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
@@ -78,6 +80,14 @@ $(document).ready(function(){
 	})
 })
 </script>
+<style>
+.ck.ck-editor {
+max-width:700px;
+}
+.ck-editor__editable {
+min-height:450px;
+}
+</style>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <title>${board.title}</title>
@@ -87,7 +97,7 @@ $(document).ready(function(){
 	<div style="width:800px;">
 
 		<br/><br/>
-	<form action="createboard" method="post">
+	<form action="createboard" method="post" enctype="multipart/form-data" >
 		<input type="hidden" name="writer" id="writer" value="${member.member_id}"/>
 		<table class="textb" width="100%">
 			<tr>
@@ -118,9 +128,27 @@ $(document).ready(function(){
 			<tr>
 			<td colspan="2" align="left" height="500px">
 			<textarea name="board_content" id="content" cols="88" rows="80"></textarea>
-		<script>
-			CKEDITOR.replace( 'content', {} );
-		</script>
+			<!-- CKEditor5 -->
+	<!-- <script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
+	<script>		
+	ClassicEditor
+	.create(document.querySelector('#content'), {
+		ckfinder: {
+			uploadUrl : 'resources/images/'
+		}
+	})
+	.then(editor => {
+		console.log('Editor was initialized');
+	})
+	.catch(error => {
+		console.error(error);
+	}); 
+	</script> -->
+	<%--CKEDITOR4 --%>
+	 	<script>
+			CKEDITOR.replace( 'content', {width:'100%',
+		         height:'350px',filebrowserUploadUrl : "fileupload.do"} );
+		</script> 
 			</td>
 			</tr>
 		</table>

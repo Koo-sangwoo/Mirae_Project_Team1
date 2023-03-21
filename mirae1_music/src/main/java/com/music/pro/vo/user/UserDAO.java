@@ -20,7 +20,7 @@ public class UserDAO {
 	private SqlSession sqlSession;
 	
 	
-	public int insertUser(UserVO vo) {
+	public int insertUser(UserVO vo) { // 회원가입
 		System.out.println("UserDAO의 insertUser 실행시 출력");
 		int result = sqlSession.insert("User.insertUser", vo); 
 		return result;
@@ -38,10 +38,14 @@ public class UserDAO {
 		return result;
 	}
 	
-	public int loginUser(UserVO vo) {
+	public int checkUser(UserVO vo) { // 로그인시 멤버 체크
+		System.out.println("UserDAO의 checkUser 실행시 출력");
+		return sqlSession.selectOne("User.checkUser", vo);
+	}
+	
+	public UserVO loginUser(UserVO vo) { // 로그인
 		System.out.println("UserDAO의 loginUser 실행시 출력");
-		int result = sqlSession.selectOne("User.loginUser", vo);
-		return result;
+		return (UserVO)sqlSession.selectOne("User.loginUser", vo);
 	}
 	
 	public int checkId(String m_id) {

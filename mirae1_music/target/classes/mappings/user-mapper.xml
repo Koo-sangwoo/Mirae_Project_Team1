@@ -36,11 +36,14 @@
 		DELETE MEMBER WHERE m_id=#{m_id}
 	</delete>
 	
-	<select id="loginUser" resultType="int">
-		SELECT m_id, m_password FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
+	<select id="checkUser" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
 	</select>
 	
-	<select id="checkId" parameterType="String" resultType="int">
+	<select id="loginUser" resultType="com.music.pro.vo.user.UserVO"> <!-- 로그인 -->
+		SELECT m_id,m_password FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
+	</select>
+	<select id="checkId" parameterType="String" resultType="java.lang.Integer">
 		SELECT COUNT(m_id) FROM MEMBER WHERE m_id=#{m_id}
 	</select>
 	

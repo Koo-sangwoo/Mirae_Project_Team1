@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.music.pro.vo.board.BoardVO;
-
+import com.music.pro.model.board.Pager;
 import com.music.pro.model.board.BoardService;
 
 @Controller
@@ -25,15 +25,15 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 //게시글 리스트 출력
-	@RequestMapping("/board")
+/*	@RequestMapping("/board")
 	public String listAllBoard(Model model)throws Exception  {
 		System.out.println("list뷰dd2");
 		
 		List<BoardVO> list = boardService.listAllBoard();
 		model.addAttribute("list",list);
-		return "board/list";
+		return "board/list";*/
 		
-	/* 
+	
 	 // 게시글 목록 + 검색 + 페이징
 	@RequestMapping("/board")
 	public String listAllBoard(Model model, HttpSession session, 
@@ -41,12 +41,12 @@ public class BoardController {
 			throws Exception {
 
 		// 게시글 갯수 계산
-		int count = boardService.getCountBoard(searchOption, keyword);
+		
 
 		session.setAttribute("curPage", curPage);
 
 		// 페이지 관련 설정
-		Pager pager = new Pager(count, curPage);
+		Pager pager = new Pager(curPage);
 
 		List<BoardVO> list = boardService.listAllBoard(); // 게시글 목록
 
@@ -58,8 +58,8 @@ public class BoardController {
 		return "board/list";
 	}	
 		                
-	                                     */
-	}
+	                                     
+	
 	
 	//게시글 쓰기뷰
 		@RequestMapping("/write")
@@ -115,6 +115,15 @@ public class BoardController {
 			// return "redirect:/board";
 		}
 		
+		//뉴스 리스트
+		@RequestMapping("/news")
+		public String listAllBoard(Model model)throws Exception  {
+			System.out.println("뉴스리스트");
+
+			return "board/newslist";
+		
+		
+}
 }
 	
 
