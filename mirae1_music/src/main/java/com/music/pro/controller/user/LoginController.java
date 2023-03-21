@@ -1,18 +1,19 @@
 package com.music.pro.controller.user;
 import com.music.pro.vo.user.UserVO;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.music.pro.model.user.UserService;
-import com.music.pro.vo.user.UserVO;
+
 @Controller
 public class LoginController {
 	
@@ -23,7 +24,7 @@ public class LoginController {
 	public String login_form() {
 		return "User/login_form";
 	}
-	@RequestMapping(value="/checkUser")
+	@RequestMapping(value="/checkUser") // 로그인 전 체크
 	public @ResponseBody int checkUser(UserVO vo) {
 		int checkUser = userService.checkUser(vo);
 		if(checkUser == 1)
@@ -33,13 +34,12 @@ public class LoginController {
 		return checkUser;
 	}
 	
-	@RequestMapping(value = "/login_form", method = RequestMethod.POST)
+	@RequestMapping(value = "/login_form", method = RequestMethod.POST) // 로그인
 	public String login(UserVO vo, HttpSession session){
 		System.out.println("로그인  시도");
-		
-		UserVO user = userService.loginUser(vo);
-		if(user != null) {
-			session.setAttribute("user", user);
+		UserVO member = userService.loginUser(vo);
+		if(member != null) {
+			session.setAttribute("member", member);
 			System.out.println("로그인 성공");
 			return "home";
 		} else {

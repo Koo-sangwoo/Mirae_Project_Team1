@@ -143,7 +143,7 @@
             Designed by CALVINSNAX.        </div> -->
         <div class="app-footer-logo">
             <!-- 푸터 로고 -->
-            <a href="/home">
+            <a href="/">
                 <img src="./resources/images/logo_dark.png" width=50% height=50%>
             </a>
             <!-- 회사 정보, 릴리즈 노트 -->

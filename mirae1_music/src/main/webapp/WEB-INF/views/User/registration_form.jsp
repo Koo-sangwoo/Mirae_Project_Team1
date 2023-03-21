@@ -8,7 +8,6 @@
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="./resources/js/registration.js"></script>
 
 <html>
@@ -62,9 +61,14 @@
 						class="form-control" id="m_nickname" name="m_nickname" required="required">
 				</div>
 				<div class="form-group">
-					<label for="m_hobby">취미:</label>
-					<textarea class="form-control" id="m_hobby" name="m_hobby" rows="3"
-						required="required"></textarea>
+					<label for="m_hobby">취미:</label><select class="form-control"
+						id="m_hobby" name="m_hobby" required="required">
+						<option value="">선택</option>
+						<option value="독서">독서</option>
+						<option value="운동">운동</option>
+						<option value="영화시청">영화시청</option>
+						</select>
+					
 				</div>
 				<button class="btn btn-primary" id="insert" type="button"
 					onclick="insertDo()">가입완료</button>

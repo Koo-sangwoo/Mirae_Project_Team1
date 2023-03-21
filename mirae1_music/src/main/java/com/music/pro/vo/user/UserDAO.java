@@ -26,10 +26,9 @@ public class UserDAO {
 		return result;
 	}
 	
-	public int updateUser(UserVO vo) {
+	public void updateUser(UserVO vo) {
 		System.out.println("UserDAO의 updateUser 실행시 출력");
 		int result = sqlSession.update("User.updateUser", vo);
-		return result;
 	}
 	
 	public int deleteUser(UserVO vo) {

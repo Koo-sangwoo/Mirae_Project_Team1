@@ -19,9 +19,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int updateUser(UserVO vo) {
+	public void updateUser(UserVO vo) {
 		System.out.println("UserServiceImpl에서 updateUser 실행시 출력");
-		return userDAO.updateUser(vo);
 	}
 
 	@Override
