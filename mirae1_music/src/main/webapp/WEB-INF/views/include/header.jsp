@@ -37,22 +37,22 @@
           </div>
       </li>
       <li class="nav-item dropdown show">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">MUSIC</a>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Music</a>
         <div class="dropdown-menu show" aria-labelledby="dropdown03">
-          <a class="dropdown-item" href="#">POP</a>
-          <a class="dropdown-item" href="#">K-POP</a>
-          <a class="dropdown-item" href="#">발라드</a>
+          <a class="dropdown-item" href="/music?music_genre=hiphop">HIPHOP</a>
+          <a class="dropdown-item" href="/music?music_genre=k-pop">k-pop</a>
+          <a class="dropdown-item" href="/music?music_genre=ballard">발라드</a>
         </div>
       </li>
        <li class="nav-item dropdown show">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">굿즈</a>
         <div class="dropdown-menu show" aria-labelledby="dropdown03">
-          <a class="dropdown-item" href="/product_k-pop">k-pop</a>
-          <a class="dropdown-item" href="#">HIPHOP</a>
-          <a class="dropdown-item" href="#">발라드</a>
+          <a class="dropdown-item" href="/product?p_category=k-pop">k-pop</a>
+          <a class="dropdown-item" href="/product?p_category=hiphop">HIPHOP</a>
+          <a class="dropdown-item" href="/product?p_category=ballard">발라드</a>
         </div>
       </li>
-    </ul>  <a class=header_search onclick="누르면검색팝업뜨는메소드" href="#">
+    </ul> <a class=header_search onclick="누르면검색팝업뜨는메소드" href="#">
     <img src="./resources/images/search-outline.png">
     </a>
     <a class=header_login onclick="로그인하면팝업뜨는메소드" href="/login_form">

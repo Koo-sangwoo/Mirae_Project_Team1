@@ -9,10 +9,16 @@
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
-
+<style>
+.my-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+</style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>K-POP 굿즈 상품</title>
+<title>굿즈 상품</title>
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"></jsp:include>
@@ -24,7 +30,7 @@
 	<br>
 	<br>
 
-		<h3 style="text-align: center">아이돌 굿즈 핫 아이템!</h3>
+		<h3 style="text-align: center">굿즈 핫 아이템!</h3>
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 500px">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -54,7 +60,7 @@
         <input class="form-control me-2" type="search" name="keyword" placeholder="Search" aria-label="Search" style="width: 200px;">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-
+<div class="container my-container" style="margin-top: 20px; margin-bottom: 20px">
  <div class="container" style="margin-top: 20px; margin-bottom: 20px">
   <div class="row">
     <c:forEach items="${list}" var="pro">
@@ -73,6 +79,7 @@
       </form>
     </c:forEach>
   </div>
+</div>
 </div>
 	<jsp:include page="../include/footer.jsp"></jsp:include>
 </body>
