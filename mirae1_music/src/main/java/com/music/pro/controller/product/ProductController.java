@@ -1,6 +1,8 @@
 package com.music.pro.controller.product;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,11 +24,11 @@ public class ProductController {
 	@Autowired
 	private ProductService service;
 	
-	@RequestMapping(value="/product_k-pop", method=RequestMethod.GET)//k-pop카테고리를 가진 굿즈 리스트업
-	public ModelAndView product() {
-		List<ProductVO> list = service.getProductAll();//데이터를 db에서 가져와 list에 셋업
+	@RequestMapping(value="/product", method=RequestMethod.GET)//k-pop카테고리를 가진 굿즈 리스트업
+	public ModelAndView productkpop(@RequestParam(defaultValue = "1") int curPage,@RequestParam(value="p_category") String category, ProductVO vo) {
+		List<ProductVO> list = service.getProductAll(category);//데이터를 db에서 가져와 list에 셋업
 		ModelAndView mav = new ModelAndView();// 객체생성
-		mav.setViewName("product/product_k-pop");// 보여줄 화면 소스 입력
+		mav.setViewName("product/product");// 보여줄 화면 소스 입력
 		mav.addObject("list",list);// jsp에서 사용할 list객체 값들 속성화
 		return mav;// 리턴~
 	}
@@ -40,11 +42,11 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/product_search", method=RequestMethod.GET)
-	public ModelAndView productSearch(@RequestParam(value="keyword")String keyword,ProductVO vo) {
+	public ModelAndView productSearch(@RequestParam(value="keyword")String p_keyword,ProductVO vo) {
 		ModelAndView mav = new ModelAndView();
-		List<ProductVO> Searchlist = service.productSearch(keyword);
+		List<ProductVO> Searchlist = service.productSearch(p_keyword);
 		mav.addObject("list",Searchlist);
-		mav.setViewName("product/product_k-pop");
+		mav.setViewName("product/product");
 		return mav;
 	}
 }

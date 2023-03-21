@@ -69,8 +69,8 @@
 					원
 				</h3>
 				<div>
-					<br> <a href="javascript:;" onclick="orders();"><!-- 각각 매핑값에 대한 컨트롤러를 만들어야함 -->
-						class="btn btn-primary">바로구매</a> <br> <a href="javascript:;"
+					<br> <a href="javascript:;" onclick="orders();"
+						class="btn btn-primary">바로구매</a>&nbsp;<a href="javascript:;"
 						onclick="addCart();" class="btn btn-primary">장바구니</a>
 				</div>
 			</div>

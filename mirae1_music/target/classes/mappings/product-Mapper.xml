@@ -5,17 +5,27 @@
 <mapper namespace="Product">
 	
 	
-	
+	<select id="getCountProduct" resultType="java.lang.Integer">
+			SELECT COUNT(*) FROM productgoods WHERE p_category=#{p_category}
+	</select>
 	
 	<select id="productK-pop" resultType="com.music.pro.vo.product.ProductVO">
-		select * from productgoods where p_category = 'k-pop' 
+		select * from productgoods where p_category = #{p_category} 
 	</select>
 	
 	<select id="productDetail" resultType="com.music.pro.vo.product.ProductVO">
 		select * from productgoods where p_id = #{p_id}
 	</select>
 	
+	<select id="getProductList" resultType="com.music.pro.vo.product.ProductVO">
+	SELECT * FROM (
+				SELECT ROWNUM AS RN, A.* FROM (
+					SELECT * FROM productgoods WHERE p_category = #{product.p_category} ORDER BY P_ID DESC
+				) A
+			) WHERE RN BETWEEN #{start} AND #{end};
+	</select>
+	
 	<select id="productSearch" resultType="com.music.pro.vo.product.ProductVO">
-		select * from productgoods where p_name like '%'||#{p_keyword}||'%' and p_category = 'k-pop'
+		select * from productgoods where p_name like '%'||#{p_keyword}||'%'
 	</select>
 </mapper>

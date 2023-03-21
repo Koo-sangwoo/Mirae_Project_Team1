@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Music">
+
+		<select id="musicAll" resultType="com.music.pro.vo.music.MusicVO">
+		select * from music where music_genre = #{music_genre} 
+	</select>
+	
+	<select id="musicDetail" resultType="com.music.pro.vo.music.MusicVO">
+		select * from music where music_id = #{music_id}
+	</select>
+	
+	<select id="musicSearch" resultType="com.music.pro.vo.music.MusicVO">
+		select * from music where music_title like '%'||#{keyword}||'%'
+	</select>
+	
+</mapper>
