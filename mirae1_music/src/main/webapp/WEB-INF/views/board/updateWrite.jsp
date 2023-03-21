@@ -7,7 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" href="./resources/css/board.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="./resources/ckeditor/ckeditor.js"></script>
+<!-- <script src="./resources/ckeditor/ckeditor.js"></script> -->
+<script src="//cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
@@ -56,8 +57,10 @@
 			<td colspan="2" align="left" height="500px">
 			<textarea name="board_content" id="content" cols="88" rows="80">${board.board_content}</textarea>
 		<script>
-			CKEDITOR.replace( 'content', {} );
-		</script>
+		CKEDITOR.replace( 'content', {width:'100%',
+	         height:'350px',filebrowserUploadUrl : "fileupload.do"} );
+	</script>
+		
 			</td>
 			</tr>
 		</table>
