@@ -65,18 +65,21 @@
 					src="./resources/images/person-outline.png">
 				</a>
 			</c:when>
-			<c:when test="${ member.m_id != null }">
-				<p style="margin: 14px 20px; color: white">
-					<span style="font-weight: bold;">[${ member.m_id }]님 환영합니다.
+			<c:otherwise>
+				<a><p style="margin: 14px 20px; color: white">
+					<span style="font-weight: bold;">[${ member.m_nickname }]님 환영합니다.
 					</span>
-				</p>
+				</p></a>
+				<!-- <a><img src="././resources/images/User/logout.png" width="10%" height="10%"></a> -->
 				<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
 					src="./resources/images/search-outline.png">
 				</a>
 				<a class=header_login onclick="location.href='myPage'"> <img
 					src="./resources/images/person-outline.png">
 				</a>
-			</c:when>
+				<a class="header-logout" onclick="location.href='logout'"><img 
+				src="./resources/images/User/logout.png" width="10%" height="10%"></a>
+			</c:otherwise>
 		</c:choose>
 		<!--  <form class="form-inline my-2 my-md-0">
       <input class="form-control" type="text" placeholder="Search"> 

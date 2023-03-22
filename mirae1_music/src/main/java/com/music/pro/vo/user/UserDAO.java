@@ -52,4 +52,10 @@ public class UserDAO {
 		int result = sqlSession.selectOne("User.checkId", m_id);
 		return result;
 	}
+	
+	public int checkPw(String m_password) {
+		System.out.println("비밀번호 체크~~");
+		int result = sqlSession.selectOne("User.checkPw", m_password);
+		return result;
+	}
 }

@@ -26,17 +26,16 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value="/myPage", method = RequestMethod.POST)
-	public String moveMypage(UserVO vo,HttpServletRequest request, HttpSession session) {
-		String m_id = (String)request.getAttribute("m_id");
-		String m_password = (String)request.getAttribute("m_password");
-		UserVO user = new UserVO();
-		user.setM_id(m_id);
-		user.setM_password(m_password);
-		if(userService.checkUser(user) == 1) {
-			System.out.println("일치");
-			return "myPage2";
-		} else {
-			return "myPage";
+	public @ResponseBody int moveMypage(String m_password) {
+		System.out.println("마이페이지2 이동 위해 moveMypage 실행");
+		int member = userService.checkPw(m_password);
+		if(member == 1) {
+			System.out.println("데이터 존재");
+			return member;
+		}
+		else {
+			System.out.println("데이터 존재하지 않거나 잘못 입력");
+			return member;
 		}
 	}
 }

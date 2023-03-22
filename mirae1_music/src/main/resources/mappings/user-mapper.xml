@@ -41,10 +41,15 @@
 	</select>
 	
 	<select id="loginUser" resultType="com.music.pro.vo.user.UserVO"> <!-- 로그인 -->
-		SELECT m_id,m_password FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
+		SELECT * FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
 	</select>
+	
 	<select id="checkId" parameterType="String" resultType="java.lang.Integer">
 		SELECT COUNT(m_id) FROM MEMBER WHERE m_id=#{m_id}
+	</select>
+	
+	<select id="checkPw" parameterType="String" resultType="java.lang.Integer">
+		SELECT COUNT(m_password) FROM MEMBER WHERE m_password=#{m_password}
 	</select>
 	<select id="getAll">
 		SELECT * FROM MEMBER

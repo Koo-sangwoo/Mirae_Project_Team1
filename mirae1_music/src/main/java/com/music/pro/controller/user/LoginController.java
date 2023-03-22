@@ -47,4 +47,10 @@ public class LoginController {
 			return "login_form";
 		}
 	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET) // 로그아웃
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "home";
+	}
 }

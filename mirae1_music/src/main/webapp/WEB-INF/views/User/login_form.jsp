@@ -7,14 +7,14 @@
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
-<script src="./resources/js/login.js"></script>
+<!-- <script src="./resources/js/login.js"></script> -->
 <html>
 <head>
 <title>Home</title>
 </head>
 <body>
-	<jsp:include page="../include/header.jsp"></jsp:include>
-
+	<%-- <jsp:include page="../include/header.jsp"></jsp:include> --%>
+	<%@ include file="../include/header.jsp" %>
 	<div class="container">
 		<div class="login-box">
 			<h1>Login</h1>

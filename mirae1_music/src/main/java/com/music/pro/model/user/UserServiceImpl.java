@@ -46,4 +46,10 @@ public class UserServiceImpl implements UserService{
 		System.out.println("UserServiceImpl에서 checkId 실행시 출력");
 		return userDAO.checkId(m_id);
 	}
+
+	@Override
+	public int checkPw(String m_password) {
+		System.out.println("비번 확인요");
+		return userDAO.checkPw(m_password);
+	}
 }

@@ -100,7 +100,7 @@ function insertDo() {
 					"m_hobby" : m_hobby
 				},
 				success : function(data) {
-					alert("회원 가입을 축하합니다!!");
+					alert("회원 가입을 축하합니다!");
 					window.location.href = "home";
 				}
 			});
