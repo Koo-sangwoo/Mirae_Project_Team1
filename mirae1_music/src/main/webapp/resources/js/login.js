@@ -21,7 +21,6 @@ function memberCheck(){
 							"m_id" : m_id,
 							"m_password" : m_password
 						}, success : function(){
-							alert("환영합니다!");
 							window.location.href="home";
 						}
 					});
