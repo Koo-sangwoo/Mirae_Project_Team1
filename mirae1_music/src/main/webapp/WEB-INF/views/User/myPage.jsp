@@ -9,12 +9,13 @@
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
 <script>
 	function checkPw() {
-
+		var m_id = $("#m_id").val();
 		var m_password = $("#m_password").val();
 		$.ajax({
 			type : "post",
 			url : "myPage",
 			data : {
+				"m_id" : m_id,
 				"m_password" : m_password
 			},
 			dataType : "json",
@@ -31,46 +32,6 @@
 	}
 </script>
 <style>
-/* form {
-  width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-input[type="text"], input[type="password"], input[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 3px;
-  font-size: 16px;
-}
-
-input[type="submit"] {
-  background-color: #4CAF50;
-  color: #fff;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #3e8e41;
-}
-
-.error-message {
-  color: red;
-  font-weight: bold;
-  margin-bottom: 10px;
-}    
-GPT 이용 1차
-  */
 body {
 	background-color: #fff;
 	color: #000;
@@ -88,18 +49,18 @@ form {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 }
 
 .login-box {
-  background-color: #fff;
-  padding: 30px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
+	background-color: #fff;
+	padding: 30px;
+	max-width: 400px;
+	width: 100%;
+	text-align: center;
 }
 
 label {
@@ -150,9 +111,9 @@ h5 {
 		<div class="check-box">
 			<h5>본인 확인</h5>
 			<form>
-				<label>비밀번호:</label> <input type="password" name="m_password"
-					id="m_password"><br> <input type="button" value="확인"
-					onclick="checkPw()">
+				<input type="hidden" id="m_id" value="${ member.m_id }"> <label>비밀번호:</label>
+				<input type="password" name="m_password" id="m_password"><br>
+				<input type="button" value="확인" onclick="checkPw()">
 			</form>
 		</div>
 	</div>

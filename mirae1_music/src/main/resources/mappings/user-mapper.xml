@@ -23,11 +23,11 @@
 		#{m_hobby})
 	</insert>
 	
-	<update id="updateUser"> <!-- 정보 수정 -->
+	<update id="updateUser"> <!-- parameterType="com.music.pro.vo.user.UserVO" --> <!-- 정보 수정 -->
 		UPDATE MEMBER SET 
-		m_name=#{m_name},
+		m_hobby=#{m_hobby},
 		m_address=#{m_address},
-		m_nickname=#{m_nickname}
+		m_nickname=#{m_nickname},
 		m_phonenum=#{m_phonenum}
 		WHERE m_id=#{m_id}
 	</update>
@@ -48,8 +48,8 @@
 		SELECT COUNT(m_id) FROM MEMBER WHERE m_id=#{m_id}
 	</select>
 	
-	<select id="checkPw" parameterType="String" resultType="java.lang.Integer">
-		SELECT COUNT(m_password) FROM MEMBER WHERE m_password=#{m_password}
+	<select id="checkPw" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
 	</select>
 	<select id="getAll">
 		SELECT * FROM MEMBER

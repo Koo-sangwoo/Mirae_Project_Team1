@@ -26,9 +26,9 @@ public class UserDAO {
 		return result;
 	}
 	
-	public void updateUser(UserVO vo) {
+	public void updateUser(UserVO vo) { // 정보 수정
 		System.out.println("UserDAO의 updateUser 실행시 출력");
-		int result = sqlSession.update("User.updateUser", vo);
+		sqlSession.update("User.updateUser", vo);
 	}
 	
 	public int deleteUser(UserVO vo) {
@@ -53,9 +53,9 @@ public class UserDAO {
 		return result;
 	}
 	
-	public int checkPw(String m_password) {
+	public int checkPw(UserVO vo) {
 		System.out.println("비밀번호 체크~~");
-		int result = sqlSession.selectOne("User.checkPw", m_password);
+		int result = sqlSession.selectOne("User.checkPw", vo);
 		return result;
 	}
 }

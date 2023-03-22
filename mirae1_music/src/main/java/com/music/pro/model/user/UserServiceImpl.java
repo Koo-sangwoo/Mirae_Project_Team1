@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void updateUser(UserVO vo) {
 		System.out.println("UserServiceImpl에서 updateUser 실행시 출력");
+		userDAO.updateUser(vo);
 	}
 
 	@Override
@@ -48,8 +49,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int checkPw(String m_password) {
+	public int checkPw(UserVO vo) {
 		System.out.println("비번 확인요");
-		return userDAO.checkPw(m_password);
+		return userDAO.checkPw(vo);
 	}
 }
