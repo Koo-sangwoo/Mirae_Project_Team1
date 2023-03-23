@@ -49,4 +49,17 @@ public class MypageController {
 		userService.updateUser(vo);
 		return "home";
 	}
+	@RequestMapping(value = "delete", method = RequestMethod.POST) // 회원 탈퇴
+	public String delete(String m_id, HttpSession session) {
+		System.out.println("회원 탈퇴 요청");
+		int result = userService.deleteUser(m_id);
+		if(result == 1) {
+			System.out.println("삭제 완료");
+			session.invalidate();
+			return "home";
+		} else {
+			System.out.println("삭제 실패");
+			return "redirect:/myPage2";
+		}
+	}
 }

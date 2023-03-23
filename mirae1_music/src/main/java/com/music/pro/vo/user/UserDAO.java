@@ -1,12 +1,5 @@
 package com.music.pro.vo.user;
 
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,9 +24,9 @@ public class UserDAO {
 		sqltemplate.update("User.updateUser", vo);
 	}
 	
-	public int deleteUser(UserVO vo) {
+	public int deleteUser(String m_id) { // 회원 탈퇴
 		System.out.println("UserDAO의 deleteUser 실행시 출력");
-		int result = sqltemplate.delete("User.deleteUser", vo);
+		int result = sqltemplate.delete("User.deleteUser", m_id);
 		return result;
 	}
 	
@@ -47,13 +40,13 @@ public class UserDAO {
 		return (UserVO)sqltemplate.selectOne("User.loginUser", vo);
 	}
 	
-	public int checkId(String m_id) {
+	public int checkId(String m_id) { // 아이디 중복 검사
 		System.out.println("UserDAO의 checkId 실행시 출력");
 		int result = sqltemplate.selectOne("User.checkId", m_id);
 		return result;
 	}
 	
-	public int checkPw(UserVO vo) {
+	public int checkPw(UserVO vo) { // 비밀번호 검사
 		System.out.println("비밀번호 체크~~");
 		int result = sqltemplate.selectOne("User.checkPw", vo);
 		return result;
