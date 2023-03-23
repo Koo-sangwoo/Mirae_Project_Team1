@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -65,20 +65,32 @@
 					src="./resources/images/person-outline.png">
 				</a>
 			</c:when>
-			<c:otherwise>
+			<c:when test="${ member.m_id eq 'admin'} ">
 				<a><p style="margin: 14px 20px; color: white">
-					<span style="font-weight: bold;">[${ member.m_nickname }]님 환영합니다.
-					</span>
-				</p></a>
-				<!-- <a><img src="././resources/images/User/logout.png" width="10%" height="10%"></a> -->
+						<span style="font-weight: bold;">[관리자]님 환영합니다. </span>
+					</p></a>
 				<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
 					src="./resources/images/search-outline.png">
 				</a>
 				<a class=header_login onclick="location.href='myPage'"> <img
 					src="./resources/images/person-outline.png">
 				</a>
-				<a class="header-logout" onclick="location.href='logout'"><img 
-				src="./resources/images/User/logout.png" width="10%" height="10%"></a>
+				<a class="header-login" onclick="location.href='logout'"><img
+					src="./resources/images/User/logout2.png"></a>
+			</c:when>
+			<c:otherwise>
+				<a><p style="margin: 14px 20px; color: white">
+						<span style="font-weight: bold;">[${ member.m_nickname }]님
+							환영합니다. </span>
+					</p></a>
+				<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
+					src="./resources/images/search-outline.png">
+				</a>
+				<a class=header_login onclick="location.href='myPage'"> <img
+					src="./resources/images/person-outline.png">
+				</a>
+				<a class="header-login" onclick="location.href='logout'"><img
+					src="./resources/images/User/logout2.png"></a>
 			</c:otherwise>
 		</c:choose>
 		<!--  <form class="form-inline my-2 my-md-0">

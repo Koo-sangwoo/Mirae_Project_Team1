@@ -11,7 +11,7 @@
 	<title>Home</title>
 </head>
 <body>
-<%-- <jsp:include page="include/header.jsp"></jsp:include> --%>
+
 <%@ include file="include/header.jsp" %>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 300px">
   <div class="carousel-inner">

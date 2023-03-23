@@ -33,10 +33,10 @@
 	</update>
 	
 	<delete id="deleteUser"> <!-- 회원 탈퇴 -->
-		DELETE MEMBER WHERE m_id=#{m_id}
+		DELETE FROM MEMBER WHERE m_id=#{m_id}
 	</delete>
 	
-	<select id="checkUser" resultType="java.lang.Integer"> <!--  -->
+	<select id="checkUser" resultType="java.lang.Integer"> <!-- 유저 체크 -->
 		SELECT COUNT(*) FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
 	</select>
 	
@@ -44,11 +44,11 @@
 		SELECT * FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
 	</select>
 	
-	<select id="checkId" parameterType="String" resultType="java.lang.Integer">
+	<select id="checkId" parameterType="String" resultType="java.lang.Integer"> <!-- 중복 확인 -->
 		SELECT COUNT(m_id) FROM MEMBER WHERE m_id=#{m_id}
 	</select>
 	
-	<select id="checkPw" resultType="java.lang.Integer">
+	<select id="checkPw" resultType="java.lang.Integer"> <!-- 비밀번호 확인 -->
 		SELECT COUNT(*) FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
 	</select>
 	<select id="getAll">

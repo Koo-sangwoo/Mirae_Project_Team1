@@ -7,7 +7,7 @@
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script>
 <!--아이디는 수정이 불가능하니 누를시 경고, 비밀번호는 애초에 막아둠-->
 $(document).ready(function(){
@@ -33,10 +33,33 @@ function updateMember(){
 			"m_hobby" : m_hobby,
 			"m_phonenum" : m_phonenum
 		}, success : function(data){
-			swal("정보 수정 완료!", "회원 정보가 무사히 수정되었습니다.", "success");
+			swal({
+				title : "수정 완료!",
+				text : "정보 수정이 완료되었습니다.",
+				icon : "success",
+				button : "확인",
+			});
 			window.location.href="home";
 		}
 	})
+}
+function deleteMember(){
+	var m_id = $("#m_id").val();
+	var isConfirm = confirm("정말로 탈퇴하시겠습니까?");
+	if(isConfirm == true){
+		$.ajax({
+			type : "post",
+			url : "delete",
+			data : {
+				"m_id" : m_id
+			}, success : function(){
+				alert("그동안 이용해주셔서 감사합니다.");
+				window.location.href="home";
+			}
+		});
+	} else {
+		return false;
+	}
 }
 </script>
 <html>
@@ -101,7 +124,7 @@ function updateMember(){
 		</div>
 		<div class="buttons">
 			<button id="save-btn" onclick="updateMember()">저장</button>
-			<button id="delete-btn">탈퇴</button>
+			<button id="delete-btn" onclick="deleteMember()">탈퇴</button>
 		</div>
 	</div>
 
