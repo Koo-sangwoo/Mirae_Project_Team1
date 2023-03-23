@@ -23,9 +23,9 @@
 		#{m_hobby})
 	</insert>
 	
-	<update id="updateUser"> <!-- parameterType="com.music.pro.vo.user.UserVO" --> <!-- 정보 수정 -->
-		UPDATE MEMBER SET 
-		m_hobby=#{m_hobby},
+	<update id="updateUser" parameterType="com.music.pro.vo.user.UserVO"> <!-- 정보 수정 -->
+		UPDATE MEMBER 
+		SET m_hobby=#{m_hobby},
 		m_address=#{m_address},
 		m_nickname=#{m_nickname},
 		m_phonenum=#{m_phonenum}

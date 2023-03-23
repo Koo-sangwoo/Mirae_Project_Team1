@@ -7,7 +7,7 @@
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
-<script src="./resources/js/login.js" charset="UTF-8"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 <!--아이디는 수정이 불가능하니 누를시 경고, 비밀번호는 애초에 막아둠-->
 $(document).ready(function(){
@@ -18,14 +18,14 @@ $(document).ready(function(){
 })
 function updateMember(){
 	var m_id = $("#m_id").val();
-	var m_nickname = $("#m_password").val();
-	var m_address = $("#m_password").val();
+	var m_nickname = $("#m_nickname").val();
+	var m_address = $("#m_address").val();
 	var m_hobby = $("#m_hobby").val();
 	var m_phonenum = $("#m_phonenum").val();
 	
 	$.ajax({
 		type : "post",
-		url : "update",
+		url : "myPage2",
 		data : {
 			"m_id" : m_id,
 			"m_nickname" : m_nickname,
@@ -33,8 +33,8 @@ function updateMember(){
 			"m_hobby" : m_hobby,
 			"m_phonenum" : m_phonenum
 		}, success : function(data){
-			alert(data);
-			window.location.href="myPage2";
+			swal("정보 수정 완료!", "회원 정보가 무사히 수정되었습니다.", "success");
+			window.location.href="home";
 		}
 	})
 }
@@ -47,8 +47,8 @@ function updateMember(){
 	<%@ include file="../include/header.jsp"%>
 
 	<div class="container">
-		<h5>회원 정보 페이지</h5>
 		<div class="order-history">
+		<h5>회원 정보 페이지</h5>
 			<a href="path/to/your/order/history">주문 내역 바로가기</a>
 		</div>
 		<hr>
@@ -95,7 +95,7 @@ function updateMember(){
 				<option value="${ member.m_hobby }">선택</option>
 				<option value="독서">독서</option>
 				<option value="운동">운동</option>
-				<option value="영화시청">영화시청</option>
+				<option value="영화시청">영화</option>
 			</select>
 
 		</div>

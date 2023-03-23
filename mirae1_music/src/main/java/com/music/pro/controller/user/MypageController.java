@@ -43,10 +43,10 @@ public class MypageController {
 		return member;
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.POST) // 회원 정보 수정 처리
-	public String update(UserVO vo) {
+	@RequestMapping(value = "/myPage2", method = RequestMethod.POST) // 회원 정보 수정 처리
+	public String update(UserVO vo, HttpSession session) {
 		System.out.println("정보 수정 요청");
 		userService.updateUser(vo);
-		return "User/myPage2";
+		return "home";
 	}
 }
