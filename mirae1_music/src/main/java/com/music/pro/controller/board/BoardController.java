@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.music.pro.vo.board.BoardVO;
+import com.music.pro.vo.board.ReplyVO;
 import com.music.pro.model.board.Pager;
+import com.music.pro.model.board.ReplyService;
 import com.music.pro.model.board.BoardService;
 
 @Controller
@@ -24,6 +26,8 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
+	@Autowired
+	private ReplyService replyService;
 //게시글 리스트 출력
 /*	@RequestMapping("/board")
 	public String listAllBoard(Model model)throws Exception  {
@@ -36,23 +40,15 @@ public class BoardController {
 	
 	 // 게시글 목록 + 검색 + 페이징
 	@RequestMapping("/board")
-	public String listAllBoard(Model model, HttpSession session, 
-	@RequestParam(defaultValue = "1") int curPage)
+	public String listAllBoard(Model model, HttpSession session)
 			throws Exception {
 
-		// 게시글 갯수 계산
-		
-
-		session.setAttribute("curPage", curPage);
-
-		// 페이지 관련 설정
-		Pager pager = new Pager(curPage);
 
 		List<BoardVO> list = boardService.listAllBoard(); // 게시글 목록
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list); // map에 자료 저장
-		map.put("pager", pager); // 페이지 네버게이션을 위한 변수
+		
 		model.addAttribute("map", map);
 
 		return "board/list";
@@ -87,6 +83,8 @@ public class BoardController {
 		// 게시글 상세보기
 				@RequestMapping("/view")
 				public String readBoard(int board_id,Model model) throws Exception {
+					List<ReplyVO> list=replyService.getreplylist(board_id);  //댓글목록
+					model.addAttribute("list",list);
 					model.addAttribute("board", boardService.readBoard(board_id)); // 게시글 읽기
 					return "board/boardview";
 				}

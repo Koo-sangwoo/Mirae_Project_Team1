@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="Reply">
+
+    <!-- 댓글 저장 -->
+	<insert id="replyWrite">
+		insert into reply (reply_id,board_id,reply_content) values
+		( reply_seq.nextval, #{board_id}, #{reply_content} )
+	</insert>
+
+    <!-- 댓글 목록 -->
+	<select id="getreplylist" resultType="com.music.pro.vo.board.ReplyVO">
+		select reply_id,board_id,reply_content
+		from reply where board_id= #{board_id}
+		order by reply_id
+	</select>
+	
+		<!-- 댓글 수정 -->
+	<update id="replyUpdate" parameterType="com.music.pro.vo.board.ReplyVO">
+		UPDATE REPLY
+		SET
+	    REPLY_CONTENT = #{reply_content}
+		WHERE
+		REPLY_ID = #{reply_id}
+	</update>
+
+</mapper>
+
