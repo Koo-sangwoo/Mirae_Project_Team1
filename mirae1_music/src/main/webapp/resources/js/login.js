@@ -40,3 +40,23 @@ function memberCheck(){
 		});
 	}
 }
+
+// 로그아웃
+function logout(){
+	swal({
+		title : "로그아웃",
+		text : "정말로 로그아웃 하시겠습니까?",
+		type : "info",
+		showCancelButton: true,
+		confirmButtonText: "확인",
+		cancelButtonText: "취소"
+	},
+	function(data){
+		console.log(data);
+		if(data){
+			window.location.href="logout";
+		} else {
+			return false;
+		}
+	})
+}

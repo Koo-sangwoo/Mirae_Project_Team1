@@ -91,7 +91,7 @@
 				<a class=header_login onclick="location.href='myPage'"> <img
 					src="./resources/images/person-outline.png">
 				</a>
-				<a class="header-login" onclick="location.href='logout'"><img
+				<a class="header-login" onclick="logout()"><img
 					src="./resources/images/User/logout2.png"></a>
 			</c:otherwise>
 		</c:choose>
