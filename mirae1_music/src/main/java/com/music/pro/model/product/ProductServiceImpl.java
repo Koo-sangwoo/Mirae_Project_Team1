@@ -35,12 +35,24 @@ public class ProductServiceImpl implements ProductService {
 	public int getCountProduct(ProductVO vo) {
 		return dao.getCountProduct(vo);
 	}
-	
-	
+
 	@Override
-	public List<ProductVO> getProductList(int start, int end, ProductVO vo) {
-		return dao.getProductList(start, end, vo);
+	public void insertProduct(ProductVO vo) {
+		dao.insertProduct(vo);
 	}
+
+	@Override
+	public void updateProduct(ProductVO vo) {
+		dao.updateProduct(vo);
+	}
+
+	@Override
+	public void deleteProduct(ProductVO vo) {
+		dao.deleteProduct(vo);
+	}
+	
+	
+	
 	
 
 

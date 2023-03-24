@@ -38,12 +38,15 @@ public class ProductDAO {
 		return sqltemplate.selectList("Product.productSearch",p_keyword);
 	}
 
-	// 품목 리스트
-	public List<ProductVO> getProductList(int start, int end, ProductVO vo) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("start", start);
-		map.put("end", end);
-		map.put("product", vo);
-		return sqltemplate.selectList("Product.getProductList", map);
+	public void insertProduct(ProductVO vo) {
+		sqltemplate.insert("Product.productInsert",vo);
+	}
+	
+	public void updateProduct(ProductVO vo) {
+		sqltemplate.insert("Product.productUpdate",vo);
+	}
+	
+	public void deleteProduct(ProductVO vo) {
+		sqltemplate.delete("Product.productDelete",vo);
 	}
 }

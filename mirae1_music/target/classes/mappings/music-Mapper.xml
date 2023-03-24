@@ -4,16 +4,56 @@
 
 <mapper namespace="Music">
 
-		<select id="musicAll" resultType="com.music.pro.vo.music.MusicVO">
-		select * from music where music_genre = #{music_genre} 
+	<select id="musicAll" resultType="com.music.pro.vo.music.MusicVO">
+		select * from music where
+		music_genre = #{music_genre}
 	</select>
-	
+
 	<select id="musicDetail" resultType="com.music.pro.vo.music.MusicVO">
-		select * from music where music_id = #{music_id}
+		select * from music where
+		music_id = #{music_id}
 	</select>
-	
+
 	<select id="musicSearch" resultType="com.music.pro.vo.music.MusicVO">
-		select * from music where music_title like '%'||#{keyword}||'%'
+		select * from music where
+		music_title like '%'||#{keyword}||'%'
 	</select>
+
+	<insert id="musicInsert" parameterType="com.music.pro.vo.music.MusicVO">
+		insert into music(
+		MUSIC_ID,
+		MUSIC_TITLE,
+		MUSIC_GENRE,
+		MUSIC_EXP,
+		MUSIC_PICTURE,
+		MUSIC_ARTNAME,
+		MUSIC_LINK,
+		MUSIC_RELEASEDATE
+		)VALUES(
+		music_seq.nextval,
+		#{music_title},
+		#{music_genre},
+		#{music_exp},
+		#{music_picture},
+		#{music_artname},
+		#{music_link},
+		sysdate
+		)
+	</insert>
 	
+	<update id="musicUpdate" parameterType="com.music.pro.vo.music.MusicVO">
+		update music set 
+            MUSIC_TITLE = #{music_title},
+			MUSIC_GENRE = #{music_genre},
+			MUSIC_EXP = #{music_exp},
+			MUSIC_PICTURE = #{music_picture},
+			MUSIC_ARTNAME = #{music_artname},
+			MUSIC_LINK = #{music_link},
+			MUSIC_RELEASEDATE = sysdate
+			where MUSIC_ID = #{music_id}
+	</update>
+	
+	<delete id="musicDelete" parameterType="com.music.pro.vo.music.MusicVO">
+		delete music where music_id = #{music_id}
+	</delete>
 </mapper>

@@ -32,26 +32,48 @@
 </style>
 </head>
 <body>
+<script type="text/javascript">
+function musicDelete() {
+	if (!confirm("해당 음악을 삭제할까요?")) {
+		alert("취소되었습니다.");
+	} else {
+		alert("해당 품목을 삭제합니다.");
+		document.deleteMusic.action = "/deleteMusic";//html문서내의 deleteMusic이라는 이름을 가진 폼의 액션 설정
+		document.deleteMusic.submit();
+	}
+}
+</script>
 	<jsp:include page="../include/header.jsp"></jsp:include>
 
 	<div class="container">
-		<h1 align="center" style="margin-top: 20px;"><b>${musicDetail.music_title} 상세 정보</b></h1>
-
+		<h1 align="center" style="margin-top: 20px;">
+			<b>${musicDetail.music_title} 상세 정보</b>
+		</h1>
+		<div class="d-flex justify-content-center mb-3">
+			<a href="/updateMusic?music_id=${musicDetail.music_id}"><button
+					type="button" class="btn btn-danger">수정하기</button></a>
+			<form action="/deleteMusic" method="get" name="deleteMusic">
+				<input type="hidden" name="music_id" value="${musicDetail.music_id}">
+				<button type="button" onclick="musicDelete()"
+					class="btn btn-danger ml-3">삭제하기</button>
+			</form>
+		</div>
 		<div class="music-info">
 			<img alt="음악사진"
 				src="./resources/images/music/${musicDetail.music_picture}">
 			<div>
 				<h2>곡명 : ${musicDetail.music_title}</h2>
 				<p>가수명 : ${musicDetail.music_artname}</p>
-				<p>발매일 : <fmt:formatDate value="${musicDetail.music_releasedate}" pattern="yyyy년 MM월 dd일"/></p>
-				<a href="${musicDetail.music_link}"
-							target="_blank" class="btn btn-primary">유튜브에서 보기</a>
+				<a href="${musicDetail.music_link}" target="_blank"
+					class="btn btn-primary">유튜브에서 보기</a>
 			</div>
 		</div>
 
 
 		<div class="description">
-			<h3><b>곡 설명</b></h3>
+			<h3>
+				<b>곡 설명</b>
+			</h3>
 			<p>${musicDetail.music_exp}</p>
 		</div>
 	</div>

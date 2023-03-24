@@ -8,9 +8,17 @@ public class ProductVO {
 	private String p_exp;
 	private String releasedate;
 	private String p_category;
+	private int p_quantity;
 	private String p_keyword;
 	
 	
+	
+	public int getP_quantity() {
+		return p_quantity;
+	}
+	public void setP_quantity(int p_quantity) {
+		this.p_quantity = p_quantity;
+	}
 	public String getP_keyword() {
 		return p_keyword;
 	}
@@ -59,12 +67,13 @@ public class ProductVO {
 	public void setReleasedate(String releasedate) {
 		this.releasedate = releasedate;
 	}
-	
 	@Override
 	public String toString() {
 		return "ProductVO [p_id=" + p_id + ", p_price=" + p_price + ", p_name=" + p_name + ", p_picture=" + p_picture
-				+ ", p_exp=" + p_exp + ", releasedate=" + releasedate + "]";
+				+ ", p_exp=" + p_exp + ", releasedate=" + releasedate + ", p_category=" + p_category + ", p_quantity="
+				+ p_quantity + ", p_keyword=" + p_keyword + "]";
 	}
+	
 	
 	
 }

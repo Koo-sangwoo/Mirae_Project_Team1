@@ -17,6 +17,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-top: 20px;
 }
 
 .image-container {
@@ -36,6 +37,16 @@
 .product-info h2, .product-info h3 {
 	margin: 10px 0;
 }
+
+.btn-primary {
+	margin-top: 10px;
+}
+
+.btn-container {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
 </style>
 </head>
 <body>
@@ -48,19 +59,39 @@
 			document.items.action = "/buygoods";
 			document.items.submit();
 		}
+
+		function Productdelete() {
+			if (!confirm("해당 품목을 삭제할까요?")) {
+				alert("취소되었습니다.");
+			} else {
+				alert("해당 품목을 삭제합니다.");
+				document.deleteProduct.action = "/deleteProduct";
+				document.deleteProduct.submit();
+			}
+		}
 	</script>
 	<jsp:include page="../include/header.jsp"></jsp:include>
 	<h1 align="center">
 		<b>상품 정보</b>
 	</h1>
-
-	<div class="container">
-		<div class="image-container">
-			<img alt="" src="./resources/images/goods/${detail.p_picture}"
-				width="300" height="300">
-		</div>
-		<form method="get" name="items">
+	<div class="d-flex justify-content-center mb-3">
+		<a href="/updateProduct?p_id=${detail.p_id}">
+			<button class="btn btn-danger">수정 하기</button>
+		</a>
+		<form action="deleteProduct" method="get" name="deleteProduct">
 			<input type="hidden" name="p_id" value="${detail.p_id}">
+			<button type="button" onclick="Productdelete()"
+				class="btn btn-danger ml-3">삭제하기</button>
+		</form>
+	</div>
+	<hr>
+	<form method="get" name="items">
+		<input type="hidden" name="p_id" value="${detail.p_id}">
+		<div class="container">
+			<div class="image-container">
+				<img alt="" src="./resources/images/goods/${detail.p_picture}"
+					width="300" height="300">
+			</div>
 			<div class="product-info">
 				<h2>상품명 : ${detail.p_name}</h2>
 				<h3>
@@ -69,12 +100,13 @@
 					원
 				</h3>
 				<div>
-					<br> <a href="javascript:;" onclick="orders();"
-						class="btn btn-primary">바로구매</a>&nbsp;<a href="javascript:;"
-						onclick="addCart();" class="btn btn-primary">장바구니</a>
+					<a href="javascript:;" onclick="orders();" class="btn btn-primary">바로구매</a>&nbsp;
+				</div>
+				<div>
+					<a href="javascript:;" onclick="addCart();" class="btn btn-primary">장바구니</a>
 				</div>
 			</div>
-	</div>
+		</div>
 	</form>
 
 
