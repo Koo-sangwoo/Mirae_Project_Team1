@@ -56,25 +56,29 @@ function updateMember() { // 회원 정보 수정
 }
 function deleteMember() { // 회원 탈퇴
 	var m_id = $("#m_id").val();
-	var isConfirm = confirm("정말로 탈퇴하시겠습니까?");
-	if (isConfirm == true) {
-		$.ajax({
-			type : "post",
-			url : "delete",
-			data : {
-				"m_id" : m_id
-			},
-			success : function() {
-				swal({
-					title : "탈퇴 성공",
-					text : "그동안 이용해주셔서 감사합니다",
-					type : "success"
-				}, function() {
-					window.location.href = "home";
-				});
-			}
-		});
-	} else {
-		return false;
-	}
+	swal({
+		title : "회원 탈퇴",
+		text : "정말로 회원 탈퇴를 하시겠습니까?, 회원 탈퇴시 복구할 수 없습니다.",
+		type : "warning",
+		showCancelButton : true,
+		confirmButtonText : "확인",
+		cancelButtonText : "취소"
+	}, function(data) {
+		if (data) {
+
+			$.ajax({
+				type : "post",
+				url : "delete",
+				data : {
+					"m_id" : m_id
+				},
+				success : function() {
+					alert("그동안 이용해주셔서 감사합니다.");
+					window.location.href="home";
+				}
+			});
+		} else {
+			return false;
+		}
+	});
 }
