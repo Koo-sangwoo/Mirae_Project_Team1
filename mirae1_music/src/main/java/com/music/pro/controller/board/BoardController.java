@@ -53,10 +53,7 @@ public class BoardController {
 
 		return "board/list";
 	}	
-		                
-	                                     
-	
-	
+		               
 	//게시글 쓰기뷰
 		@RequestMapping("/write")
 		public String write() {
@@ -117,7 +114,6 @@ public class BoardController {
 		@RequestMapping("/news")
 		public String listAllBoard(Model model)throws Exception  {
 			System.out.println("뉴스리스트");
-
 			return "board/newslist";
 		
 		

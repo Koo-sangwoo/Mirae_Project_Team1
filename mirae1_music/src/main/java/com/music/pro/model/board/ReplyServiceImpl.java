@@ -34,4 +34,9 @@ public class ReplyServiceImpl implements ReplyService{
 		public void replyUpdate(ReplyVO vo) {
 			replyDao.replyUpdate(vo);
 		}
+		
+		//댓글 삭제
+		public void replyDelete(ReplyVO vo) {
+			replyDao.replyDelete(vo); 
+		}
 }
