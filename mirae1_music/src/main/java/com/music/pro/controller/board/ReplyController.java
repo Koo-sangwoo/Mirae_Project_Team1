@@ -31,5 +31,12 @@ public class ReplyController {
 			return "redirect:/view?board_id="+vo.getBoard_id(); 
 		}
 		
+		//댓글삭제
+		@RequestMapping(value= "/replyDelete", method = RequestMethod.GET)
+		public String replyDelete(ReplyVO vo) {
+			ReplyService.replyDelete(vo);
+			return "redirect:/view?board_id="+vo.getBoard_id();
+		}
+		
 		
 }

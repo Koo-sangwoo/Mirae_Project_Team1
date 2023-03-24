@@ -27,6 +27,8 @@ public class ReplyDAO {
 	
 	public void replyUpdate(ReplyVO vo) {
 		mybatis.update("Reply.replyUpdate", vo);
-		
+	}
+	public void replyDelete(ReplyVO vo) {
+	 mybatis.delete("Reply.replyDelete", vo);
 	}
 }

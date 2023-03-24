@@ -8,9 +8,11 @@
 <link rel="stylesheet"
 	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="./resources/css/custom.css">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="./resources/js/login.js"></script>
 <title>Insert title here</title>
 </head>
@@ -89,7 +91,7 @@
 				<a class=header_login onclick="location.href='myPage'"> <img
 					src="./resources/images/person-outline.png">
 				</a>
-				<a class="header-login" onclick="location.href='logout'"><img
+				<a class="header-login" onclick="logout()"><img
 					src="./resources/images/User/logout2.png"></a>
 			</c:otherwise>
 		</c:choose>

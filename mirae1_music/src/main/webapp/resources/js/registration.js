@@ -12,20 +12,21 @@ function idCheck() {
 			dataType : "json",
 			success : function(data) {
 				if (data == 1) {
-					alert("중복된 아이디입니다.");
+					swal("", "사용 불가한 아이디입니다.", "error");
 					$("#m_id").val("");
 					document.regist.m_id.focus();
 					checkId = false;
 				} else if (data == 0) {
-					alert("사용 가능한 아이디입니다.");
+					swal("", "사용 가능한 아이디입니다.", "success");
 					document.regist.m_id.focus();
 					checkId = true;
 				}
 			}
 		});
 	} else {
-		alert("아이디를 입력해주세요.");
+		swal("", "아이디를 입력해주세요", "warning");
 		$("#m_id").focus();
+		return false;
 	}
 }
 
@@ -51,38 +52,38 @@ function insertDo() {
 	var m_nickname = $("#m_nickname").val();
 	var m_hobby = $("#m_hobby").val();
 	if (checkId == false) {
-		alert("아이디 중복체크를 먼저 진행해주세요.");
+		swal("","아이디 중복체크를 먼저 진행해주세요.", "warning");
 		return false;
 	} else {
 		if (!$("#m_id").val()) {
-			alert("아이디를 입력해주세요.");
+			swal("","아이디를 입력해주세요.","error");
 			$("#m_id").focus();
 			return false;
 		} else if (!$("#m_password").val()) {
-			alert("비밀번호를 입력해주세요.");
+			swal("","비밀번호를 입력해주세요.","error");
 			$("#m_password").focus();
 			return false;
 		} else if (!$("#m_name").val()) {
-			alert("이름을 입력해주세요.");
+			swal("","이름을 입력해주세요.","error");
 			$("#m_name").focus();
 			return false;
 		} else if (!$("#m_address").val()) {
-			alert("주소를 입력해주세요.");
+			swal("","주소를 입력해주세요.","error");
 			$("#m_address").focus();
 			return false;
 		} else if (!$("#m_phonenum").val()) {
-			alert("전화번호를 입력해주세요.");
+			swal("","전화번호를 입력해주세요.","error");
 			$("#m_phonenum").focus();
 			return false;
 		} else if (!$("#m_gender").val()) {
-			alert("성별을 확인해주세요.");
+			swal("","성별을 확인해주세요.","error");
 			return false;
 		} else if (!$("#m_nickname").val()) {
-			alert("닉네임을 입력해주세요.");
+			swal("","닉네임을 입력해주세요.","error");
 			$("#m_nickname").focus();
 			return false;
 		} else if (!$("#m_hobby").val()) {
-			alert("취미를 선택해주세요.");
+			swal("","취미를 선택해주세요.","error");
 			return false;
 		} else {
 			$.ajax({
@@ -100,8 +101,14 @@ function insertDo() {
 					"m_hobby" : m_hobby
 				},
 				success : function(data) {
-					alert("회원 가입을 축하합니다!");
-					window.location.href = "home";
+					swal({
+						title : "가입 성공!",
+						text : "회원 가입을 축하합니다!",
+						type : "success"
+					},
+					function(){
+						window.location.href="home";
+					});
 				}
 			});
 		}
