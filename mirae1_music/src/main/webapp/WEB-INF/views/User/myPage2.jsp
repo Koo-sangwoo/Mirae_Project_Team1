@@ -2,65 +2,22 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="./resources/css/myPage2.css">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />							
 <link rel="stylesheet"
 	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="./resources/js/myPage.js" charset="UTF-8"></script>
 <script>
 <!--아이디는 수정이 불가능하니 누를시 경고, 비밀번호는 애초에 막아둠-->
 $(document).ready(function(){
 	$("#m_id").click(function(){
-		alert("아이디는 수정이 불가합니다.");
+		swal("","아이디는 수정이 불가합니다.","warning");
 		return false;
 	});
 })
-function updateMember(){
-	var m_id = $("#m_id").val();
-	var m_nickname = $("#m_nickname").val();
-	var m_address = $("#m_address").val();
-	var m_hobby = $("#m_hobby").val();
-	var m_phonenum = $("#m_phonenum").val();
-	
-	$.ajax({
-		type : "post",
-		url : "myPage2",
-		data : {
-			"m_id" : m_id,
-			"m_nickname" : m_nickname,
-			"m_address" : m_address,
-			"m_hobby" : m_hobby,
-			"m_phonenum" : m_phonenum
-		}, success : function(data){
-			swal({
-				title : "수정 완료!",
-				text : "정보 수정이 완료되었습니다.",
-				icon : "success",
-				button : "확인",
-			});
-			window.location.href="home";
-		}
-	})
-}
-function deleteMember(){
-	var m_id = $("#m_id").val();
-	var isConfirm = confirm("정말로 탈퇴하시겠습니까?");
-	if(isConfirm == true){
-		$.ajax({
-			type : "post",
-			url : "delete",
-			data : {
-				"m_id" : m_id
-			}, success : function(){
-				alert("그동안 이용해주셔서 감사합니다.");
-				window.location.href="home";
-			}
-		});
-	} else {
-		return false;
-	}
-}
 </script>
 <html>
 <head>
@@ -118,7 +75,7 @@ function deleteMember(){
 				<option value="${ member.m_hobby }">선택</option>
 				<option value="독서">독서</option>
 				<option value="운동">운동</option>
-				<option value="영화시청">영화</option>
+				<option value="영화">영화시청</option>
 			</select>
 
 		</div>

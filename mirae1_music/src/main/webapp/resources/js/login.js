@@ -3,8 +3,9 @@ function memberCheck(){
 	var m_id = $("#m_id").val();
 	var m_password = $("#m_password").val();
 	if(!m_id || !m_password){
-		alert("아이디 혹은 패스워드를 입력해주세요.");
+		swal("", "아이디와 비밀번호를 입력해주세요.", "warning");
 		$("#m_id").focus();
+		return false;
 	} else{
 		$.ajax({
 			type : "post",
@@ -21,11 +22,18 @@ function memberCheck(){
 							"m_id" : m_id,
 							"m_password" : m_password
 						}, success : function(){
-							window.location.href="home";
+							swal({
+								title : "",
+								text : "반갑습니다!",
+								type : "success"
+							},
+							function(){
+								window.location.href="home";
+							})
 						}
 					});
 				} else {
-					alert("아이디 혹은 패스워드가 잘못되었습니다.");
+					swal("","아이디 혹은 패스워드가 잘못되었습니다.","error");
 					return false;
 				}
 			}

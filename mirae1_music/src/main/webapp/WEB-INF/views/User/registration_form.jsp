@@ -3,11 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <link rel="stylesheet" href="./resources/css/registration.css">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <link rel="stylesheet"
 	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="./resources/js/registration.js"></script>
 
 <html>
@@ -29,24 +31,24 @@
 				</div>
 				<div class="form-group">
 					<label for="m_id">아이디:</label> <input type="text"
-						class="form-control" id="m_id" name="m_id" required><br>
+						class="form-control" id="m_id" name="m_id" maxlength="12" required><br>
 					<button class="btn btn-primary" type="button" onclick="idCheck()">중복확인</button>
 				</div>
 				<div class="form-group">
 					<label for="m_password">비밀번호:</label> <input type="password"
-						class="form-control" id="m_password" name="m_password" required="required">
+						class="form-control" id="m_password" name="m_password" maxlength="15" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_name">이름:</label> <input type="text"
-						class="form-control" id="m_name" name="m_name" required="required">
+						class="form-control" id="m_name" name="m_name" maxlength="10" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_address">주소:</label> <input type="text"
-						class="form-control" id="m_address" name="m_address" required="required">
+						class="form-control" id="m_address" name="m_address" maxlength="30" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_phone">전화번호:</label> <input type="tel"
-						class="form-control" id="m_phonenum" name="m_phonenum" required="required">
+						class="form-control" id="m_phonenum" name="m_phonenum" maxlength="11" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_gender">성별:</label> <select class="form-control"
@@ -58,7 +60,7 @@
 				</div>
 				<div class="form-group">
 					<label for="m_nickname">닉네임:</label> <input type="text"
-						class="form-control" id="m_nickname" name="m_nickname" required="required">
+						class="form-control" id="m_nickname" name="m_nickname" maxlength="10" required="required">
 				</div>
 				<div class="form-group">
 					<label for="m_hobby">취미:</label><select class="form-control"
@@ -66,7 +68,7 @@
 						<option value="">선택</option>
 						<option value="독서">독서</option>
 						<option value="운동">운동</option>
-						<option value="영화시청">영화시청</option>
+						<option value="영화">영화시청</option>
 						</select>
 					
 				</div>

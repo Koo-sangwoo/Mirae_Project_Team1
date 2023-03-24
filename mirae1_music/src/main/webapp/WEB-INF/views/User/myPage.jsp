@@ -1,36 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <link rel="stylesheet"
 	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
-<script>
-	function checkPw() {
-		var m_id = $("#m_id").val();
-		var m_password = $("#m_password").val();
-		$.ajax({
-			type : "post",
-			url : "myPage",
-			data : {
-				"m_id" : m_id,
-				"m_password" : m_password
-			},
-			dataType : "json",
-			success : function(data) {
-				if (data == 1) {
-					alert("인증 성공");
-					window.location.href = "myPage2";
-				} else {
-					alert("비밀번호를 확인해주세요.");
-					return false;
-				}
-			}
-		})
-	}
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="./resources/js/myPage.js" charset="UTF-8"></script>
 <style>
 body {
 	background-color: #fff;
