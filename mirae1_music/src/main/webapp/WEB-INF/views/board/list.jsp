@@ -7,7 +7,7 @@
 <head>
 <jsp:include page="../include/header.jsp"></jsp:include>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
  --><link rel="stylesheet" href="./resources/css/custom.css">
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
@@ -28,7 +28,7 @@
 <th>글쓴이</th>
 <th>날짜</th>
 </tr>
-<c:forEach var="row" items="${list}">
+<c:forEach var="row" items="${map.list}">
 			<tr>
 				<td>${row.board_id}</td>
 				<td>${row.category} 
@@ -46,117 +46,7 @@
 <tbody>
 
 <!-- list페이지에 출력될것 board_id , category , title , writer , date -->
-<!-- <tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
 
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr>
-
-<tr>
-<td>123</td>
-<td>음악</td>
-<td><a href="#">이것은 제목입니다.</a></td>
-<td>힙합엘이유저</td>
-<td>2023.03.14</td>
-</tr> -->
 </tbody>
 </table>
 </div>
@@ -167,12 +57,42 @@
 <button type="버튼" onclick="location.href='/write';" id="writebtn" >글쓰기</button>
 
 
-<div class="d-flex flex-row justify-content-around">
+
+
+<!-- 페이지 네비게이션 출력 -->
+			<div align="center">
+				<c:if test="${map.pager.curBlock > 1}">
+					<a href="board?curPage=1
+							&searchOption=${searchOption}&keyword=${keyword}
+							&search=${search}">[처음]</a>
+				</c:if>
+				<c:if test="${map.pager.curBlock > 1}">
+					<a href="board?curPage=${map.pager.prevPage}
+							&searchOption=${searchOption}&keyword=${keyword}
+							&search=${search}">[이전]</a>
+				</c:if>
+
+				<c:forEach var="num" begin="${map.pager.blockBegin}" 
+							end="${map.pager.blockEnd}">
+					<c:choose>
+						<c:when test="${num == map.pager.curPage}">
+							<!-- 현재 페이지인 경우 하이퍼링크 제거 -->
+							<span style="color: red;">${num}</span>
+						</c:when>
+						
+						<c:otherwise>
+							<a href="board?curPage=${num}
+							&searchOption=${searchOption}&keyword=${keyword}
+							&search=${search}">${num}</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+<!-- <div class="d-flex flex-row justify-content-around">
 <ul class="pagination">
 <li><a href="#">1</a></li>
 <li><a href="#">2</a></li>
 </ul>
-</div>
+</div> -->
 
 <style>
 #searchbtn{

@@ -16,8 +16,13 @@ public interface ProductService {
 	// 품목 갯수 카운트
 	public int getCountProduct(ProductVO vo);
 	
-	//카테고리 물품 출력
-	public List<ProductVO> getProductList(int start, int end, ProductVO vo);
+	//품목 추가
+	public void insertProduct(ProductVO vo);
+	
+	//품목 수정
+	public void updateProduct(ProductVO vo);
+	
+	public void deleteProduct(ProductVO vo);
 
 }
 

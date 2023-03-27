@@ -29,4 +29,16 @@ public class MusicDAO {
 		System.out.println("검색 음악 DB 연동");
 		return sqltemplate.selectList("Music.musicSearch",keyword);
 	}
+	
+	public void insertMusic(MusicVO vo) {
+		sqltemplate.insert("Music.musicInsert",vo);
+	}
+	
+	public void updateMusic(MusicVO vo) {
+		sqltemplate.update("Music.musicUpdate",vo);
+	}
+	
+	public void deleteMusic(MusicVO vo) {
+		sqltemplate.delete("Music.musicDelete",vo);
+	}
 }

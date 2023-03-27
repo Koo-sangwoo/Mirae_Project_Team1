@@ -28,4 +28,42 @@
 	<select id="productSearch" resultType="com.music.pro.vo.product.ProductVO">
 		select * from productgoods where p_name like '%'||#{p_keyword}||'%'
 	</select>
+	
+	<insert id="productInsert" parameterType="com.music.pro.vo.product.ProductVO">
+		insert into productgoods(
+			P_ID,
+			P_NAME,
+			P_PRICE,
+			P_PICTURE,
+			P_EXP,
+			P_RELEASEDATE,
+			P_CATEGORY,
+			P_QUANTITY
+		)VALUES(
+			product_seq.nextval,
+			#{p_name},
+			#{p_price},
+			#{p_picture},
+			#{p_exp},
+			sysdate,
+			#{p_category},
+			#{p_quantity}
+		)
+	</insert>
+	
+	<update id="productUpdate">
+		update productgoods set 
+			P_NAME = #{p_name},
+			P_PRICE = #{p_price},
+			P_PICTURE = #{p_picture},
+			P_EXP = #{p_exp},
+			P_RELEASEDATE = sysdate,
+			P_CATEGORY = #{p_category},
+			P_QUANTITY = #{p_quantity}
+			where p_id = #{p_id}
+	</update>
+	
+	<delete id="productDelete">
+		delete productgoods where P_ID = #{p_id}
+	</delete>
 </mapper>

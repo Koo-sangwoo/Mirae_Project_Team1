@@ -10,6 +10,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,4 +51,46 @@ public class ProductController {
 		mav.setViewName("product/product");
 		return mav;
 	}
+	
+	@GetMapping(value="/insertProduct")
+	public ModelAndView visitInsertProduct() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("product/insertProduct");
+		return mav;
+	}
+	
+	@PostMapping(value="insertProduct")
+	public ModelAndView insertProduct(ProductVO vo) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/product?p_category=k-pop");
+		service.insertProduct(vo);
+		return mav;
+	}
+	
+	@GetMapping(value="/updateProduct")
+	public ModelAndView visitUpdate(ProductVO vo) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("product/updateProduct");
+		mav.addObject("detail",service.getProductDetail(vo));//해당 상품의 정보를 가져오는 메소드를 통해 가져온 값을 detail이란 이름의 속성으로 추가
+		return mav;
+	}
+	
+	@PostMapping(value="/updateProduct")
+	public ModelAndView updateProduct(ProductVO vo) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/product?p_category=k-pop");
+		service.updateProduct(vo);
+		return mav;
+	}
+	
+	
+	@GetMapping(value="deleteProduct")
+	public ModelAndView deleteProduct(ProductVO vo) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("세팅된 vo의 id값 " + vo.getP_id());
+		service.deleteProduct(vo);
+		mav.setViewName("redirect:/product?p_category=k-pop");
+		return mav;
+	}
+	
 }

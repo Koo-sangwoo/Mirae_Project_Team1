@@ -32,4 +32,26 @@ public class MusicServiceImpl implements MusicService {
 		return dao.musicSearch(keyword);
 	}
 
+
+	@Override
+	public void insertMusic(MusicVO vo) {
+		dao.insertMusic(vo);
+	}
+
+
+	@Override
+	public void updateMusic(MusicVO vo) {
+		dao.updateMusic(vo);
+	}
+
+
+	@Override
+	public void deleteMusic(MusicVO vo) {
+		dao.deleteMusic(vo);
+	}
+	
+	
+	
+	
+
 }
