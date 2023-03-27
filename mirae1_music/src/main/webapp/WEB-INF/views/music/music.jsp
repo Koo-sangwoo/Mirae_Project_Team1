@@ -24,9 +24,11 @@
 	<br>
 	<hr>
 	<h3 align="center">Music-List</h3>
+	<c:if test="${member.m_code == 123}">
 	<div align="center">
 <a href="/insertMusic"><button class="btn btn-primary">음악 추가</button></a>
 </div>
+</c:if>
 	<hr>
 	<form class="d-flex" action="/music_search" method="get">
 		<input class="form-control me-2" type="search" name="keyword"
