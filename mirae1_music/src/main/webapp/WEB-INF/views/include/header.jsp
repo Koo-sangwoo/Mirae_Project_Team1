@@ -8,11 +8,13 @@
 <link rel="stylesheet"
 	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="./resources/css/custom.css">
-<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="./resources/js/login.js"></script>
 <title>Insert title here</title>
 </head>
@@ -58,43 +60,43 @@
 					<a class="dropdown-item" href="/product?p_category=ballard">발라드</a>
 				</div></li>
 		</ul>
-		<c:choose>
-			<c:when test="${ member.m_id == null }">
-				<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
-					src="./resources/images/search-outline.png">
-				</a>
-				<a class=header_login onclick="location.href='login_form'"> <img
-					src="./resources/images/person-outline.png">
-				</a>
-			</c:when>
-			<c:when test="${ member.m_id eq 'admin'} ">
-				<a><p style="margin: 14px 20px; color: white">
-						<span style="font-weight: bold;">[관리자]님 환영합니다. </span>
-					</p></a>
-				<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
-					src="./resources/images/search-outline.png">
-				</a>
-				<a class=header_login onclick="location.href='myPage'"> <img
-					src="./resources/images/person-outline.png">
-				</a>
-				<a class="header-login" onclick="location.href='logout'"><img
-					src="./resources/images/User/logout2.png"></a>
-			</c:when>
-			<c:otherwise>
-				<a><p style="margin: 14px 20px; color: white">
-						<span style="font-weight: bold;">[${ member.m_nickname }]님
-							환영합니다. </span>
-					</p></a>
-				<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
-					src="./resources/images/search-outline.png">
-				</a>
-				<a class=header_login onclick="location.href='myPage'"> <img
-					src="./resources/images/person-outline.png">
-				</a>
-				<a class="header-login" onclick="logout()"><img
-					src="./resources/images/User/logout2.png"></a>
-			</c:otherwise>
-		</c:choose>
+		<c:if test="${ member.m_id == null }">
+			<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
+				src="./resources/images/search-outline.png">
+			</a>
+			<a class=header_login onclick="location.href='login_form'"> <img
+				src="./resources/images/person-outline.png">
+			</a>
+		</c:if>
+
+		<c:if test="${ member.m_code == 0 }">
+			<a><p style="margin: 14px 20px; color: white">
+					<span style="font-weight: bold;">[${ member.m_nickname }]님
+						환영합니다. </span>
+				</p></a>
+			<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
+				src="./resources/images/search-outline.png">
+			</a>
+			<a class=header_login onclick="location.href='myPage'"> <img
+				src="./resources/images/person-outline.png">
+			</a>
+			<a class="header-login" onclick="logout()"><img
+				src="./resources/images/User/logout2.png"></a>
+		</c:if>
+
+		<c:if test="${ member.m_code == 123 }">
+			<a><p style="margin: 14px 20px; color: white">
+					<span style="font-weight: bold;">[관리자]님 환영합니다. </span>
+				</p></a>
+			<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
+				src="./resources/images/search-outline.png">
+			</a>
+			<a class=header_login onclick="location.href='myPage'"> <img
+				src="./resources/images/person-outline.png">
+			</a>
+			<a class="header-login" onclick="logout()"><img
+				src="./resources/images/User/logout2.png"></a>
+		</c:if>
 		<!--  <form class="form-inline my-2 my-md-0">
       <input class="form-control" type="text" placeholder="Search"> 
     </form>-->

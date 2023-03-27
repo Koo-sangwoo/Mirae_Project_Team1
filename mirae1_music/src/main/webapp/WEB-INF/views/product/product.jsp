@@ -59,10 +59,12 @@
 	</div>
 	<hr>
 	<h1 style="text-align: center">상품</h1>
+	<c:if test="${member.m_code == 123}">
 	<div align="center">
 		<a href="/insertProduct"><button class="btn btn-primary">상품
 				추가</button></a>
 	</div>
+	</c:if>
 	<hr>
 
 	<form class="d-flex" action="/product_search" method="get">

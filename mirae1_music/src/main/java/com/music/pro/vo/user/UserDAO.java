@@ -1,7 +1,5 @@
 package com.music.pro.vo.user;
 
-import java.lang.reflect.Member;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

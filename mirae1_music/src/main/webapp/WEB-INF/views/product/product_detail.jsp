@@ -47,6 +47,12 @@
 	justify-content: space-between;
 	margin-bottom: 10px;
 }
+.description {
+	margin-top: 20px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
 </style>
 </head>
 <body>
@@ -74,6 +80,7 @@
 	<h1 align="center">
 		<b>상품 정보</b>
 	</h1>
+	<c:if test="${member.m_code == 123}">
 	<div class="d-flex justify-content-center mb-3">
 		<a href="/updateProduct?p_id=${detail.p_id}">
 			<button class="btn btn-danger">수정 하기</button>
@@ -84,6 +91,7 @@
 				class="btn btn-danger ml-3">삭제하기</button>
 		</form>
 	</div>
+	</c:if>
 	<hr>
 	<form method="get" name="items">
 		<input type="hidden" name="p_id" value="${detail.p_id}">
@@ -108,7 +116,12 @@
 			</div>
 		</div>
 	</form>
-
+<div class="description">
+			<h3>
+				<b>곡 설명</b>
+			</h3>
+			<p>${detail.p_exp}</p>
+		</div>
 
 	<jsp:include page="../include/footer.jsp"></jsp:include>
 
