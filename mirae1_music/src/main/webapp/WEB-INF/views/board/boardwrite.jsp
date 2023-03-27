@@ -98,7 +98,7 @@ min-height:450px;
 
 		<br/><br/>
 	<form action="createboard" method="post" enctype="multipart/form-data" >
-		<input type="hidden" name="writer" id="writer" value="${member.member_id}"/>
+		<input type="hidden" name="writer" id="writer" value="${member.m_id}"/>
 		<table class="textb" width="100%">
 			<tr>
 			<td class="asd" width="60">카테고리</td>
