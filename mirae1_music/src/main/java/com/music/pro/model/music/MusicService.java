@@ -12,4 +12,10 @@ public interface MusicService {
 	public MusicVO getMusicDetail(MusicVO vo);
 	
 	public List<MusicVO> musicSearch(String keyword);
+	
+	public void insertMusic(MusicVO vo);
+	
+	public void updateMusic(MusicVO vo);
+	
+	public void deleteMusic(MusicVO vo);
 }
