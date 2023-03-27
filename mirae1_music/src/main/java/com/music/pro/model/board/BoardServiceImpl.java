@@ -2,6 +2,8 @@ package com.music.pro.model.board;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,4 +40,8 @@ import com.music.pro.model.board.BoardService;
 		public void deleteBoard(int board_id) throws Exception {
 			boardDAO.deleteBoard(board_id);
 		}
+		// 게시글 조회수
+		public void viewCnt(int board_id) throws Exception {
+		boardDAO.viewCnt(board_id);
 }
+	}
