@@ -36,10 +36,10 @@
 			 	${row.board_title}</a>
 				</td>
 				<td>${row.board_writer}</td> 
-		<%--	<td>
-		 		<fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
+		    	<td>
+		 		 ${row.board_date}
 				</td>
-				<td>${row.viewcnt}</td> --%>
+	   <%-- 	<td>${row.viewcnt}</td> --%>
 			</tr>
 	</c:forEach>
 </thead>
@@ -54,8 +54,9 @@
 <hr/>
  
 <a id="searchbtn">검색</a>
+<c:if test="${member.m_id != null}">	
 <button type="버튼" onclick="location.href='/write';" id="writebtn" >글쓰기</button>
-
+</c:if>
 
 
 

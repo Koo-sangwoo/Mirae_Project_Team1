@@ -8,13 +8,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <!-- 댓글 저장 -->
 	<insert id="replyWrite">
-		insert into reply (reply_id,board_id,reply_content) values
-		( reply_seq.nextval, #{board_id}, #{reply_content} )
+		insert into reply (reply_id,board_id,reply_content,reply_writer) values
+		( reply_seq.nextval, #{board_id}, #{reply_content}, #{reply_writer} )
 	</insert>
 
     <!-- 댓글 목록 -->
 	<select id="getreplylist" resultType="com.music.pro.vo.board.ReplyVO">
-		select reply_id,board_id,reply_content
+		select reply_id,board_id,reply_content,reply_writer,reply_date
 		from reply where board_id= #{board_id}
 		order by reply_id
 	</select>

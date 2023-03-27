@@ -98,7 +98,7 @@ min-height:450px;
 
 		<br/><br/>
 	<form action="createboard" method="post" enctype="multipart/form-data" >
-		<input type="hidden" name="writer" id="writer" value="${member.m_id}"/>
+		<input type="hidden" name="board_writer" id="writer" value="${member.m_nickname}"/>
 		<table class="textb" width="100%">
 			<tr>
 			<td class="asd" width="60">카테고리</td>
@@ -108,13 +108,15 @@ min-height:450px;
 			<td  class="asd" align="left">
 		
 		
-	        <select id="category">
-	        <option value>분류 없음</option>
-	        <option value>음악</option>
-	        <option value>리뷰</option>
-	        <option value>가사 해석</option>
-	        <option value>인증/후기</option>
-	        <option value>일반</option>
+	        <select name="category">
+	        <option value="k-pop">k-pop</option>
+	        <option value="Hiphop">힙합</option>
+	        <option value="발라드">발라드</option>
+	        <option value="음악">음악</option>
+	        <option value="리뷰">리뷰</option>
+	        <option value="가사 해석">가사 해석</option>
+	        <option value="인증/후기">인증/후기</option>
+	        <option value="일반">일반</option>
 	        </select>
 		
 		
