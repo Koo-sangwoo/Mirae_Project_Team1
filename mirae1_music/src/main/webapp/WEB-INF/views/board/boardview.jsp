@@ -65,7 +65,7 @@
 			<td>작성일</td>
 			<td colspan='3' align="left">
 			<div style="width:150px;float:left;">
-			<%-- ${board.regdate}   --%>
+			 ${board.board_date}  
 			</div>
 			<div>
 			&nbsp;&nbsp;&nbsp;조회수 : <%--${board.board_viewcnt}--%>
@@ -91,14 +91,14 @@
 
 		<div style="float:right;">
 		<!-- 관리자만 공지 -->
-		<%-- <c:if test=" ${member.member_id eq 'Administrator'} "> --%>
+		 <c:if test="${member.m_id != null}"> 
 			<a href="write">글쓰기</a>&nbsp;&nbsp;&nbsp;
-		
+		</c:if>
 		<!-- 본인만 수정,삭제 버튼 표시 -->
-		<%-- <c:if test=" ${member.member_id == board.writer} "> --%>
+		<c:if test="${member.m_nickname == board.board_writer}"> 
 			<a href="updateWrite?board_id=${board.board_id}">수정</a>&nbsp;&nbsp;&nbsp;
 			<a href="#" onClick="deletecheck()">삭제</a>&nbsp;&nbsp;&nbsp;
-		
+		</c:if>
 		
 		<button type="button" id="list_btn" onClick="location.href='board'">목록</button>
 		</div>
@@ -108,6 +108,7 @@
 	
 	<!-- 댓글 작성 -->
 <form action="/replyWrite" method="post">
+<input type="hidden" name="reply_writer" value="${member.m_nickname}">
 <input type="hidden" name="board_id" value="${board.board_id}">
 <div style="width:700px; text-align:center;">
    <%-- <c:if test="${sessionScope.userid != null}"> 로그인상태일때 --%>
@@ -153,7 +154,7 @@
 	 
 		<tr>
 			<td>${row.reply_writer}
-			     (<%-- <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd a HH:mm:ss" /> --%> )<br> 
+			     (${row.reply_date}<%-- <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd a HH:mm:ss" /> --%> )<br> 
 			    ${str}
 			</td>
 		</tr>
@@ -163,10 +164,13 @@
 		<input type="hidden" name="reply_id" value="${row.reply_id}">
 		
 		<textarea name="reply_content"></textarea>
+		<c:if test="${row.reply_writer == member.m_nickname}"> 
 		<button type="submit">수정</button>
+		</c:if>
 		</form>
+		<c:if test="${row.reply_writer == member.m_nickname}">
 		<button type="button" class="replyDelete" data-reply_id="${row.reply_id}">삭제</button>
-		
+		</c:if>
 		
 	</c:forEach>
 	

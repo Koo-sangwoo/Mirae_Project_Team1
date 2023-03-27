@@ -6,7 +6,7 @@
 	
 	<!-- 게시글 리스트 -->
 	<select id="listAllBoard" resultType="com.music.pro.vo.board.BoardVO">
-		SELECT * FROM BOARD ORDER BY BOARD_ID
+		SELECT * FROM BOARD ORDER BY BOARD_ID DESC
 	</select>
 	
 	<!-- 게시글 상세보기 -->
@@ -24,12 +24,16 @@
 		INSERT INTO BOARD (
 			BOARD_ID, 
 			BOARD_TITLE, 
-			BOARD_CONTENT 
+			BOARD_CONTENT,
+			CATEGORY,
+			BOARD_WRITER 
 			
 		) VALUES(
 			BOARD_SEQ.NEXTVAL, 
 			#{board_title}, 
-			#{board_content} 
+			#{board_content},
+			#{category},
+			#{board_writer} 
 			
 		)
 		</insert>
