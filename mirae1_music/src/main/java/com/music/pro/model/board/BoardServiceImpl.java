@@ -43,5 +43,9 @@ import com.music.pro.model.board.BoardService;
 		// 게시글 조회수
 		public void viewCnt(int board_id) throws Exception {
 		boardDAO.viewCnt(board_id);
-}
+        }
+		// 게시글 제목에 댓글수 표시
+		public void replyCnt(int board_id) throws Exception	{
+			boardDAO.replyCnt(board_id);
+	}
 	}

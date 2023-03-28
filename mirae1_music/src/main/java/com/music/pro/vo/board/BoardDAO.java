@@ -50,4 +50,8 @@ public class BoardDAO {
 		public void viewCnt(int board_id) {
 			mybatis.update("Board.viewCnt", board_id);
 		}
+		//게시글 댓글수 
+		public void replyCnt(int board_id) {
+			mybatis.update("Board.replyCnt", board_id);
+		}
 }

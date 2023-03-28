@@ -33,7 +33,7 @@
 				<td>${row.board_id}</td>
 				<td>${row.category} 
 				<td><a href="view?board_id=${row.board_id}">
-			 	${row.board_title}</a>
+			 	${row.board_title}</a><c:if test="${row.replycnt > 0}">[${row.replycnt}]</c:if>
 				</td>
 				<td>${row.board_writer}</td> 
 		    	<td>

@@ -14,5 +14,5 @@ public interface BoardService {
 	void deleteBoard(int board_id) throws Exception;						// 게시글 삭제
     void updateBoard(BoardVO vo) throws Exception;          //게시글 수정
     void viewCnt(int board_id) throws Exception; 	//게시글 조회수
-	
+    void replyCnt(int board_id) throws Exception;  //게시글 댓글수
 }

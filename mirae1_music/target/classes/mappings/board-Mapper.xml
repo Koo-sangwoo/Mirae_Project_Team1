@@ -61,6 +61,13 @@
 		WHERE
 		BOARD_ID = #{board_id}
 	</update>
+	
+	<!-- 댓글수 -->
+	<update id="replyCnt" parameterType="int">
+	update board b
+	set b.replycnt = (select count(reply_id) from reply where board_id = #{board_id})
+	where b.board_id = #{board_id}
+</update>
 		
 		
 </mapper>
