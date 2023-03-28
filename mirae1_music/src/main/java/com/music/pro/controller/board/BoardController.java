@@ -83,6 +83,8 @@ public class BoardController {
 					List<ReplyVO> list=replyService.getreplylist(board_id);  //댓글목록
 					model.addAttribute("list",list);
 					model.addAttribute("board", boardService.readBoard(board_id)); // 게시글 읽기
+					boardService.viewCnt(board_id);                                //조회수
+					boardService.replyCnt(board_id);                
 					return "board/boardview";
 				}
 		

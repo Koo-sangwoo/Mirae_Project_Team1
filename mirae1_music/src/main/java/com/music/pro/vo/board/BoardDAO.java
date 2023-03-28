@@ -46,4 +46,12 @@ public class BoardDAO {
 		public void deleteBoard(int board_id) {
 		mybatis.delete("Board.deleteBoard", board_id);
 }
+		//게시글 조회수
+		public void viewCnt(int board_id) {
+			mybatis.update("Board.viewCnt", board_id);
+		}
+		//게시글 댓글수 
+		public void replyCnt(int board_id) {
+			mybatis.update("Board.replyCnt", board_id);
+		}
 }

@@ -68,7 +68,7 @@
 			 ${board.board_date}  
 			</div>
 			<div>
-			&nbsp;&nbsp;&nbsp;조회수 : <%--${board.board_viewcnt}--%>
+			&nbsp;&nbsp;&nbsp;조회수 : ${board.viewcnt}
 			</div>
 			</td>
 			</tr>
@@ -107,6 +107,7 @@
 	</div>
 	
 	<!-- 댓글 작성 -->
+<c:if test="${member.m_id != null}">
 <form action="/replyWrite" method="post">
 <input type="hidden" name="reply_writer" value="${member.m_nickname}">
 <input type="hidden" name="board_id" value="${board.board_id}">
@@ -115,10 +116,17 @@
     <textarea rows="5" cols="80" id="content" name="reply_content" placeholder="댓글을 작성하세요"></textarea>
     <br>
     <button type="submit">댓글 쓰기</button>
-   
 </div>
 </form>
-	
+</c:if>
+
+<c:if test="${member.m_id ==null}">
+<div style="width:700px; text-align:center;">
+   <%-- <c:if test="${sessionScope.userid != null}"> 로그인상태일때 --%>
+    <a href="login_form"><textarea rows="5" cols="80" id="content" name="reply_content" placeholder="로그인 후 이용가능합니다 .로그인하시겠습니까?"></textarea>
+    </a>
+</div>
+</c:if>	
 	
 	<br/><br/><br/>
 	<!-- 현재 글을 기준으로 이전글,다음글 리스트 -->

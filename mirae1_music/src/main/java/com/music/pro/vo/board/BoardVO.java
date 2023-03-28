@@ -12,7 +12,9 @@ public class BoardVO {
 	private String board_date;  //게시글 생성날짜 (~~전)
 	private String category;
 	private String likecount; //추천수
-	private String viewcount; //조회수
+	private String viewcnt; //조회수
+	private String replycnt; //댓글수
+	
 	public int getBoard_id() {
 		return board_id;
 	}
@@ -55,20 +57,24 @@ public class BoardVO {
 	public void setLikecount(String likecount) {
 		this.likecount = likecount;
 	}
-	public String getViewcount() {
-		return viewcount;
+	public String getViewcnt() {
+		return viewcnt;
 	}
-	public void setViewcount(String viewcount) {
-		this.viewcount = viewcount;
+	public void setViewcnt(String viewcnt) {
+		this.viewcnt = viewcnt;
+	}
+	public String getReplycnt() {
+		return replycnt;
+	}
+	public void setReplycnt(String replycnt) {
+		this.replycnt = replycnt;
 	}
 	@Override
 	public String toString() {
 		return "BoardVO [board_id=" + board_id + ", board_title=" + board_title + ", board_writer=" + board_writer
 				+ ", board_content=" + board_content + ", board_date=" + board_date + ", category=" + category
-				+ ", likecount=" + likecount + ", viewcount=" + viewcount + "]";
+				+ ", likecount=" + likecount + ", viewcnt=" + viewcnt + ", replycnt=" + replycnt + "]";
 	}
-	
-	
 	
 	}
 	

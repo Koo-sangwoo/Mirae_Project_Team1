@@ -52,6 +52,22 @@
 	<delete id="deleteBoard">
 		DELETE FROM BOARD WHERE BOARD_ID = #{board_id}
 	</delete>
+	
+	<!-- 조회수 -->
+	<update id="viewCnt">
+		UPDATE BOARD
+		SET
+		VIEWCNT = VIEWCNT+1
+		WHERE
+		BOARD_ID = #{board_id}
+	</update>
+	
+	<!-- 댓글수 -->
+	<update id="replyCnt" parameterType="int">
+	update board b
+	set b.replycnt = (select count(reply_id) from reply where board_id = #{board_id})
+	where b.board_id = #{board_id}
+</update>
 		
 		
 </mapper>
