@@ -9,6 +9,26 @@
 		SELECT * FROM BOARD ORDER BY BOARD_ID DESC
 	</select>
 	
+	<!-- 게시글 리스트(페이징적용) -->
+	
+	 <select id="listAllBoardPaging" resultType="com.music.pro.vo.board.BoardVO">
+    <![CDATA[
+        select board_id, board_title, board_content, board_writer, board_date,category,replycnt from(
+  select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, board_id, board_title, board_content, board_writer, board_date,category,replycnt 
+     from board where rownum <= #{pageNum} * #{amount} order by board_id desc)   
+        where rn > (#{pageNum} -1) * #{amount}
+    ]]>
+    </select>
+    
+    
+    <!-- 게시물 총 개숫 -->
+    <select id="getTotal" resultType="int">
+    
+        select count(*) from board
+    
+    </select>
+    
+	
 	<!-- 게시글 상세보기 -->
 	<select id="readBoard" resultType="com.music.pro.vo.board.BoardVO">
 		SELECT 

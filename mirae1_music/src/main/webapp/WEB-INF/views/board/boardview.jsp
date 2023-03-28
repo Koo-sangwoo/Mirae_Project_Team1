@@ -32,6 +32,22 @@
 				+ "&reply_id=" + $(this).attr("data-reply_id");
 	});
 	});
+	$(function () {
+	let form = $("#infoForm");
+	$("#list_btn").on("click", function(e) {
+		form.find("#board_id").remove();
+		form.attr("action", "/board");
+		form.submit();
+	});
+	});
+	$(function () {
+		let form = $("#infoForm");
+	$("#modify_btn").on("click", function(e) {
+		form.attr("action", "updateWrite");
+		form.submit();
+		console.log('ㅇㅇㅇㅇ');
+	});
+	});
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -96,9 +112,14 @@
 		</c:if>
 		<!-- 본인만 수정,삭제 버튼 표시 -->
 		<c:if test="${member.m_nickname == board.board_writer}"> 
-			<a href="updateWrite?board_id=${board.board_id}">수정</a>&nbsp;&nbsp;&nbsp;
+			<a href="#" id="modify_btn">수정</a>&nbsp;&nbsp;&nbsp;
 			<a href="#" onClick="deletecheck()">삭제</a>&nbsp;&nbsp;&nbsp;
 		</c:if>
+		<form id="infoForm" action="/updateWrite" method="get">
+		<input type="hidden" id="board_id" name="board_id" value='<c:out value="${board.board_id}"/>'>
+		<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+		<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
+		</form>
 		
 		<button type="button" id="list_btn" onClick="location.href='board'">목록</button>
 		</div>

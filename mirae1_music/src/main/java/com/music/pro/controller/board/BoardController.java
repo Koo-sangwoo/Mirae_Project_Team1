@@ -20,6 +20,7 @@ import com.music.pro.vo.board.ReplyVO;
 import com.music.pro.model.board.Pager;
 import com.music.pro.model.board.ReplyService;
 import com.music.pro.model.board.BoardService;
+import com.music.pro.model.board.PageVO;
 
 @Controller
 public class BoardController {
@@ -39,7 +40,7 @@ public class BoardController {
 		
 	
 	 // 게시글 목록 + 검색 + 페이징
-	@RequestMapping("/board")
+/*	@RequestMapping("/board")
 	public String listAllBoard(Model model, HttpSession session)
 			throws Exception {
 
@@ -52,7 +53,34 @@ public class BoardController {
 		model.addAttribute("map", map);
 
 		return "board/list";
-	}	
+	}*/
+	
+	
+	//게시글 목록 + 페이징
+	
+	@RequestMapping("/board")
+	public String listAllBoard(Model model, HttpSession session, Criteria cri)
+			throws Exception {
+
+	/*	List<BoardVO> list = boardService.listAllBoard(); // 게시글 목록
+*/
+		HashMap<String, Object> map = new HashMap<String, Object>();
+	/*	map.put("list", list); // map에 자료 저장
+*/		map.put("list", boardService.listAllBoardPaging(cri));
+		model.addAttribute("map", map);
+		
+		int total = boardService.getTotal();
+		
+		PageVO pageMake = new PageVO(cri, total);
+		
+		model.addAttribute("pageMaker",pageMake);
+
+		return "board/list";
+	}
+	
+	
+	
+	
 		               
 	//게시글 쓰기뷰
 		@RequestMapping("/write")
@@ -79,10 +107,11 @@ public class BoardController {
 		
 		// 게시글 상세보기
 				@RequestMapping("/view")
-				public String readBoard(int board_id,Model model) throws Exception {
+				public String readBoard(int board_id,Model model,Criteria cri) throws Exception {
 					List<ReplyVO> list=replyService.getreplylist(board_id);  //댓글목록
 					model.addAttribute("list",list);
 					model.addAttribute("board", boardService.readBoard(board_id)); // 게시글 읽기
+					model.addAttribute("cri",cri);
 					boardService.viewCnt(board_id);                                //조회수
 					boardService.replyCnt(board_id);                
 					return "board/boardview";
@@ -97,8 +126,9 @@ public class BoardController {
 		
 		// 게시글 수정 뷰
 		@RequestMapping("/updateWrite")
-		public String updateWrite(int board_id,Model model) throws Exception {
+		public String updateWrite(int board_id,Model model, Criteria cri) throws Exception {
 			model.addAttribute("board", boardService.readBoard(board_id));
+			model.addAttribute("cri", cri);
 			return "board/updateWrite";
 		}
 
