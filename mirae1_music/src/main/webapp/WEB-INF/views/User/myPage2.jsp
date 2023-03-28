@@ -43,14 +43,6 @@ $(document).ready(function(){
 				<hr>
 			</div>
 			<div>
-				<div>
-					<span>비밀번호 </span>
-				</div>
-				<input type="password" id="m_password" name="m_password"
-					value="${ member.m_password }" disabled="disabled">
-				<hr>
-			</div>
-			<div>
 				<span>닉네임 </span>
 			</div>
 			<input type="text" id="m_nickname" name="m_nickname"

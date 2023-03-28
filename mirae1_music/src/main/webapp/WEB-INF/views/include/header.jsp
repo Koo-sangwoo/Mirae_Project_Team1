@@ -16,9 +16,19 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="./resources/js/login.js"></script>
+<script type="text/javascript">
+function goCart(){
+	var m_id = $("#m_id").val();
+	console.log(m_id);
+	document.frm.method = "GET";
+	document.frm.action="cart";
+	document.frm.submit();
+}
+</script>
 <title>Insert title here</title>
 </head>
 <body>
+	<form name="frm" id="frm">
 	<nav class="navbar navbar-expand-sm navbar-dark bg-custom"> <a
 		class="navbar-brand" href="/"> <img
 		src="./resources/images/logo_dark.png" width="150px">
@@ -61,46 +71,42 @@
 				</div></li>
 		</ul>
 		<c:if test="${ member.m_id == null }">
-			<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
-				src="./resources/images/search-outline.png">
-			</a>
-			<a class=header_login onclick="location.href='login_form'"> <img
-				src="./resources/images/person-outline.png">
-			</a>
-		</c:if>
+				<a class=header_login onclick="location.href='login_form'"> <img
+					src="./resources/images/person-outline.png">
+				</a>
+			</c:if>
 
-		<c:if test="${ member.m_code == 0 }">
-			<a><p style="margin: 14px 20px; color: white">
-					<span style="font-weight: bold;">[${ member.m_nickname }]님
-						환영합니다. </span>
-				</p></a>
-			<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
-				src="./resources/images/search-outline.png">
-			</a>
-			<a class=header_login onclick="location.href='myPage'"> <img
-				src="./resources/images/person-outline.png">
-			</a>
-			<a class="header-login" onclick="logout()"><img
-				src="./resources/images/User/logout2.png"></a>
-		</c:if>
+			<c:if test="${ member.m_code == 0 }">
+				<a><input type="hidden" id="m_id" name="m_id" value="${member.m_id}" /></a>
+				<a><p style="margin: 14px 20px; color: white">
+						<span style="font-weight: bold;">[${ member.m_nickname }]님
+							환영합니다. </span>
+					</p></a>
+				<a class="header-search" onclick="goCart()"><img
+					src="./resources/images/User/cart.png"></a>
+				<a class=header_login onclick="location.href='myPage'"> <img
+					src="./resources/images/person-outline.png"></a>
+				<a class="header-login" onclick="logout()"><img
+					src="./resources/images/User/logout2.png"></a>
+			</c:if>
 
-		<c:if test="${ member.m_code == 123 }">
-			<a><p style="margin: 14px 20px; color: white">
-					<span style="font-weight: bold;">[관리자]님 환영합니다. </span>
-				</p></a>
-			<a class=header_search onclick="누르면검색팝업뜨는메소드" href="#"> <img
-				src="./resources/images/search-outline.png">
-			</a>
-			<a class=header_login onclick="location.href='myPage'"> <img
-				src="./resources/images/person-outline.png">
-			</a>
-			<a class="header-login" onclick="logout()"><img
-				src="./resources/images/User/logout2.png"></a>
-		</c:if>
+			<c:if test="${ member.m_code == 123 }">
+				<a><input type="hidden" id="m_id" name="m_id" value="${member.m_id}" /></a>
+				<a><p style="margin: 14px 20px; color: white">
+						<span style="font-weight: bold;">[관리자]님 환영합니다. </span>
+					</p></a>
+				<a class="header-search" onclick="goCart()"><img
+					src="./resources/images/User/cart.png"></a>
+				<a class=header_login onclick="location.href='myPage'"> <img
+					src="./resources/images/person-outline.png"></a>
+				<a class="header-login" onclick="logout()"><img
+					src="./resources/images/User/logout2.png"></a>
+			</c:if>
 		<!--  <form class="form-inline my-2 my-md-0">
       <input class="form-control" type="text" placeholder="Search"> 
     </form>-->
 	</div>
 	</nav>
+	</form>
 </body>
 </html>

@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	    <mapper resource="mappings/board-Mapper.xml" />
 	    <mapper resource="mappings/reply-Mapper.xml" />
 	    <mapper resource="mappings/user-mapper.xml"/>
+	    <mapper resource="mappings/cart-mapper.xml"/>
 		<mapper resource="mappings/product-Mapper.xml"/>
 		<mapper resource="mappings/music-Mapper.xml"/>
 	</mappers>
