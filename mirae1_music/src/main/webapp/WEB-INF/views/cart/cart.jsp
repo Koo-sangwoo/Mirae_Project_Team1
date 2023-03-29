@@ -86,13 +86,9 @@
 		
 		function insertOrder() {
 
-            var p_id = $("#p_id").val();
             var p_quantity = $("#p_quantity").val();
             var m_id = $("#m_id").val();
-            var p_picture = $("#p_picture").val();
-            var p_name = $("#p_name").val();
-            var p_price = $("#p_price").val();
-
+           
             if (m_id == null || m_id == "") {
                swal("", "로그인 후 이용하실 수 있습니다.", "warning");
                window.location.href = "login_form";

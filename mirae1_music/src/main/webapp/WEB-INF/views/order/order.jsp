@@ -36,6 +36,12 @@ h1 {
 }
 -->
 </style>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
+
 
 <body>
 	<jsp:include page="../include/header.jsp"></jsp:include>
@@ -105,40 +111,33 @@ h1 {
 			</div>
 		</div>
 	</div>
-<script type="text/javascript"
-	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript">
-		/*아임포트를 활용한 결제 api*/
-		var amount = parseInt($("#totalPrice").val());
-		$("#buyNow").click(function() {
-			var amount = basketSumInput.val();
-				var IMP = window.IMP;
-				IMP.init("imp75381885");
-				IMP.request_pay({
-					pg : "kakaopay",//결제 대행을 해야하는 pg사
-					pay_method : "card",
-					merchant_uid : 'merchant_' + new Date().getTime(), // 주문번호
-					name : '${cart_info.p_name}외', //품목이름
-					amount : amount,//가격
-					buyer_email : "gildong@gmail.com",//여기 까진 이상없음
-					buyer_name : "${member.m_name}",
-					buyer_tel : '${member.m_phonenum}',
-					buyer_addr : '${member.m_address}',
-				}, function(rsp) { // callback
-					if (rsp.success) {
-						alert("결제가 완료되었습니다!")
-						document.order.action = "order_complete";
-						document.order.submit();
 
-					} else {
-						var msg = "결제가 실패했습니다!"
-						swal("", msg, "fail");
-					}
-				});
-			
-		});
-		</script>
+	<script type="text/javascript">
+$("#buyNow").click(function() {
+var IMP = window.IMP;
+IMP.init("imp75381885");
+IMP.request_pay({
+	pg : "kakaopay",//결제 대행을 해야하는 pg사
+	pay_method : "card",
+	merchant_uid : 'merchant_' + new Date().getTime(), // 주문번호
+	name : 'zzz', //품목이름
+	amount : "1000",//가격
+	buyer_email : "gildong@gmail.com",//여기 까진 이상없음
+	buyer_name : "zz",
+	buyer_tel : 'z',
+	buyer_addr : 'zz',
+}, function(rsp) { // callback
+	if (rsp.success) {
+		alert("결제가 완료되었습니다!")
+		document.items.action = "order_completeInsert";
+		document.items.submit();
+
+	} else {
+		var msg = "결제가 실패했습니다!"
+		swal("", msg, "fail");
+	}
+});
+});
+</script>
 </body>
 </html>

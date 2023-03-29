@@ -11,63 +11,64 @@ public class Criteria {
        private String[] typeArr; //검색 타입 배열 반환
        
        public Criteria() {    //기본생성자 -> 기본세팅 : pageNum = 1, amount = 10
-    	   this(1,10); 
+          this(1,10); 
        }
        
        public Criteria(int pageNum, int amount) { //생성자 => 원하는 pageNum, 원하는 amount 
-    	   this.pageNum = pageNum;
-    	   this.amount = amount;
+          this.pageNum = pageNum;
+          this.amount = amount;
        }
 
-	public int getPageNum() {
-		return pageNum;
-	}
+   public int getPageNum() {
+      return pageNum;
+   }
 
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
-	}
+   public void setPageNum(int pageNum) {
+      this.pageNum = pageNum;
+   }
 
-	public int getAmount() {
-		return amount;
-	}
+   public int getAmount() {
+      return amount;
+   }
 
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
+   public void setAmount(int amount) {
+      this.amount = amount;
+   }
 
-	public String getKeyword() {
-		return keyword;
-	}
+   public String getKeyword() {
+      return keyword;
+   }
 
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-	
-	public String getType() {
-		return type;
-	}
+   public void setKeyword(String keyword) {
+      this.keyword = keyword;
+   }
+   
+   public String getType() {
+      return type;
+   }
 
-	public void setType(String type) {
-		this.type = type;
-		this.typeArr = type.split("");
-	}
+   public void setType(String type) {
+      this.type = type;
+      this.typeArr = type.split("");
+   }
 
-	public String[] getTypeArr() {
-		return typeArr;
-	}
+   public String[] getTypeArr() {
+      return typeArr;
+   }
 
-	public void setTypeArr(String[] typeArr) {
-		this.typeArr = typeArr;
-	}
+   public void setTypeArr(String[] typeArr) {
+      this.typeArr = typeArr;
+   }
 
-	@Override
-	public String toString() {
-		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", keyword=" + keyword + ", type=" + type
-				+ ", typeArr=" + Arrays.toString(typeArr) + "]";
-	}
+   @Override
+   public String toString() {
+      return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", keyword=" + keyword + ", type=" + type
+            + ", typeArr=" + Arrays.toString(typeArr) + "]";
+   }
 
-	
-	
+   
+   
        
        
 }
+

@@ -180,7 +180,7 @@
 				}, function(rsp) { // callback
 					if (rsp.success) {
 						alert("결제가 완료되었습니다!")
-						document.items.action = "order_complete";
+						document.items.action = "order_completeInsert";
 						document.items.submit();
 
 					} else {
