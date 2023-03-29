@@ -19,18 +19,18 @@
 
 <script>
 $(document).ready(function(){
-	let moveForm=$("#moveForm");
-	
+   let moveForm=$("#moveForm");
+   
 $(".move").on("click",function(e) {
-	
-	e.preventDefault();
-	moveForm.append("<input type='hidden' name='board_id' value='"+$(this).attr("href")+ "'>");
-	moveForm.attr("action" , "/view");
-	moveForm.submit();
-	console.log('성공성공성공성공성공성공성공')
+   
+   e.preventDefault();
+   moveForm.append("<input type='hidden' name='board_id' value='"+$(this).attr("href")+ "'>");
+   moveForm.attr("action" , "/view");
+   moveForm.submit();
+   console.log('성공성공성공성공성공성공성공')
 });
-	
-	
+   
+   
 $(".pageInfo a").on("click", function(e){
     e.preventDefault();
     console.log('성공1');
@@ -80,19 +80,19 @@ $(".pageInfo a").on("click", function(e){
 <th>날짜</th>
 </tr>
 <c:forEach var="row" items="${map.list}">
-			<tr>
-				<td>${row.board_id}</td>
-				<td>${row.category} 
-				<td><a href="${row.board_id}" class="move">
-			 	${row.board_title}</a><c:if test="${row.replycnt > 0}">[${row.replycnt}]</c:if>
-				</td>
-				<td>${row.board_writer}</td> 
-		    	<td>
-		 		 ${row.board_date}
-				</td>
-	   <%-- 	<td>${row.viewcnt}</td> --%>
-			</tr>
-	</c:forEach>
+         <tr>
+            <td>${row.board_id}</td>
+            <td>${row.category} 
+            <td><a href="${row.board_id}" class="move">
+             ${row.board_title}</a><c:if test="${row.replycnt > 0}">[${row.replycnt}]</c:if>
+            </td>
+            <td>${row.board_writer}</td> 
+             <td>
+              ${row.board_date}
+            </td>
+      <%--    <td>${row.viewcnt}</td> --%>
+         </tr>
+   </c:forEach>
 </thead>
 <tbody>
 
@@ -121,15 +121,15 @@ $(".pageInfo a").on("click", function(e){
 </div>
 
 
-<c:if test="${member.m_id != null}">	
+<c:if test="${member.m_id != null}">   
 <button type="버튼" onclick="location.href='/write';" id="writebtn" >글쓰기</button>
 </c:if>
 
 
 
 <!-- 페이지 네비게이션 출력 -->
-			<div align="center">
-		
+         <div align="center">
+      
     <div class="pageInfo_wrap" >
         <div class="pageInfo_area">
         <ul id="pageInfo" class="pageInfo">
@@ -154,15 +154,15 @@ $(".pageInfo a").on("click", function(e){
                 </ul>
         </div>
     </div>
-    		<form id="moveForm" method="get">
-    		
-	    <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+          <form id="moveForm" method="get">
+          
+       <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
         <input type="hidden" name="amount" value="${pageMaker.cri.amount}"> 
          <input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
          <input type="hidden" name="type" value="${pageMaker.cri.type}">
-				</form>
+            </form>
  
-				</div>
+            </div>
 <!-- <div class="d-flex flex-row justify-content-around">
 <ul class="pagination">
 <li><a href="#">1</a></li>
@@ -206,6 +206,6 @@ height: 35px;
 
 
   
-	<jsp:include page="../include/footer.jsp"></jsp:include>
+   <jsp:include page="../include/footer.jsp"></jsp:include>
 </body>
 </html>

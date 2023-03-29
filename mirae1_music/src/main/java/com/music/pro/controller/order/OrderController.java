@@ -24,8 +24,8 @@ public class OrderController {
 	@PostMapping(value = "/order")
 	public ModelAndView orderTest(UserVO vo, CartVO cvo) {
 		ModelAndView mav = new ModelAndView();
-		/* mav.addObject("order_info",service.now_orderInfo(pvo)); */
-		service.insertCart(cvo);
+		System.out.println(vo);
+		System.out.println(cvo);
 		System.out.println("장바구니 데이터 추가완료");
 		mav.setViewName("order/order");// 구매로 바로 이동
 		mav.addObject("cus_info", service.now_cusInfo(vo));// 고객정보 가져오기
@@ -37,7 +37,7 @@ public class OrderController {
 	@PostMapping(value = "order_completeInsert")
 	public ModelAndView order_complete(OrderListVO vo) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/");
+		mav.setViewName("order/orderlist");
 		service.insertOrderList(vo);
 		System.out.println("컨트롤러에서 주문목록 삽입 완료");
 		List<OrderListVO> list = service.getOrderList(vo);
