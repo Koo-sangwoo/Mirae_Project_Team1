@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.music.pro.controller.board.Criteria;
 import com.music.pro.vo.board.BoardVO;
 
 @Repository
@@ -26,6 +27,16 @@ public class BoardDAO {
 			System.out.println("게시판리스트출력d");
 			return mybatis.selectList("Board.listAllBoard");
 		}
+		
+		//게시물 목록(페이징)
+		public List<BoardVO> listAllBoardPaging(Criteria cri) {
+			return mybatis.selectList("Board.listAllBoardPaging" , cri);
+		}
+		
+		 public int getTotal(Criteria cri) {
+			 return mybatis.selectOne("Board.getTotal" , cri);
+		 }
+		
 		
 		// 게시글 쓰기
 		public void createBoard(BoardVO vo) {

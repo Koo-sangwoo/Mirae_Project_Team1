@@ -16,6 +16,57 @@
 <!-- <<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
  --> <title>Insert title here</title>
 </head>
+
+<script>
+$(document).ready(function(){
+	let moveForm=$("#moveForm");
+	
+$(".move").on("click",function(e) {
+	
+	e.preventDefault();
+	moveForm.append("<input type='hidden' name='board_id' value='"+$(this).attr("href")+ "'>");
+	moveForm.attr("action" , "/view");
+	moveForm.submit();
+	console.log('성공성공성공성공성공성공성공')
+});
+	
+	
+$(".pageInfo a").on("click", function(e){
+    e.preventDefault();
+    console.log('성공1');
+    moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+    console.log('성공2');
+    moveForm.attr("action", "/board");
+    console.log('성공3');
+    moveForm.submit();
+    console.log('성공4');
+});   
+    
+   $(".search_area button").on("click", function(e){
+        e.preventDefault();
+        
+        let type = $(".search_area select").val();
+        let keyword = $(".search_area input[name='keyword']").val();
+        
+        if(!type){
+            alert("검색 종류를 선택하세요.");
+            return false;
+        }
+        
+        if(!keyword){
+            alert("키워드를 입력하세요.");
+            return false;
+        }        
+        
+        moveForm.find("input[name='type']").val(type);
+        moveForm.find("input[name='keyword']").val(keyword);
+        moveForm.find("input[name='pageNum']").val(1);
+        moveForm.submit();
+    });   
+    
+});
+</script>
+
 <body>
 <div class="container" width="200">
 <!-- <div class="row"> -->
@@ -32,7 +83,7 @@
 			<tr>
 				<td>${row.board_id}</td>
 				<td>${row.category} 
-				<td><a href="view?board_id=${row.board_id}">
+				<td><a href="${row.board_id}" class="move">
 			 	${row.board_title}</a><c:if test="${row.replycnt > 0}">[${row.replycnt}]</c:if>
 				</td>
 				<td>${row.board_writer}</td> 
@@ -53,7 +104,23 @@
 
 <hr/>
  
-<a id="searchbtn">검색</a>
+<div class="search_wrap">
+<div class="search_area">
+ <select name="type">
+                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
+                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+            </select>    
+<input type="text" name="keyword" value="${pageMaker.cri.keyword}">
+<button>검색</button>
+</div>
+</div>
+
+
 <c:if test="${member.m_id != null}">	
 <button type="버튼" onclick="location.href='/write';" id="writebtn" >글쓰기</button>
 </c:if>
@@ -62,32 +129,40 @@
 
 <!-- 페이지 네비게이션 출력 -->
 			<div align="center">
-				<c:if test="${map.pager.curBlock > 1}">
-					<a href="board?curPage=1
-							&searchOption=${searchOption}&keyword=${keyword}
-							&search=${search}">[처음]</a>
-				</c:if>
-				<c:if test="${map.pager.curBlock > 1}">
-					<a href="board?curPage=${map.pager.prevPage}
-							&searchOption=${searchOption}&keyword=${keyword}
-							&search=${search}">[이전]</a>
-				</c:if>
+		
+    <div class="pageInfo_wrap" >
+        <div class="pageInfo_area">
+        <ul id="pageInfo" class="pageInfo">
+        
+        <!-- 이전페이지 버튼 -->
+      <c:if test="${pageMaker.prev}">
+  <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">Previous</a></li>
+      </c:if>
+        
+        
+  <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+ <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+</c:forEach>
 
-				<c:forEach var="num" begin="${map.pager.blockBegin}" 
-							end="${map.pager.blockEnd}">
-					<c:choose>
-						<c:when test="${num == map.pager.curPage}">
-							<!-- 현재 페이지인 경우 하이퍼링크 제거 -->
-							<span style="color: red;">${num}</span>
-						</c:when>
-						
-						<c:otherwise>
-							<a href="board?curPage=${num}
-							&searchOption=${searchOption}&keyword=${keyword}
-							&search=${search}">${num}</a>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
+                
+     <!-- 다음페이지 버튼 -->
+   <c:if test="${pageMaker.next}">
+ <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+    </c:if>    
+                
+                
+                </ul>
+        </div>
+    </div>
+    		<form id="moveForm" method="get">
+    		
+	    <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+        <input type="hidden" name="amount" value="${pageMaker.cri.amount}"> 
+         <input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+         <input type="hidden" name="type" value="${pageMaker.cri.type}">
+				</form>
+ 
+				</div>
 <!-- <div class="d-flex flex-row justify-content-around">
 <ul class="pagination">
 <li><a href="#">1</a></li>
@@ -96,6 +171,9 @@
 </div> -->
 
 <style>
+.search_area select{
+height: 35px;
+}
 #searchbtn{
  position: absolute;
   left:215px
@@ -104,7 +182,27 @@
  float:right;
  right: 100px;
 }
-    </style>
+
+.pageInfo{
+      list-style : none;
+      display: inline-block;
+    margin: 50px 0 0 100px;      
+  }
+  .pageInfo li{
+      float: left;
+    font-size: 20px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
+  }
+ a:link {color:black; text-decoration: none;}
+ a:visited {color:black; text-decoration: none;}
+ a:hover {color:black; text-decoration: underline;}
+ 
+  .active{
+      background-color: #cdd5ec;
+  }
+</style>
 
 
   

@@ -9,6 +9,62 @@
 		SELECT * FROM BOARD ORDER BY BOARD_ID DESC
 	</select>
 	
+	<!-- 게시글 리스트(페이징적용) -->
+	
+	 <select id="listAllBoardPaging" resultType="com.music.pro.vo.board.BoardVO">
+    <![CDATA[
+        select board_id, board_title, board_content, board_writer, board_date,category,replycnt from(
+  select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, board_id, board_title, board_content, board_writer, board_date,category,replycnt 
+     from board where rownum <= #{pageNum} * #{amount} 
+    ]]>
+     <if test="keyword != null">
+     <include refid="criteria"></include>
+     </if>
+     <![CDATA[
+               
+              order by board_id desc)   
+                 
+     where rn > (#{pageNum} -1) * #{amount}
+     
+     ]]>
+    </select>
+    
+    <!-- 검색 조건문 -->
+    <sql id="criteria">
+        <trim prefix="AND (" suffix=")" prefixOverrides="OR">
+            <foreach collection="typeArr" item="type">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                           board_title like '%'||#{keyword}||'%' 
+                        </when>
+                        <when test="type == 'C'.toString()">
+                           board_content like '%'||#{keyword}||'%' 
+                        </when>
+                        <when test="type == 'W'.toString()">
+                           board_writer like '%'||#{keyword}||'%' 
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+    </sql>
+    
+    
+    <!-- 게시물 총 개수 -->
+    <select id="getTotal" resultType="int">
+    
+        select count(*) from board
+        
+        <if test="keyword != null">
+        
+         where board_id > 0 <include refid="criteria"></include>
+         
+        </if>
+    
+    </select>
+    
+	
 	<!-- 게시글 상세보기 -->
 	<select id="readBoard" resultType="com.music.pro.vo.board.BoardVO">
 		SELECT 

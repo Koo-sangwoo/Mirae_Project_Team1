@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.music.pro.vo.board.BoardDAO;
 import com.music.pro.vo.board.BoardVO;
+import com.music.pro.controller.board.Criteria;
 import com.music.pro.model.board.BoardService;
 
 	@Service("BoardService")
@@ -20,6 +21,12 @@ import com.music.pro.model.board.BoardService;
 		public List<BoardVO> listAllBoard() throws Exception {
 			return boardDAO.listAllBoard();
 		}
+		
+		 /* 게시판 목록(페이징 적용) */
+	   
+	    public List<BoardVO> listAllBoardPaging(Criteria cri) {
+	        return boardDAO.listAllBoardPaging(cri);
+	    }    
 		
 		// 게시글 쓰기
 		public void createBoard(BoardVO vo) throws Exception {
@@ -48,4 +55,8 @@ import com.music.pro.model.board.BoardService;
 		public void replyCnt(int board_id) throws Exception	{
 			boardDAO.replyCnt(board_id);
 	}
+		//총 게시글 수
+		 public int getTotal(Criteria cri) throws Exception {
+			return boardDAO.getTotal(cri);
+		 }
 	}
