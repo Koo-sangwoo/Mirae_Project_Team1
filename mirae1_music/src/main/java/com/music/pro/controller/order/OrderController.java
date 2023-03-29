@@ -25,7 +25,6 @@ public class OrderController {
 	public ModelAndView orderTest(UserVO vo, CartVO cvo) {
 		ModelAndView mav = new ModelAndView();
 		/* mav.addObject("order_info",service.now_orderInfo(pvo)); */
-		service.insertCart(cvo);
 		System.out.println("장바구니 데이터 추가완료");
 		mav.setViewName("order/order");// 구매로 바로 이동
 		mav.addObject("cus_info", service.now_cusInfo(vo));// 고객정보 가져오기

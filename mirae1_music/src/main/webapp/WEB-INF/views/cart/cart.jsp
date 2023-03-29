@@ -38,15 +38,20 @@
 					<!--체크박스-->
 					<td>
 						<input type="checkbox" name="chk" value="${cartprd.p_id}" checked />
-						<input type="hidden" id="m_id" value="${member.m_id}"/>
+						<input type="hidden" id="m_id" name="m_id" value="${member.m_id}"/>
+						<input type="hidden" id="p_name" name="p_name" value="${cartprd.p_name}"/>
+						<input type="hidden" id="p_price" name="p_price" value="${cartprd.p_price}"/>
+						<input type="hidden" id="p_quantity" name="p_quantity" value="${cartprd.p_quantity}"/>
+						
+						
 					</td>
-					<td>${cartprd.p_picture}</td><!-- 이미지 -->
+					<td><img alt="" src="./resources/images/goods/${cartprd.p_picture}"  width="50" name="p_picture" height="50"></td><!-- 이미지 -->
 					<td>${cartprd.p_name}</td><!-- 상품명 -->
 					<td><fmt:formatNumber value="${cartprd.p_price}" pattern="#,###"/></td><!-- 판매가 -->
 					<td><fmt:formatNumber value="${cartprd.p_quantity}" pattern="#,###"/></td><!-- 수량 -->
 					<td>
 						<input type="button" id="delCart" onClick="deleteCart('${cartprd.p_id}', '${member.m_id}')" value="삭제" />
-						<input type="hidden" id="p_id" value="${cartprd.p_id}" />
+						<input type="hidden" id="p_id" name="p_id"value="${cartprd.p_id}" />
 					</td>
 				</tr>
 			</c:forEach>
@@ -55,7 +60,7 @@
 					<input type="button" name="cartClear" id="cartClear" onclick="clearCart()" value="상품 비우기" />
 				</td>
 				<td>
-					<input type="submit" id="order" name="order" value="구매하기">
+					<button onclick="insertOrder()" >구매하기</button>
 				</td>
 			</tr>
 		</table>
@@ -78,6 +83,27 @@
 				}
 			})
 		})
+		
+		function insertOrder() {
+
+            var p_id = $("#p_id").val();
+            var p_quantity = $("#p_quantity").val();
+            var m_id = $("#m_id").val();
+            var p_picture = $("#p_picture").val();
+            var p_name = $("#p_name").val();
+            var p_price = $("#p_price").val();
+
+            if (m_id == null || m_id == "") {
+               swal("", "로그인 후 이용하실 수 있습니다.", "warning");
+               window.location.href = "login_form";
+            } else if (p_quantity == 0) {
+               swal("", "수량을 선택해주세요.", "warning");
+               return false;
+            } else {
+               document.order.action = "order"
+               document.order.submit();
+            }
+         }
 		</script>
 	<jsp:include page="../include/footer.jsp"></jsp:include>
 </body>

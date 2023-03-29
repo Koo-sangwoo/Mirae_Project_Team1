@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.music.pro.controller.board;
 
 import java.util.HashMap;
@@ -310,4 +310,4 @@ public class BoardController {
 }
 	
 
->>>>>>> branch 'main' of https://github.com/Koo-sangwoo/Mirae_Project_Team1.git
+

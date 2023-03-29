@@ -36,4 +36,8 @@
 	<select id="getCartList" resultType="com.music.pro.vo.cart.CartVO">
 		SELECT * FROM CART WHERE m_id=#{m_id}
 	</select>
+	
+	<select id="countCartProduct" resultType="com.music.pro.vo.cart.CartVO">
+	select count(*) as count from cart where m_id = #{m_id}
+	</select>
 </mapper>
