@@ -29,7 +29,7 @@ $(document).ready(function(){
 	<div class="container">
 		<div class="order-history">
 		<h5>회원 정보 페이지</h5>
-			<a href="path/to/your/order/history">주문 내역 바로가기</a>
+			<a href="order_complete?m_id=${member.m_id}">주문 내역 바로가기</a>
 		</div>
 		<hr>
 		<div class="member-info">

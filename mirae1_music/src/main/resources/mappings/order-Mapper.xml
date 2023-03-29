@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="order">
+
+
+	<!-- 구매할 상품을 가져오는 sql문 -->
+	<!-- <select id="order_info" resultType="com.music.pro.vo.product.ProductVO"> 
+		select * from productgoods where p_id = #{p_id} </select> -->
+
+	<!-- 구매시 가져올 고객의 기본정보 -->
+	<select id="cus_info" resultType="com.music.pro.vo.user.UserVO">
+		select * from member where m_id
+		= #{m_id}
+	</select>
+
+	<insert id="insertCart" parameterType="com.music.pro.vo.cart.CartVO">
+		MERGE INTO CART
+		USING DUAL ON (m_id=#{m_id} AND p_id=#{p_id})
+		WHEN MATCHED THEN
+		UPDATE SET P_QUANTITY = P_QUANTITY + #{p_quantity}
+		WHEN NOT MATCHED THEN
+		INSERT (cart_id, p_quantity, m_id, p_id, p_name, p_picture, p_price)
+		VALUES (CART_SEQ.NEXTVAL, #{p_quantity}, #{m_id}, #{p_id}, #{p_name},
+		#{p_picture}, #{p_price})
+	</insert>
+
+	<select id="cart_info" resultType="com.music.pro.vo.cart.CartVO">
+		select * from cart where m_id
+		= #{m_id}
+	</select>
+
+	<insert id="order_complete" parameterType="com.music.pro.vo.order.OrderListVO">
+		insert into orderlist values(orderlist_seq.nextval,#{p_price},sysdate,'결제완료',#{address},#{p_id},#{m_id},#{p_picture},#{p_name},#{p_quantity})
+	</insert>
+	
+	<select id="orderlist_info" resultType="com.music.pro.vo.order.OrderListVO">
+		select * from orderlist where m_id = #{m_id}
+	</select>
+	<!-- <select id="orderNow" resultType="hashMap" parameterType="com.music.pro.vo.user.UserVO"> 
+		select a.p_price,a.p_name,a.p_picture,b.quantity from productgoods a,cart 
+		b where a.p_id = (select p_id from cart where m_id=#{m_id}); </select> -->
+
+</mapper>
