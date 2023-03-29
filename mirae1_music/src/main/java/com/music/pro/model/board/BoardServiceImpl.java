@@ -56,7 +56,7 @@ import com.music.pro.model.board.BoardService;
 			boardDAO.replyCnt(board_id);
 	}
 		//총 게시글 수
-		 public int getTotal() throws Exception {
-			return boardDAO.getTotal();
+		 public int getTotal(Criteria cri) throws Exception {
+			return boardDAO.getTotal(cri);
 		 }
 	}

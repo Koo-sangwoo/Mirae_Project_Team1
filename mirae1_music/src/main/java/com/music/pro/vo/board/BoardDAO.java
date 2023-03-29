@@ -33,8 +33,8 @@ public class BoardDAO {
 			return mybatis.selectList("Board.listAllBoardPaging" , cri);
 		}
 		
-		 public int getTotal() {
-			 return mybatis.selectOne("Board.getTotal");
+		 public int getTotal(Criteria cri) {
+			 return mybatis.selectOne("Board.getTotal" , cri);
 		 }
 		
 		

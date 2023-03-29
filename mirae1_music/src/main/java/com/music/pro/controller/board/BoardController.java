@@ -69,7 +69,7 @@ public class BoardController {
 */		map.put("list", boardService.listAllBoardPaging(cri));
 		model.addAttribute("map", map);
 		
-		int total = boardService.getTotal();
+		int total = boardService.getTotal(cri);
 		
 		PageVO pageMake = new PageVO(cri, total);
 		

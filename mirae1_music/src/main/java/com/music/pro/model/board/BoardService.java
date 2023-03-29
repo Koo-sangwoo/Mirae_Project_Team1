@@ -17,5 +17,5 @@ public interface BoardService {
     void updateBoard(BoardVO vo) throws Exception;          //게시글 수정
     void viewCnt(int board_id) throws Exception; 	//게시글 조회수
     void replyCnt(int board_id) throws Exception;  //게시글 댓글수
-    public int getTotal() throws Exception; // 총게시글 수
+    public int getTotal(Criteria cri) throws Exception; // 총게시글 수
 }

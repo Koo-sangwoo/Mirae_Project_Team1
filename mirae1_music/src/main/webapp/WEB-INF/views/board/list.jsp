@@ -20,6 +20,7 @@
 <script>
 $(document).ready(function(){
 	let moveForm=$("#moveForm");
+	
 $(".move").on("click",function(e) {
 	
 	e.preventDefault();
@@ -39,8 +40,30 @@ $(".pageInfo a").on("click", function(e){
     console.log('성공3');
     moveForm.submit();
     console.log('성공4');
+});   
     
-});
+   $(".search_area button").on("click", function(e){
+        e.preventDefault();
+        
+        let type = $(".search_area select").val();
+        let keyword = $(".search_area input[name='keyword']").val();
+        
+        if(!type){
+            alert("검색 종류를 선택하세요.");
+            return false;
+        }
+        
+        if(!keyword){
+            alert("키워드를 입력하세요.");
+            return false;
+        }        
+        
+        moveForm.find("input[name='type']").val(type);
+        moveForm.find("input[name='keyword']").val(keyword);
+        moveForm.find("input[name='pageNum']").val(1);
+        moveForm.submit();
+    });   
+    
 });
 </script>
 
@@ -81,7 +104,23 @@ $(".pageInfo a").on("click", function(e){
 
 <hr/>
  
-<a id="searchbtn">검색</a>
+<div class="search_wrap">
+<div class="search_area">
+ <select name="type">
+                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
+                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+            </select>    
+<input type="text" name="keyword" value="${pageMaker.cri.keyword}">
+<button>검색</button>
+</div>
+</div>
+
+
 <c:if test="${member.m_id != null}">	
 <button type="버튼" onclick="location.href='/write';" id="writebtn" >글쓰기</button>
 </c:if>
@@ -119,6 +158,8 @@ $(".pageInfo a").on("click", function(e){
     		
 	    <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
         <input type="hidden" name="amount" value="${pageMaker.cri.amount}"> 
+         <input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+         <input type="hidden" name="type" value="${pageMaker.cri.type}">
 				</form>
  
 				</div>
@@ -130,6 +171,9 @@ $(".pageInfo a").on("click", function(e){
 </div> -->
 
 <style>
+.search_area select{
+height: 35px;
+}
 #searchbtn{
  position: absolute;
   left:215px
