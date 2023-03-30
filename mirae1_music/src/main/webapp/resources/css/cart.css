@@ -13,6 +13,7 @@ body {
 
 /* 테이블 스타일 */
 .nullBasket {
+	font-size: large;
 	text-decoration: none;
 }
 
@@ -103,8 +104,20 @@ input[type="button"]:hover {
 	background-color: #555;
 }
 
+#orderBtn {
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	color: #fff;
+	background-color: #333;
+	cursor: pointer;
+	transition: 0.2s all;
+}
+#orderBtn:hover {
+	background-color: #555;
+}
 /* 품목 삭제와 품목 비우기 버튼 */
-.delete-btn, .clear-btn, .orderBtn {
+.delete-btn, .clear-btn .orderBtn{
 	background-color: black;
 	color: white;
 	border: none;

@@ -25,17 +25,18 @@
 	<%@ include file="../include/header.jsp"%>
 
 	<form action="order" method="post">
-		<h1 align="center">상품목록</h1>
 		<c:if test="${fn:length(cartPrd) == 0}">
 		<div class="container">
 			<table align="center" class="nullCart">
-			<td><a href="home" class="nullBasket"><p style="margin: 14px 20px; color: black;">
+			<td><a href="product?p_category=k-pop" class="nullBasket"><p style="margin: 14px 20px; color: black;">
 					<span style="font-weight: bold;">장바구니가 비었습니다. 상품 보러가기 클릭!</span>
 				</p> </a></td>
 			</table>
 		</div>
 		</c:if>
 		<c:if test="${fn:length(cartPrd) > 0 }">
+			<h1 align="center">상품목록</h1>
+			<div style="height: 80vh;">
 			<table class="cart" align="center">
 				<tr>
 					<th><input id="checkAll" type="checkbox" checked /></th>
@@ -77,10 +78,11 @@
 					<td colspan="5"><input type="button" name="cartClear"
 						id="cartClear" onclick="clearCart()" value="상품 비우기" /></td>
 					<td>
-						<button class="orderBtn" onclick="insertOrder()">구매하기</button>
+						<button id="orderBtn" onclick="insertOrder()">구매하기</button>
 					</td>
 				</tr>
 			</table>
+			</div>
 			</c:if>
 	</form>
 	<script type="text/javascript">
