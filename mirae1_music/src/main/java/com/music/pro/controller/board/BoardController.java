@@ -19,6 +19,7 @@ import com.music.pro.vo.board.BoardVO;
 import com.music.pro.vo.board.ReplyVO;
 import com.music.pro.model.board.ReplyService;
 import com.music.pro.model.board.BoardService;
+import com.music.pro.model.board.NewsService;
 import com.music.pro.model.board.PageVO;
 
 @Controller
@@ -28,6 +29,8 @@ public class BoardController {
    private BoardService boardService;
    @Autowired
    private ReplyService replyService;
+   @Autowired
+	private NewsService NewsService;
 //게시글 리스트 출력
 /*   @RequestMapping("/board")
    public String listAllBoard(Model model)throws Exception  {
@@ -142,7 +145,7 @@ public class BoardController {
       }
       
       //뉴스 리스트
-      @RequestMapping("/news")
+      @RequestMapping("")
       public String listAllBoard(Model model)throws Exception  {
          System.out.println("뉴스리스트");
          return "board/newslist";

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="News">
+	
+	<!-- 게시글 리스트 -->
+	<select id="listAllBoard" resultType="com.music.pro.vo.board.BoardVO">
+		SELECT * FROM BOARD ORDER BY BOARD_ID DESC
+	</select>
+	
+	<!-- 게시글 리스트(페이징적용) -->
+	
+	 <select id="listAllNewsPaging" resultType="com.music.pro.vo.board.NewsVO">
+    <![CDATA[
+        select news_id, news_title, news_content, news_writer, news_date,category,replycnt from(
+  select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, news_id, news_title, news_content, news_writer, news_date,category,replycnt 
+     from news where rownum <= #{pageNum} * #{amount} 
+    ]]>
+     <if test="keyword != null">
+     <include refid="criteria"></include>
+     </if>
+     <![CDATA[
+               
+              order by news_id desc)   
+                 
+     where rn > (#{pageNum} -1) * #{amount}
+     
+     ]]>
+    </select>
+    
+    <!-- 검색 조건문 -->
+    <sql id="criteria">
+        <trim prefix="AND (" suffix=")" prefixOverrides="OR">
+            <foreach collection="typeArr" item="type">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                           news_title like '%'||#{keyword}||'%' 
+                        </when>
+                        <when test="type == 'C'.toString()">
+                           news_content like '%'||#{keyword}||'%' 
+                        </when>
+                        <when test="type == 'W'.toString()">
+                           news_writer like '%'||#{keyword}||'%' 
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+    </sql>
+    
+    
+    <!-- 게시물 총 개수 -->
+    <select id="getTotal" resultType="int">
+    
+        select count(*) from news
+        
+        <if test="keyword != null">
+        
+         where news_id > 0 <include refid="criteria"></include>
+         
+        </if>
+    
+    </select>
+    
+	
+	<!-- 게시글 상세보기 -->
+	<select id="readNews" resultType="com.music.pro.vo.board.NewsVO">
+		SELECT 
+		*
+		FROM 
+		NEWS
+		WHERE
+		news_id = #{news_id}
+	</select>
+	
+	<!-- 글쓰기 -->
+	<insert id="createNews">
+		INSERT INTO news (
+			NEWS_ID, 
+			NEWS_TITLE, 
+			NEWS_CONTENT,
+			CATEGORY,
+			NEWS_WRITER 
+			
+		) VALUES(
+			news_SEQ.NEXTVAL, 
+			#{news_title}, 
+			#{news_content},
+			#{category},
+			#{news_writer} 
+			
+		)
+		</insert>
+		
+		<!-- 글 수정 -->
+	<update id="updateBoard">
+		UPDATE BOARD
+		SET
+	    BOARD_TITLE = #{board_title},
+		BOARD_CONTENT = #{board_content}
+		WHERE
+		BOARD_ID = #{board_id}
+	</update>
+		
+		<!-- 글 삭제 -->
+	<delete id="deleteBoard">
+		DELETE FROM BOARD WHERE BOARD_ID = #{board_id}
+	</delete>
+	
+	<!-- 조회수 -->
+	<update id="viewCnt">
+		UPDATE BOARD
+		SET
+		VIEWCNT = VIEWCNT+1
+		WHERE
+		BOARD_ID = #{board_id}
+	</update>
+	
+	<!-- 댓글수 -->
+	<update id="replyCnt" parameterType="int">
+	update board b
+	set b.replycnt = (select count(reply_id) from reply where board_id = #{board_id})
+	where b.board_id = #{board_id}
+</update>
+
+<!-- 썸네일 -->
+<update id="thumnail">
+update news set thumnail = (SELECT SUBSTR(news_content, INSTR(news_content, '/resources/images/') + LENGTH('/resources/images/'), INSTR(news_content, '"', INSTR(news_content, '/resources/images/')) - INSTR(news_content, '/resources/images/') - LENGTH('/resources/images/'))
+FROM news where news_id = #{news_id}) where news_id = #{news_id}
+</update>
+		
+		
+</mapper>
