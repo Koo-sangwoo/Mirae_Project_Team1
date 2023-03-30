@@ -100,7 +100,7 @@
 					원
 				</h3>
 				<h4>
-					수량 : <input type="number" min="1" max="10" id="basket_amount"
+					수량 : <input type="number" min="1" max="10" id="p_quantity"
 						name="p_quantity" value="1" required>
 				</h4>
 				<h4>
@@ -141,7 +141,7 @@
 		//수량이 늘어날 때 마다 가격을 늘려준다.
 		$(document).ready(function() {
 
-			basketAmountInput = $('#basket_amount'); //수량
+			basketAmountInput = $('#p_quantity'); //수량
 			basketSumInput = $('#totalPrice'); //총 가격
 
 			basketAmountInput.on('input', function() {
@@ -191,6 +191,8 @@
 				});
 			}
 		});
+		
+		
 	</script>
 </body>
 </html>

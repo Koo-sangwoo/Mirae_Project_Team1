@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,29 +23,29 @@
 </head>
 <body>
 	<%@ include file="../include/header.jsp"%>
-	<h1>상품목록</h1>
-	<form action="order" method="post">
-		<table class="cart" align="center">
-			<tr>
-				<th><input id="checkAll" type="checkbox" checked /></th>
-				<th>이미지</th>
-				<th>상품정보</th>
-				<th>판매가</th>
-				<th>수량</th>
-				<th>선택</th>
-			</tr>
-			<c:set var="priceSum" value="0" />
 
-			<c:forEach items="${cartPrd}" var="cartprd">
-				
-				<%-- <c:if test="${fn:length(cartprd.p_id) == 0}">
-					<tr align="center">
-						<a href="product"><p style="margin: 14px 20px; color: white">
-								<span style="font-weight: bold;">장바구니가 비었습니다. 상품 보러가기 클릭!</span>
-							</p></a>
-					</tr>
-				</c:if> --%>
-				<%-- <c:if test="${fn:length(cartprd.p_id) > 0}"> --%>
+	<form action="order" method="post">
+		<h1 align="center">상품목록</h1>
+		<c:if test="${fn:length(cartPrd) == 0}">
+		<div class="container">
+			<table align="center" class="nullCart">
+			<td><a href="home" class="nullBasket"><p style="margin: 14px 20px; color: black;">
+					<span style="font-weight: bold;">장바구니가 비었습니다. 상품 보러가기 클릭!</span>
+				</p> </a></td>
+			</table>
+		</div>
+		</c:if>
+		<c:if test="${fn:length(cartPrd) > 0 }">
+			<table class="cart" align="center">
+				<tr>
+					<th><input id="checkAll" type="checkbox" checked /></th>
+					<th>이미지</th>
+					<th>상품정보</th>
+					<th>판매가</th>
+					<th>수량</th>
+					<th>선택</th>
+				</tr>
+				<c:forEach items="${cartPrd}" var="cartprd">
 					<tr align="center">
 						<!--체크박스-->
 						<td><input type="checkbox" name="chk" value="${cartprd.p_id}"
@@ -71,16 +72,16 @@
 							value="삭제" /> <input type="hidden" id="p_id" name="p_id"
 							value="${cartprd.p_id}" /></td>
 					</tr>
-				<%-- </c:if> --%>
-			</c:forEach>
-			<tr align="center">
-				<td colspan="5"><input type="button" name="cartClear"
-					id="cartClear" onclick="clearCart()" value="상품 비우기" /></td>
-				<td>
-					<button onclick="insertOrder()">구매하기</button>
-				</td>
-			</tr>
-		</table>
+				</c:forEach>
+				<tr align="center">
+					<td colspan="5"><input type="button" name="cartClear"
+						id="cartClear" onclick="clearCart()" value="상품 비우기" /></td>
+					<td>
+						<button class="orderBtn" onclick="insertOrder()">구매하기</button>
+					</td>
+				</tr>
+			</table>
+			</c:if>
 	</form>
 	<script type="text/javascript">
 		$(document)

@@ -7,10 +7,15 @@ function insertCart(){
 	var p_picture = $("#p_picture").val();
 	var p_name = $("#p_name").val();
 	var p_price = $("#p_price").val();
-	
+	console.log(p_quantity);
 	if(m_id == null || m_id == ""){
-		swal("", "로그인 후 이용하실 수 있습니다.", "warning");
-		window.location.href="login_form";
+		swal({
+			title : "",
+			text : "로그인 후 이용 바랍니다.",
+			type : "warning"
+		}, function(){
+			window.location.href="login_form";
+		});
 	} else if(p_quantity == 0 || p_quantity == ""){
 		swal("", "수량을 선택해주세요.", "warning");
 		return false;
@@ -36,8 +41,13 @@ function insertCart(){
 function clearCart(){
 	var m_id = $("#m_id").val();
 	if(m_id == null || m_id == ""){
-		swal("", "로그인 후 이용하실 수 있습니다.", "warning");
-		window.location.href="login_form";
+		swal({
+			title : "",
+			text : "로그인 후 이용 바랍니다.",
+			type : "error"
+		}, function(){
+			window.location.href="login_form";
+		});
 	} else {
 		$.ajax({
 			type : "POST",
@@ -54,8 +64,13 @@ function clearCart(){
 
 function deleteCart(p_id, m_id) {
 	if (m_id == null || m_id == "") {
-		swal("", "로그인 후 이용하실 수 있습니다.", "error")
-		window.location.href="login_form";
+		swal({
+			title : "",
+			text : "로그인 후 이용 바랍니다.",
+			type : "error"
+		}, function(){
+			window.location.href="login_form";
+		});
 	} else {
 		$.ajax({
 			type : "POST",
