@@ -119,7 +119,7 @@
 	</form>
 	<div class="description">
 		<h3>
-			<b>곡 설명</b>;
+			<b>곡 설명</b>:
 		</h3>
 		<p>${detail.p_exp}</p>
 	</div>
