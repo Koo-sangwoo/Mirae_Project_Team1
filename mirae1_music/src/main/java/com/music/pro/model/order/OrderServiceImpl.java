@@ -52,6 +52,12 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 
+	@Override
+	public void orderlist_clear(OrderListVO vo) {
+		dao.orderList_clear(vo);
+	}
+
+
 
 
 

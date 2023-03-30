@@ -20,4 +20,6 @@ public interface OrderService {
 	public void insertOrderList(OrderListVO vo);
 	
 	public List<OrderListVO> getOrderList(OrderListVO vo);
+	
+	public void orderlist_clear(OrderListVO vo);
 }

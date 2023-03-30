@@ -40,5 +40,10 @@ public class OrderDAO {
 		return sqltemplate.selectList("order.orderlist_info",vo);
 	}
 	
+	public void orderList_clear(OrderListVO vo) {
+		System.out.println("구매 목록 all 삭제");
+		sqltemplate.delete("order.orderlist_clear",vo);
+	}
+	
 
 }

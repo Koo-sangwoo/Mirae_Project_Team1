@@ -15,6 +15,9 @@
 
 	<div class="container">
 		<h1>주문 내역</h1>
+		<button class="btn btn-danger mb-3" onclick="deleteAllOrders()">전체 삭제</button>
+		<form name="orderlist" method="post">
+		<input type="hidden" value="${member.m_id}">
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
@@ -23,7 +26,7 @@
 					<th>상품사진</th>
 					<th>상품명</th>
 					<th>총 가격</th>
-					<th></th>
+					<th>배송지</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,15 +36,16 @@
 						<td>${order.orderlist_id}</td>
 						<td><fmt:formatDate value="${order.payeddate}"
 								pattern="yyyy-MM-dd" /></td>
-						<td><img src="${order.p_picture}"
+						<td><img src="./resources/images/goods/${order.p_picture}"
 							alt="${order.p_name}" width="50" height="50"></td>
 						<td>${order.p_name}</td>
-						<td>${totalPrice} </td>
-						<td><button class="btn btn-danger">삭제</button></td>
+						<td>${order.p_price} </td>
+						<td>${order.address }</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		</form>
 	</div>
 
 	<jsp:include page="../include/footer.jsp"></jsp:include>
@@ -52,5 +56,13 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+		function deleteAllOrders() {
+			if (confirm("정말로 모든 주문 내역을 삭제하시겠습니까?")) {
+				document.orderlist.action = "orderlist_delete";
+				document.orderlist.submit();
+			}
+		}
+	</script>
 </body>
 </html>

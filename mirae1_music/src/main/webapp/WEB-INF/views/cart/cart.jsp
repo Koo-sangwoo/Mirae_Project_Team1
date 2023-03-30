@@ -27,13 +27,13 @@
 	<form action="order" method="post">
 		<h1 align="center">상품목록</h1>
 		<c:if test="${fn:length(cartPrd) == 0}">
-		<div class="container">
-			<table align="center" class="nullCart">
-			<td><a href="home" class="nullBasket"><p style="margin: 14px 20px; color: black;">
-					<span style="font-weight: bold;">장바구니가 비었습니다. 상품 보러가기 클릭!</span>
-				</p> </a></td>
-			</table>
-		</div>
+			<div class="container">
+				<table align="center" class="nullCart">
+					<td><a href="home" class="nullBasket"><p style="margin: 14px 20px; color: black;">
+								<span style="font-weight: bold;">장바구니가 비었습니다. 상품 보러가기 클릭!</span>
+							</p> </a></td>
+				</table>
+			</div>
 		</c:if>
 		<c:if test="${fn:length(cartPrd) > 0 }">
 			<table class="cart" align="center">
@@ -45,16 +45,14 @@
 					<th>수량</th>
 					<th>선택</th>
 				</tr>
+				<input type="hidden" id="m_id" name="m_id" value="${member.m_id}" /> 
 				<c:forEach items="${cartPrd}" var="cartprd">
 					<tr align="center">
 						<!--체크박스-->
-						<td><input type="checkbox" name="chk" value="${cartprd.p_id}"
-							checked /> <input type="hidden" id="m_id" name="m_id"
-							value="${member.m_id}" /> <input type="hidden" id="p_name"
-							name="p_name" value="${cartprd.p_name}" /> <input type="hidden"
-							id="p_price" name="p_price" value="${cartprd.p_price}" /> <input
-							type="hidden" id="p_quantity" name="p_quantity"
-							value="${cartprd.p_quantity}" /></td>
+						<td><input type="checkbox" name="chk" value="${cartprd.p_id}" checked />
+							<input type="hidden" id="p_name" name="p_name" value="${cartprd.p_name}" /> 
+							<input type="hidden" id="p_price" name="p_price" value="${cartprd.p_price}" /> 
+							<input type="hidden" id="p_quantity" name="p_quantity" value="${cartprd.p_quantity}" /></td>
 						<td><img alt=""
 							src="./resources/images/goods/${cartprd.p_picture}" width="50"
 							name="p_picture" height="50"></td>
@@ -81,7 +79,7 @@
 					</td>
 				</tr>
 			</table>
-			</c:if>
+		</c:if>
 	</form>
 	<script type="text/javascript">
 		$(document)
