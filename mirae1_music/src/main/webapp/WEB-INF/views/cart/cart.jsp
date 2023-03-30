@@ -26,15 +26,7 @@
 
 	<form action="order" method="post">
 		<c:if test="${fn:length(cartPrd) == 0}">
-<<<<<<< HEAD
-			<div class="container">
-				<table align="center" class="nullCart">
-					<td><a href="home" class="nullBasket"><p style="margin: 14px 20px; color: black;">
-								<span style="font-weight: bold;">장바구니가 비었습니다. 상품 보러가기 클릭!</span>
-							</p> </a></td>
-				</table>
-			</div>
-=======
+
 		<div class="container">
 			<table align="center" class="nullCart">
 			<td><a href="product?p_category=k-pop" class="nullBasket"><p style="margin: 14px 20px; color: black;">
@@ -42,7 +34,7 @@
 				</p> </a></td>
 			</table>
 		</div>
->>>>>>> branch 'main' of https://github.com/Koo-sangwoo/Mirae_Project_Team1.git
+
 		</c:if>
 		<c:if test="${fn:length(cartPrd) > 0 }">
 			<h1 align="center">상품목록</h1>
