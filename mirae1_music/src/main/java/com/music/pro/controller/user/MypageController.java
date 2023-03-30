@@ -1,8 +1,11 @@
 package com.music.pro.controller.user;
 
+import com.music.pro.vo.board.BoardVO;
+import com.music.pro.vo.cart.CartVO;
+import com.music.pro.vo.order.OrderVO;
 import com.music.pro.vo.user.UserVO;
 
-import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.music.pro.model.board.BoardService;
+import com.music.pro.model.cart.CartService;
+import com.music.pro.model.order.OrderService;
 import com.music.pro.model.user.UserService;
 
 @Controller
@@ -20,7 +26,16 @@ public class MypageController {
 
 	@Autowired
 	UserService userService;
-
+	
+	@Autowired
+	CartService cartService;
+	
+	@Autowired
+	BoardService boardService;
+	
+	@Autowired
+	OrderService orderService;
+	
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET) // 회원 정보를 보기 위해 인증하는 페이지
 	public String myPage() {
 		return "User/myPage";
@@ -47,11 +62,15 @@ public class MypageController {
 	public String update(UserVO vo, HttpSession session) {
 		System.out.println("정보 수정 요청");
 		userService.updateUser(vo);
+		session.invalidate();
 		return "home";
 	}
 	@RequestMapping(value = "delete", method = RequestMethod.POST) // 회원 탈퇴
-	public String delete(String m_id, HttpSession session) {
+	public String delete(String m_id, CartVO cartVo, OrderVO orderVo, BoardVO boardVo, HttpSession session) {
 		System.out.println("회원 탈퇴 요청");
+		
+		cartService.deleteCart(cartVo);
+		
 		int result = userService.deleteUser(m_id);
 		if(result == 1) {
 			System.out.println("삭제 완료");
