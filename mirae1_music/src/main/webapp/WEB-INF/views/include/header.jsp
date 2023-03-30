@@ -28,7 +28,7 @@ function goCart(){
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="frm" id="frm">
+	<form name="frm" id="frm" style="width: 100%">
 	<nav class="navbar navbar-expand-sm navbar-dark bg-custom"> <a
 		class="navbar-brand" href="/"> <img
 		src="./resources/images/logo_dark.png" width="150px">

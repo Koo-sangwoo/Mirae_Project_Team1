@@ -6,6 +6,7 @@
 <html>
 <link rel="stylesheet"
 	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
@@ -99,7 +100,7 @@
 					원
 				</h3>
 				<h4>
-					수량 : <input type="number" min="1" max="10" id="basket_amount"
+					수량 : <input type="number" min="1" max="10" id="p_quantity"
 						name="p_quantity" value="1" required>
 				</h4>
 				<h4>
@@ -140,7 +141,7 @@
 		//수량이 늘어날 때 마다 가격을 늘려준다.
 		$(document).ready(function() {
 
-			basketAmountInput = $('#basket_amount'); //수량
+			basketAmountInput = $('#p_quantity'); //수량
 			basketSumInput = $('#totalPrice'); //총 가격
 
 			basketAmountInput.on('input', function() {
@@ -190,6 +191,8 @@
 				});
 			}
 		});
+		
+		
 	</script>
 </body>
 </html>

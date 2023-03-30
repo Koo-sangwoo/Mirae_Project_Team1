@@ -28,7 +28,6 @@ public class CartController {
 	@RequestMapping(value = "cart", method = RequestMethod.GET)
 	public String Cart(UserVO vo, Model model) {
 		System.out.println("장바구니 리스트 호출");
-		System.out.println(vo);
 		model.addAttribute("cartPrd", cartService.getCartList(vo));
 		return "cart/cart";
 	}

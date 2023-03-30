@@ -9,6 +9,7 @@ public class CartVO {
    private String p_name;
    private int p_price;
 public int getCart_id() {
+	System.out.println("vo에서 getCart_id ");
    return cart_id;
 }
 public void setCart_id(int cart_id) {
