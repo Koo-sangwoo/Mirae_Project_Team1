@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.music.pro.model.cart.CartService;
 import com.music.pro.model.order.OrderService;
 import com.music.pro.vo.cart.CartVO;
 import com.music.pro.vo.order.OrderListVO;
@@ -20,7 +21,10 @@ import com.music.pro.vo.user.UserVO;
 public class OrderController {
 	@Autowired
 	private OrderService service;
-
+	
+	@Autowired
+	private CartService c_service;
+	
 	@PostMapping(value = "/order")
 	public ModelAndView orderTest(UserVO vo, CartVO cvo) {
 		ModelAndView mav = new ModelAndView();
@@ -34,12 +38,21 @@ public class OrderController {
 	}
 
 	
+	@PostMapping(value="/orderlist_delete")
+	public ModelAndView orderlist_delete(OrderListVO vo) {
+		ModelAndView mav = new ModelAndView();
+		service.orderlist_clear(vo);
+		mav.setViewName("order/orderlist");
+		return mav;
+	}
+	
 	@PostMapping(value = "order_completeInsert")
-	public ModelAndView order_complete(OrderListVO vo) {
+	public ModelAndView order_complete(OrderListVO vo,CartVO cvo) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("order/orderlist");
 		service.insertOrderList(vo);
 		System.out.println("컨트롤러에서 주문목록 삽입 완료");
+		c_service.clearCart(cvo);
 		List<OrderListVO> list = service.getOrderList(vo);
 		mav.addObject("orderlist",list);
 		return mav;
