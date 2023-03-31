@@ -45,36 +45,45 @@ h1 {
 	<hr>
 	<c:forEach var="cart_info" items="${cart_info}">
 
-				<c:set var="totalPrice"
-					value="${totalPrice+(cart_info.p_quantity*cart_info.p_price)}" />
-					<c:set var="totalCount" value="${totalCount+1}"></c:set>
-					<c:set var="p_quantity" value="${p_quantity+cart_info.p_quantity}"></c:set>
-			</c:forEach>
-			<c:set var="p_id" value="${cart_info[0].p_id}"/>
-					<c:set var="p_picture" value="${cart_info[0].p_picture}"/>
-			<c:set var="p_name" value="${cart_info[0].p_name} 외 ${count}개 상품"/>
-			<c:set var="count" value="${totalCount-1}"></c:set>
+		<c:set var="totalPrice"
+			value="${totalPrice+(cart_info.p_quantity*cart_info.p_price)}" />
+		<c:set var="totalCount" value="${totalCount+1}"></c:set>
+		<c:set var="p_quantity" value="${p_quantity+cart_info.p_quantity}"></c:set>
+	</c:forEach>
+	<c:set var="p_id" value="${cart_info[0].p_id}" />
+	<c:set var="p_picture" value="${cart_info[0].p_picture}" />
+	<c:set var="count" value="${totalCount-1}"></c:set>
+	<c:choose>
+		<c:when test="${count == 0}">
+			<c:set var="p_name" value="${cart_info[0].p_name}" />
+		</c:when>
+		<c:otherwise>
+			<c:set var="p_name" value="${cart_info[0].p_name} 외 ${count}개 상품" />
+		</c:otherwise>
+	</c:choose>
 	<div class="container my-5">
 		<h1 class="mb-4">상품 구매</h1>
 		<!-- 실명, 전화번호, 주소 입력 폼 -->
-		<form name = "order" method="post">
-		<input type="hidden" name="m_id" value="${member.m_id}">
-		<input type="hidden" name="p_price" value="${totalPrice}">
-		<input type="hidden" name="p_id" value="${p_id}">
-		<input type="hidden" name="p_name" value="${p_name}">
-		<input type="hidden" name="p_picture" value="${p_picture}">
-		<input type="hidden" name="p_quantity" value="${p_quantity}">
+		<form name="order" method="post">
+			<input type="hidden" name="m_id" value="${member.m_id}"> <input
+				type="hidden" name="p_price" value="${totalPrice}"> <input
+				type="hidden" name="p_id" value="${p_id}"> <input
+				type="hidden" name="p_name" value="${p_name}"> <input
+				type="hidden" name="p_picture" value="${p_picture}"> <input
+				type="hidden" name="p_quantity" value="${p_quantity}">
 			<div class="form-group">
 				<label for="nameInput">실명</label> <input type="text"
 					class="form-control" id="cname" name=" value="${cus_info.m_name}">
 			</div>
 			<div class="form-group">
 				<label for="phoneInput">전화번호</label> <input type="tel"
-					class="form-control" id="tel" name = "m_phonenum" value="${cus_info.m_phonenum}">
+					class="form-control" id="tel" name="m_phonenum"
+					value="${cus_info.m_phonenum}">
 			</div>
 			<div class="form-group">
 				<label for="addressInput">주소</label> <input type="text"
-					class="form-control" id="address" name="address" value="${cus_info.m_address}">
+					class="form-control" id="address" name="address"
+					value="${cus_info.m_address}">
 			</div>
 
 
@@ -93,7 +102,7 @@ h1 {
 				<tbody>
 					<c:forEach var="cart_info" items="${cart_info}">
 						<input type="hidden" id="p_name" value="${cart.info[0].p_name}">
-						
+
 						<tr>
 							<td><img
 								src="./resources/images/goods/${cart_info.p_picture}"

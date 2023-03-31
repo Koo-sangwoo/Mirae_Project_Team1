@@ -46,7 +46,7 @@ function myPage(){
 
 	<div class="collapse navbar-collapse" id="navbarsExample03">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="#">뉴스
+			<li class="nav-item active"><a class="nav-link" href="news">뉴스
 					<span class="sr-only">(current)</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">뮤비</a></li>
