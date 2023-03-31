@@ -30,10 +30,7 @@ table.nullCart {
 	font-size: 18px;
 	color: black;
 }
-.container{
-	display: flex;
-	height: 80vh;
-}
+
 table.cart {
 	width: 80%;
 	margin: 40px auto;
@@ -128,4 +125,34 @@ input[type="button"]:hover {
 .delete-btn:hover, .clear-btn:hover, .orderBtn:hover {
 	background-color: white;
 	color: black;
+}
+
+.container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nullCart {
+  border-collapse: collapse;
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nullCart td {
+  padding: 20px;
+}
+
+.nullBasket {
+  text-decoration: none;
+  color: #fff;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.nullBasket:hover {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
 }
