@@ -27,16 +27,8 @@ public class MypageController {
 	@Autowired
 	UserService userService;
 	
-	@Autowired
-	CartService cartService;
 	
-	@Autowired
-	BoardService boardService;
-	
-	@Autowired
-	OrderService orderService;
-	
-	@RequestMapping(value = "/myPage", method = RequestMethod.GET) // 회원 정보를 보기 위해 인증하는 페이지
+	@RequestMapping(value = "/myPage", method = RequestMethod.POST) // 회원 정보를 보기 위해 인증하는 페이지
 	public String myPage() {
 		return "User/myPage";
 	}
@@ -46,7 +38,7 @@ public class MypageController {
 		return "User/myPage2";
 	}
 
-	@RequestMapping(value = "/myPage", method = RequestMethod.POST)
+	@RequestMapping(value = "/checkPw", method = RequestMethod.POST)
 	public @ResponseBody int moveMypage(UserVO vo) {
 		System.out.println("마이페이지2 이동 위해 moveMypage 실행");
 		int member = userService.checkPw(vo);
@@ -66,10 +58,8 @@ public class MypageController {
 		return "home";
 	}
 	@RequestMapping(value = "delete", method = RequestMethod.POST) // 회원 탈퇴
-	public String delete(String m_id, CartVO cartVo, OrderVO orderVo, BoardVO boardVo, HttpSession session) {
+	public String delete(String m_id, HttpSession session) {
 		System.out.println("회원 탈퇴 요청");
-		
-		cartService.deleteCart(cartVo);
 		
 		int result = userService.deleteUser(m_id);
 		if(result == 1) {

@@ -3,7 +3,7 @@ function checkPw() { // 마이페이지 1에서 2로 가기 위해 비밀번호 
 	var m_password = $("#m_password").val();
 	$.ajax({
 		type : "post",
-		url : "myPage",
+		url : "checkPw",
 		data : {
 			"m_id" : m_id,
 			"m_password" : m_password
@@ -17,6 +17,9 @@ function checkPw() { // 마이페이지 1에서 2로 가기 위해 비밀번호 
 					type : "success"
 				}, function() {
 					window.location.href = "myPage2";
+					/*document.checkFrm.method="POST";
+					document.checkFrm.action="myPage2";
+					document.checkFrm.submit();*/
 				});
 			} else {
 				swal("", "비밀번호를 확인해주세요", "error");
@@ -73,16 +76,17 @@ function deleteMember() { // 회원 탈퇴
 					"m_id" : m_id
 				},
 				success : function(data) {
-					console.log(data);
-					swal({
-						title : "",
-						text : "그동안 이용해주셔서 감사합니다.",
-						type : "",
-						closeOnClickOutside : false
-					}, function(data){
-						console.log(data);
-						window.location.replace("home");
-					});
+					/*swal({
+	                    title: "",
+	                    text: "그동안 이용해주셔서 감사합니다.",
+	                    type: "success",
+	                    closeOnClickOutside: false
+	                }, function(data){
+	                    console.log(data);
+	                    window.location.replace("home");
+	                });*/
+					alert("그동안 이용해주셔서 감사합니다.");
+					window.location.replace("home");
 				}
 			});
 		} else {

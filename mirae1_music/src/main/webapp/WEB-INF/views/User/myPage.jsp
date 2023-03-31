@@ -90,7 +90,7 @@ h5 {
 	<div class="container">
 		<div class="check-box">
 			<h5>본인 확인</h5>
-			<form>
+			<form name="checkFrm" method="post" action="myPage2">
 				<input type="hidden" id="m_id" value="${ member.m_id }"> <label>비밀번호:</label>
 				<input type="password" name="m_password" id="m_password"><br>
 				<input type="button" value="확인" onclick="checkPw()">
