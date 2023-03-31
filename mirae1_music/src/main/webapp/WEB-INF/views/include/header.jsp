@@ -89,7 +89,7 @@ function myPage(){
 					</p></a>
 				<a class="header-search" onclick="goCart()"><img
 					src="./resources/images/User/cart.png"></a>
-				<a class=header_login onclick="location.href='myPage'"> <img
+				<a class=header_login onclick="myPage()"> <img
 					src="./resources/images/person-outline.png"></a>
 				<a class="header-login" onclick="logout()"><img
 					src="./resources/images/User/logout2.png"></a>
