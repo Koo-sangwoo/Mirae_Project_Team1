@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<!--   <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">  -->
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
-<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <html>
 <head>
 	<title>Home</title>
@@ -13,7 +15,7 @@
 <body>
 
 <%@ include file="include/header.jsp" %>
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 300px">
+<!--  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 300px">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="./resources/images/logo.png" class="d-block w-100" alt="..." style="width: 100%; height: 300px">
@@ -33,14 +35,53 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
-<hr>
+</div> 
+<hr>  
 
 <div>
 <h1 style="text-align: center"><b>뉴스</b></h1>
+</div> -->
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="./resources/images/banner1.jpg" class="d-block w-100" alt="..." height="420px" width="500px">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>뉴스</h5>
+        <p>도리, 첫 EP [Cinema Pt. 1] 발표</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="./resources/images/banner1.jpg" class="d-block w-100" alt="..." height="420px" width="500px">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>뉴스</h5>
+        <p>도리, 첫 EP [Cinema Pt. 1] 발표</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="./resources/images/banner1.jpg" class="d-block w-100" alt="..." height="420px" width="500px">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>뉴스</h5>
+        <p>도리, 첫 EP [Cinema Pt. 1] 발표.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-md-4">
       <div class="card">
@@ -67,7 +108,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <div>
@@ -153,8 +194,10 @@
 </div>
 
 
+
 <div>
 <h1 style="text-align: center"><b>게시판</b></h1>
+
 </div>
 </body>
 <jsp:include page="include/footer.jsp"></jsp:include>
