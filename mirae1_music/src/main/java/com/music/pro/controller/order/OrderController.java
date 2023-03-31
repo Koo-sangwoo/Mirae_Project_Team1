@@ -41,6 +41,7 @@ public class OrderController {
 	@PostMapping(value="/orderlist_delete")
 	public ModelAndView orderlist_delete(OrderListVO vo) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println("m_id : "+ vo.getM_id());
 		service.orderlist_clear(vo);
 		mav.setViewName("order/orderlist");
 		return mav;

@@ -44,6 +44,4 @@ public class OrderDAO {
 		System.out.println("구매 목록 all 삭제");
 		sqltemplate.delete("order.orderlist_clear",vo);
 	}
-	
-
 }
