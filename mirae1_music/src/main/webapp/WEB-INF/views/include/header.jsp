@@ -49,10 +49,10 @@ function myPage(){
 			<li class="nav-item active"><a class="nav-link" href="news">뉴스
 					<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">뮤비</a></li>
+		
 			<li class="nav-item dropdown show"><a
 				class="nav-link dropdown-toggle" href="#" id="dropdown03"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">커뮤니티</a>
+				data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">커뮤니티</a>
 				<div class="dropdown-menu show" aria-labelledby="dropdown03">
 					<a class="dropdown-item" href="/board">pop게시판</a> <a
 						class="dropdown-item" href="#">k-pop게시판</a> <a
@@ -60,7 +60,7 @@ function myPage(){
 				</div></li>
 			<li class="nav-item dropdown show"><a
 				class="nav-link dropdown-toggle" href="#" id="dropdown03"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Music</a>
+				data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">Music</a>
 				<div class="dropdown-menu show" aria-labelledby="dropdown03">
 					<a class="dropdown-item" href="/music?music_genre=hiphop">HIPHOP</a>
 					<a class="dropdown-item" href="/music?music_genre=k-pop">k-pop</a>
@@ -68,7 +68,7 @@ function myPage(){
 				</div></li>
 			<li class="nav-item dropdown show"><a
 				class="nav-link dropdown-toggle" href="#" id="dropdown03"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">굿즈</a>
+				data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">굿즈</a>
 				<div class="dropdown-menu show" aria-labelledby="dropdown03">
 					<a class="dropdown-item" href="/product?p_category=k-pop">k-pop</a>
 					<a class="dropdown-item" href="/product?p_category=hiphop">HIPHOP</a>

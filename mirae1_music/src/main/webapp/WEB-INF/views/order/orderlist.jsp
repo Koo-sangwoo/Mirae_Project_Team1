@@ -15,36 +15,50 @@
 
 	<div class="container">
 		<h1>주문 내역</h1>
-		<button class="btn btn-danger mb-3" onclick="deleteAllOrders()">전체 삭제</button>
+		<button class="btn btn-danger mb-3" onclick="deleteAllOrders()">전체
+			삭제</button>
 		<form name="orderlist" method="post">
-		<input type="hidden" name="m_id" value="${member.m_id}">
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th>주문번호</th>
-					<th>결제날짜</th>
-					<th>상품사진</th>
-					<th>상품명</th>
-					<th>총 가격</th>
-					<th>배송지</th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:set var="totalPrice" value="${order.p_price * order.p_quantity}" />
-				<c:forEach items="${orderlist}" var="order">
-					<tr>
-						<td>${order.orderlist_id}</td>
-						<td><fmt:formatDate value="${order.payeddate}"
-								pattern="yyyy-MM-dd" /></td>
-						<td><img src="./resources/images/goods/${order.p_picture}"
-							alt="${order.p_name}" width="50" height="50"></td>
-						<td>${order.p_name}</td>
-						<td>${order.p_price} </td>
-						<td>${order.address }</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+			<input type="hidden" name="m_id" value="${member.m_id}">
+			
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>주문번호</th>
+							<th>결제날짜</th>
+							<th>상품사진</th>
+							<th>상품명</th>
+							<th>총 가격</th>
+							<th>배송지</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:set var="totalPrice"
+							value="${order.p_price * order.p_quantity}" />
+
+
+
+						<c:if test="${!orderlist == null }">
+							<c:forEach items="${orderlist}" var="order">
+								<tr>
+									<td>${order.orderlist_id}</td>
+									<td><fmt:formatDate value="${order.payeddate}"
+											pattern="yyyy-MM-dd" /></td>
+									<td><img src="./resources/images/goods/${order.p_picture}"
+										alt="${order.p_name}" width="50" height="50"></td>
+									<td>${order.p_name}</td>
+									<td>${order.p_price}</td>
+									<td>${order.address }</td>
+								</tr>
+							</c:forEach>
+
+						</c:if>
+						
+					</tbody>
+				</table>
+				<c:if test="${orderlist == null}">
+					<h1 align="center">주문한 내역이 없습니다~</h1>
+				</c:if>
+			
 		</form>
 	</div>
 
