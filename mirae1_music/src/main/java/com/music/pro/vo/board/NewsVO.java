@@ -1,5 +1,9 @@
 package com.music.pro.vo.board;
 
+import java.util.Date;
+
+import com.music.pro.controller.board.Time;
+
 public class NewsVO {
 	
 	private int News_id;      //게시글 번호
@@ -39,8 +43,8 @@ public class NewsVO {
 	public String getNews_date() {
 		return News_date;
 	}
-	public void setNews_date(String news_date) {
-		News_date = news_date;
+	public void setNews_date(Date news_date) {
+		this.News_date = Time.calculateTime(news_date);
 	}
 	
 	public String getCategory() {

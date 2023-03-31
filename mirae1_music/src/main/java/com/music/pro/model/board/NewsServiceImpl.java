@@ -35,5 +35,27 @@ public class NewsServiceImpl implements NewsService{
      public void thumnail(NewsVO vo) throws Exception {
     	 newsDAO.thumnail(vo);
      }
+     // 게시글 조회수
+     public void viewCnt(int news_id) throws Exception {
+     newsDAO.viewCnt(news_id);
+       }
+     // 게시글 제목에 댓글수 표시
+     public void replyCnt(int news_id) throws Exception   {
+        newsDAO.replyCnt(news_id);
+  }
+  // 게시글 읽기
+     public NewsVO readNews(int news_id) throws Exception {
+        return newsDAO.readNews(news_id);
+     }
 
+     // 게시글 삭제
+     public void deleteNews(int news_id) throws Exception {
+        newsDAO.deleteNews(news_id);
+     }
+     
+  // 게시글 수정
+     public void updateNews(NewsVO vo) throws Exception {
+        newsDAO.updateNews(vo);
+     }
+     
 }

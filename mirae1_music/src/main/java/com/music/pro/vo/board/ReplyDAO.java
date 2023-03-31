@@ -31,4 +31,13 @@ public class ReplyDAO {
 	public void replyDelete(ReplyVO vo) {
 	 mybatis.delete("Reply.replyDelete", vo);
 	}
+	
+	
+	public List<ReplyVO> getnewsreplylist(int news_id) {
+		return mybatis.selectList("Reply.getnewsreplylist", news_id);
+}
+
+	public void newsreplyWrite(ReplyVO vo) {
+		mybatis.insert("Reply.newsreplyWrite" , vo);
+	}
 }

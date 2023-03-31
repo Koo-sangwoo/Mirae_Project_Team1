@@ -39,4 +39,15 @@ public class ReplyServiceImpl implements ReplyService{
 		public void replyDelete(ReplyVO vo) {
 			replyDao.replyDelete(vo); 
 		}
+		
+		
+		
+		
+		public List<ReplyVO> getnewsreplylist(int news_id) {
+			return replyDao.getnewsreplylist(news_id);
+		}
+		
+		public void newsreplyWrite(ReplyVO vo) {
+			 replyDao.newsreplyWrite(vo);
+		}
 }

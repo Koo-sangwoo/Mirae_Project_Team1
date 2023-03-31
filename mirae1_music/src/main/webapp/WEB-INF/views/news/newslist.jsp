@@ -25,7 +25,7 @@ $(".move").on("click",function(e) {
    
    e.preventDefault();
    moveForm.append("<input type='hidden' name='news_id' value='"+$(this).attr("href")+ "'>");
-   moveForm.attr("action" , "/view");
+   moveForm.attr("action" , "/newsview");
    moveForm.submit();
    console.log('성공성공성공성공성공성공성공')
 });
@@ -36,7 +36,7 @@ $(".pageInfo a").on("click", function(e){
     console.log('성공1');
     moveForm.find("input[name='pageNum']").val($(this).attr("href"));
     console.log('성공2');
-    moveForm.attr("action", "/board");
+    moveForm.attr("action", "/news");
     console.log('성공3');
     moveForm.submit();
     console.log('성공4');

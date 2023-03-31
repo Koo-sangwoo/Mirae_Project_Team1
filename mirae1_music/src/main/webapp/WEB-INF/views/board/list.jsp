@@ -171,6 +171,7 @@ $(".pageInfo a").on("click", function(e){
 </div> -->
 
 <style>
+
 .search_area select{
 height: 35px;
 }

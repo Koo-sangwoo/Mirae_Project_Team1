@@ -9,5 +9,10 @@ public interface ReplyService {
 	void replyWrite(ReplyVO vo);            //댓글쓰기
 	void replyUpdate(ReplyVO vo);            //댓글 수정
 	void replyDelete(ReplyVO vo); //댓글 삭제
+	
+	
+	
+	public List<ReplyVO> getnewsreplylist(int news_id);
+	void newsreplyWrite(ReplyVO vo);
     
 }

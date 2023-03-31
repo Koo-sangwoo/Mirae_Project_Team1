@@ -31,4 +31,27 @@ public class NewsDAO {
     public void thumnail(NewsVO vo) {
      mybatis.update("News.thumnail",vo);
     }
+    
+  //게시글 조회수
+    public void viewCnt(int news_id) {
+       mybatis.update("News.newsviewCnt", news_id);
+    }
+    //게시글 댓글수 
+    public void replyCnt(int news_id) {
+       mybatis.update("News.newsreplyCnt", news_id);
+    }
+    // 게시글 읽기
+    public NewsVO readNews(int news_id) {
+       return (NewsVO) mybatis.selectOne("News.readNews" , news_id);
+    }
+    
+    //게시글 삭제
+    public void deleteNews(int news_id) {
+    mybatis.delete("News.deleteNews", news_id);
+}
+    
+ // 게시글 수정
+    public void updateNews(NewsVO vo) {
+       mybatis.update("News.updateNews", vo);
+    }
 }

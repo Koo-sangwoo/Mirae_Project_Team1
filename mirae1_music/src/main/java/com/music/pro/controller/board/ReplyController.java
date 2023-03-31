@@ -39,4 +39,29 @@ public class ReplyController {
 		}
 		
 		
+		
+		
+		
+		//댓글쓰기
+				@RequestMapping("/newsreplyWrite")
+				public String newsreplyWrite(ReplyVO vo) {
+					ReplyService.newsreplyWrite(vo);
+					return "redirect:/newsview?news_id=" + vo.getNews_id();//뷰로 이동
+				}
+				
+				//댓글수정
+				@RequestMapping(value = "/newsreplyUpdate", method = RequestMethod.POST)
+				public String newsreplyUpdate(ReplyVO vo) {
+					ReplyService.replyUpdate(vo);
+					return "redirect:/newsview?news_id="+vo.getNews_id(); 
+				}
+				
+				//댓글삭제
+				@RequestMapping(value= "/newsreplyDelete", method = RequestMethod.GET)
+				public String newsreplyDelete(ReplyVO vo) {
+					ReplyService.replyDelete(vo);
+					return "redirect:/newsview?news_id="+vo.getNews_id();
+				}
+		
+		
 }
