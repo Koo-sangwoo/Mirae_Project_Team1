@@ -10,15 +10,7 @@
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="./resources/js/myPage.js" charset="UTF-8"></script>
-<script>
-<!--아이디는 수정이 불가능하니 누를시 경고, 비밀번호는 애초에 막아둠-->
-$(document).ready(function(){
-	$("#m_id").click(function(){
-		swal("","아이디는 수정이 불가합니다.","warning");
-		return false;
-	});
-})
-</script>
+
 <html>
 <head>
 <title>Home</title>
@@ -33,7 +25,6 @@ $(document).ready(function(){
 		</div>
 		<hr>
 		<div class="member-info">
-			<!-- Insert code for displaying member information here -->
 			<div>
 				<div>
 					<span>아이디</span>

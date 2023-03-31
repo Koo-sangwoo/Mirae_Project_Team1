@@ -25,11 +25,12 @@ function memberCheck(){
 							swal({
 								title : "",
 								text : "반갑습니다!",
-								type : "success"
+								type : "success",
+								closeOnClickOutside : false
 							},
 							function(){
 								window.location.href="home";
-							})
+							});
 						}
 					});
 				} else {

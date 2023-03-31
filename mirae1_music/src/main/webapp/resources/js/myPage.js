@@ -3,7 +3,7 @@ function checkPw() { // 마이페이지 1에서 2로 가기 위해 비밀번호 
 	var m_password = $("#m_password").val();
 	$.ajax({
 		type : "post",
-		url : "myPage",
+		url : "checkPw",
 		data : {
 			"m_id" : m_id,
 			"m_password" : m_password
@@ -17,6 +17,9 @@ function checkPw() { // 마이페이지 1에서 2로 가기 위해 비밀번호 
 					type : "success"
 				}, function() {
 					window.location.href = "myPage2";
+					/*document.checkFrm.method="POST";
+					document.checkFrm.action="myPage2";
+					document.checkFrm.submit();*/
 				});
 			} else {
 				swal("", "비밀번호를 확인해주세요", "error");
@@ -46,13 +49,13 @@ function updateMember() { // 회원 정보 수정
 		success : function(data) {
 			swal({
 				title : "수정 완료!",
-				text : "정보 수정이 완료되었습니다!",
+				text : "정보 수정이 완료되었습니다. 다시 로그인 후 이용해주세요.",
 				type : "success"
 			}, function() {
-				window.location.href = "myPage2";
+				window.location.replace("home");
 			});
 		}
-	})
+	});
 }
 function deleteMember() { // 회원 탈퇴
 	var m_id = $("#m_id").val();
@@ -72,9 +75,18 @@ function deleteMember() { // 회원 탈퇴
 				data : {
 					"m_id" : m_id
 				},
-				success : function() {
+				success : function(data) {
+					/*swal({
+	                    title: "",
+	                    text: "그동안 이용해주셔서 감사합니다.",
+	                    type: "success",
+	                    closeOnClickOutside: false
+	                }, function(data){
+	                    console.log(data);
+	                    window.location.replace("home");
+	                });*/
 					alert("그동안 이용해주셔서 감사합니다.");
-					window.location.href="home";
+					window.location.replace("home");
 				}
 			});
 		} else {

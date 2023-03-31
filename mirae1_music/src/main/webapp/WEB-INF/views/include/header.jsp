@@ -24,6 +24,11 @@ function goCart(){
 	document.frm.action="cart";
 	document.frm.submit();
 }
+function myPage(){
+	document.frm.method = "POST";
+	document.frm.action="myPage";
+	document.frm.submit();
+}
 </script>
 <title>Insert title here</title>
 </head>
@@ -84,7 +89,7 @@ function goCart(){
 					</p></a>
 				<a class="header-search" onclick="goCart()"><img
 					src="./resources/images/User/cart.png"></a>
-				<a class=header_login onclick="location.href='myPage'"> <img
+				<a class=header_login onclick="myPage()"> <img
 					src="./resources/images/person-outline.png"></a>
 				<a class="header-login" onclick="logout()"><img
 					src="./resources/images/User/logout2.png"></a>
@@ -97,7 +102,7 @@ function goCart(){
 					</p></a>
 				<a class="header-search" onclick="goCart()"><img
 					src="./resources/images/User/cart.png"></a>
-				<a class=header_login onclick="location.href='myPage'"> <img
+				<a class=header_login onclick="myPage()"> <img
 					src="./resources/images/person-outline.png"></a>
 				<a class="header-login" onclick="logout()"><img
 					src="./resources/images/User/logout2.png"></a>
