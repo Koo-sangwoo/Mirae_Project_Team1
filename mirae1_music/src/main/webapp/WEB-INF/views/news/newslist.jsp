@@ -87,7 +87,7 @@ $(".pageInfo a").on("click", function(e){
             <td><a href="${row.news_id}" class="move">
              ${row.news_title}</a><c:if test="${row.replycnt > 0}">[${row.replycnt}]</c:if>
             </td>
-            <td><img src="/resources/images/0179caff-c628-4111-af6c-42c69d4f912fapple.png"></td>
+            <td><img src="./resources/images/${row.thumnail}"></td>
             <td>${row.news_writer}</td> 
              <td>
               ${row.news_date}

@@ -68,7 +68,7 @@ public class NewsController {
        return "redirect:/news";
     }
     
-    @RequestMapping("/view")
+    @RequestMapping("/newsview")
     public String readBoard(int board_id,Model model,Criteria cri) throws Exception {
        List<ReplyVO> list=replyService.getreplylist(board_id);  //댓글목록
        model.addAttribute("list",list);
