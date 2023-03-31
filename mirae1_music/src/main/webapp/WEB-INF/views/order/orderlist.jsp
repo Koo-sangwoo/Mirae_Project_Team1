@@ -35,7 +35,7 @@
 				<div>
 					<table align="center">
 						<td><a href="product?p_category=k-pop"><p style="margin: 14px 20px; color: black;">
-									<span style="font-weight: bold;">주문내역이 비었습니다. 굿즈 보러가기 클릭!</span>
+									<span style="font-weight: bold;">주문내역이 없습니다. 굿즈 보러가기 클릭!</span>
 									<img src="/resources/images/User/click.png">
 							</p> </a></td>
 					</table>
