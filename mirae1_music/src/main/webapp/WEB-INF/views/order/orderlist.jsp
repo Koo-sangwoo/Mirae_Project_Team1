@@ -17,7 +17,7 @@
 		<h1>주문 내역</h1>
 		<button class="btn btn-danger mb-3" onclick="deleteAllOrders()">전체 삭제</button>
 		<form name="orderlist" method="post">
-		<input type="hidden" value="${member.m_id}">
+		<input type="hidden" name="m_id" value="${member.m_id}">
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>

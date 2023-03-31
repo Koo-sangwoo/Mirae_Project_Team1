@@ -19,7 +19,7 @@
       var result = confirm("게시물을 삭제하시겠습니까?")
         if(result == true) {
            alert("삭제되었습니다.");
-           location.href='delete?board_id='+${board.board_id};
+           location.href='newsdelete?news_id='+${news.news_id};
         }
    }
    // 댓글 삭제  확인
@@ -28,22 +28,22 @@
       var result = confirm("게시물을 삭제하시겠습니까?")
         if(result) 
            alert("삭제되었습니다.");
-      location.href="replyDelete?board_id=${board.board_id}"
+      location.href="newsreplyDelete?news_id=${news.news_id}"
             + "&reply_id=" + $(this).attr("data-reply_id");
    });
    });
    $(function () {
    let form = $("#infoForm");
    $("#list_btn").on("click", function(e) {
-      form.find("#board_id").remove();
-      form.attr("action", "/board");
+      form.find("#news_id").remove();
+      form.attr("action", "/news");
       form.submit();
    });
    });
    $(function () {
       let form = $("#infoForm");
    $("#modify_btn").on("click", function(e) {
-      form.attr("action", "updateWrite");
+      form.attr("action", "newsupdateWrite");
       form.submit();
       console.log('ㅇㅇㅇㅇ');
    });
@@ -51,7 +51,7 @@
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>${board.board_id}</title>
+<title>${news.news_id}</title>
 </head>
 <body>
 <%-- <%@ include file="../include/menu.jsp" %> --%>
@@ -65,32 +65,32 @@
       <br/><br/>
    <form>
       <!-- 수정,삭제에 필요한 글번호를 hidden 태그에 저장 -->
-      <input type="hidden" name="board_id" value="${board.board_id}">
+      <input type="hidden" name="news_id" value="${news.news_id}">
       <table border="1" bordercolor="#E1DCDC" class="view" cellpadding="0" cellspacing="0" width="100%">
          <tr>
          <td width="70">제목</td>
-         <td colspan='3' align="left">${board.board_title}</td>
+         <td colspan='3' align="left">${news.news_title}</td>
          </tr>
             
          <tr>
          <td>작성자</td>
-         <td colspan='3' align="left">${board.board_writer}</td>
+         <td colspan='3' align="left">${news.news_writer}</td>
          </tr>
             
          <tr>
          <td>작성일</td>
          <td colspan='3' align="left">
          <div style="width:150px;float:left;">
-          ${board.board_date}  
+          ${news.news_date}  
          </div>
          <div>
-         &nbsp;&nbsp;&nbsp;조회수 : ${board.viewcnt}
+         &nbsp;&nbsp;&nbsp;조회수 : ${news.viewcnt}
          </div>
          </td>
          </tr>
             
          <tr valign="top">
-         <td colspan='4' height="500px">${board.board_content}</td>
+         <td colspan='4' height="500px">${news.news_content}</td>
          </tr>
       </table>
    </form>
@@ -102,7 +102,7 @@
          <c:if test=<%-- "${map.nextB != null}" >
          <button class="next" onClick="location.href='view?bno=${map.nextB.bno}&show=Y'">다음글</button>
          </c:if> --%>
-         &nbsp;&nbsp;&nbsp;게시글 번호 : ${board.board_id}
+         &nbsp;&nbsp;&nbsp;게시글 번호 : ${news.news_id}
       </div>
 
       <div style="float:right;">
@@ -111,19 +111,19 @@
          <a href="write">글쓰기</a>&nbsp;&nbsp;&nbsp;
       </c:if>
       <!-- 본인만 수정,삭제 버튼 표시 -->
-      <c:if test="${member.m_nickname == board.board_writer}"> 
+      <c:if test="${member.m_nickname == news.news_writer}"> 
          <a href="#" id="modify_btn">수정</a>&nbsp;&nbsp;&nbsp;
          <a href="#" onClick="deletecheck()">삭제</a>&nbsp;&nbsp;&nbsp;
       </c:if>
       <form id="infoForm" action="/updateWrite" method="get">
-      <input type="hidden" id="board_id" name="board_id" value='<c:out value="${board.board_id}"/>'>
+      <input type="hidden" id="news_id" name="news_id" value='<c:out value="${news.news_id}"/>'>
       <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
       <input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
       <input type="hidden" name="type" value="${cri.type}"> 
       <input type="hidden" name="keyword" value="${cri.keyword}"> 
       </form>
       
-      <button type="button" id="list_btn" onClick="location.href='board'">목록</button>
+      <button type="button" id="list_btn" onClick="location.href='news'">목록</button>
       </div>
       </div>
       </div>
@@ -131,9 +131,9 @@
    
    <!-- 댓글 작성 -->
 <c:if test="${member.m_id != null}">
-<form action="/replyWrite" method="post">
+<form action="/newsreplyWrite" method="post">
 <input type="hidden" name="reply_writer" value="${member.m_nickname}">
-<input type="hidden" name="board_id" value="${board.board_id}">
+<input type="hidden" name="news_id" value="${news.news_id}">
 <div style="width:700px; text-align:center;">
    <%-- <c:if test="${sessionScope.userid != null}"> 로그인상태일때 --%>
     <textarea rows="5" cols="80" id="content" name="reply_content" placeholder="댓글을 작성하세요"></textarea>
@@ -190,8 +190,8 @@
          </td>
       </tr>
       <tr>
-      <td><form action="replyUpdate" method="post">
-      <input type="hidden" name="board_id" value="${board.board_id}">
+      <td><form action="newsreplyUpdate" method="post">
+      <input type="hidden" name="news_id" value="${news.news_id}">
       <input type="hidden" name="reply_id" value="${row.reply_id}">
       
       <textarea name="reply_content"></textarea>

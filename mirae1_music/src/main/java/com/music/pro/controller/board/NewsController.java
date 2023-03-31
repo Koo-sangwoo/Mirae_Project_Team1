@@ -46,7 +46,7 @@ public class NewsController {
 		PageVO pageMake = new PageVO (cri, total);
 		model.addAttribute("pageMaker", pageMake);
 		
-		NewsService.thumnail(vo);
+		
 		
 		
 		return "news/newslist";
@@ -69,13 +69,41 @@ public class NewsController {
     }
     
     @RequestMapping("/newsview")
-    public String readBoard(int board_id,Model model,Criteria cri) throws Exception {
-       List<ReplyVO> list=replyService.getreplylist(board_id);  //댓글목록
+    public String readNews(int news_id,Model model,Criteria cri) throws Exception {
+       List<ReplyVO> list=replyService.getnewsreplylist(news_id);  //댓글목록
        model.addAttribute("list",list);
-       model.addAttribute("board", NewsService.readNews(board_id)); // 게시글 읽기
+       model.addAttribute("news", NewsService.readNews(news_id)); // 게시글 읽기
        model.addAttribute("cri",cri);
-       NewsService.viewCnt(board_id);                                //조회수
-       NewsService.replyCnt(board_id);                
-       return "board/boardview";
+       NewsService.viewCnt(news_id);                                //조회수
+       NewsService.replyCnt(news_id);                
+       return "news/newsview";
     }
+    
+    
+    @RequestMapping("/newsdelete")
+    public String deleteNews(int news_id) throws Exception {
+       NewsService.deleteNews(news_id); // 삭제 처리
+       return "redirect:/news"; // 목록으로 이동
+
+    }
+    
+    // 게시글 수정 뷰
+    @RequestMapping("/newsupdateWrite")
+    public String newsupdateWrite(int news_id,Model model, Criteria cri) throws Exception {
+       model.addAttribute("news", NewsService.readNews(news_id));
+       model.addAttribute("cri", cri);
+       return "news/newsupdateWrite";
+    }
+
+    // 게시글 수정
+    @RequestMapping(value = "/updateNews", method = RequestMethod.POST)
+    public String updateNews(NewsVO vo) throws Exception {
+          System.out.println("여기까진왔음");
+          NewsService.updateNews(vo);
+          return "redirect:/news";
+    
+       // return "redirect:/board";
+    }
+    
+    
 }

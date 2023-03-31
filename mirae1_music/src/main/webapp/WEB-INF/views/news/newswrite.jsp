@@ -100,6 +100,8 @@ min-height:450px;
    <form action="createnews" method="post" enctype="multipart/form-data" >
       <input type="hidden" name="news_writer" id="writer" value="${member.m_nickname}"/>
       <table class="textb" width="100%">
+      <tr><td>썸네일사진</td><td><input type="text" name="thumnail"></td></tr>
+      
          <tr>
          <td class="asd" width="60">카테고리</td>
          <td class="asd" width="60">제목</td>

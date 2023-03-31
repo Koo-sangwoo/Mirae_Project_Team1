@@ -13,8 +13,8 @@
 	
 	 <select id="listAllNewsPaging" resultType="com.music.pro.vo.board.NewsVO">
     <![CDATA[
-        select news_id, news_title, news_content, news_writer, news_date,category,replycnt from(
-  select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, news_id, news_title, news_content, news_writer, news_date,category,replycnt 
+        select news_id, news_title, news_content, news_writer, news_date,category,replycnt,thumnail from(
+  select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, news_id, news_title, news_content, news_writer, news_date,category,replycnt,thumnail 
      from news where rownum <= #{pageNum} * #{amount} 
     ]]>
      <if test="keyword != null">
@@ -82,47 +82,49 @@
 			NEWS_TITLE, 
 			NEWS_CONTENT,
 			CATEGORY,
-			NEWS_WRITER 
+			NEWS_WRITER,
+			THUMNAIL 
 			
 		) VALUES(
 			news_SEQ.NEXTVAL, 
 			#{news_title}, 
 			#{news_content},
 			#{category},
-			#{news_writer} 
+			#{news_writer},
+			#{thumnail} 
 			
 		)
 		</insert>
 		
 		<!-- 글 수정 -->
-	<update id="updateBoard">
-		UPDATE BOARD
+	<update id="updateNews">
+		UPDATE NEWS
 		SET
-	    BOARD_TITLE = #{board_title},
-		BOARD_CONTENT = #{board_content}
+	    NEWS_TITLE = #{news_title},
+		NEWS_CONTENT = #{news_content}
 		WHERE
-		BOARD_ID = #{board_id}
+		NEWS_ID = #{news_id}
 	</update>
 		
 		<!-- 글 삭제 -->
-	<delete id="deleteBoard">
-		DELETE FROM BOARD WHERE BOARD_ID = #{board_id}
+	<delete id="deleteNews">
+		DELETE FROM NEWS WHERE NEWS_ID = #{news_id}
 	</delete>
 	
 	<!-- 조회수 -->
-	<update id="viewCnt">
-		UPDATE BOARD
+	<update id="newsviewCnt">
+		UPDATE NEWS
 		SET
 		VIEWCNT = VIEWCNT+1
 		WHERE
-		BOARD_ID = #{board_id}
+		NEWS_ID = #{news_id}
 	</update>
 	
 	<!-- 댓글수 -->
-	<update id="replyCnt" parameterType="int">
-	update board b
-	set b.replycnt = (select count(reply_id) from reply where board_id = #{board_id})
-	where b.board_id = #{board_id}
+	<update id="newsreplyCnt" parameterType="int">
+	update news b
+	set b.replycnt = (select count(reply_id) from reply where news_id = #{news_id})
+	where b.news_id = #{news_id}
 </update>
 
 <!-- 썸네일 -->
