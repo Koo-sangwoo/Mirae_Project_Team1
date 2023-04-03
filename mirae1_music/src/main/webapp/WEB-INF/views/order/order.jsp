@@ -82,7 +82,7 @@ h1 {
 			</div>
 			<div class="form-group">
 				<label for="addressInput">주소</label> <input type="text"
-					class="form-control" id="address" name="m_address"
+					class="form-control" id="address" name="address"
 					value="${cus_info.m_address}">
 			</div>
 
