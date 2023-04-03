@@ -16,6 +16,7 @@
 
 	<div class="container">
 		<h1>주문 내역</h1>
+
 		<button class="btn btn-danger mb-3" onclick="deleteAllOrders()">전체 삭제</button>
 		<form name="orderlist" method="post" style="height: 80vh">
 		<input type="hidden" name="m_id" value="${member.m_id}">

@@ -86,6 +86,7 @@ function myPage(){
           
          <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
        <c:if test="${ member.m_id == null }">
+
 				<a class=header_login onclick="location.href='login_form'"> <img
 					src="./resources/images/person-outline.png">
 				</a>

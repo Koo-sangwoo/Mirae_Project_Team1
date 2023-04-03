@@ -37,9 +37,11 @@
 		</div>
 
 		</c:if>
+		
 		<c:if test="${fn:length(cartPrd) > 0 }">
 			<h1 align="center">상품목록</h1>
 			<div style="height: 80vh;">
+			<input type="hidden" value="${member.m_id}" name="m_id" id="m_id">
 			<table class="cart" align="center">
 				<tr>
 					<th><input id="checkAll" type="checkbox" checked /></th>
@@ -49,7 +51,6 @@
 					<th>수량</th>
 					<th>선택</th>
 				</tr>
-				 
 				<c:forEach items="${cartPrd}" var="cartprd">
 					<tr align="center">
 						<!--체크박스-->
@@ -128,7 +129,7 @@
 				swal("", "수량을 선택해주세요.", "warning");
 				return false;
 			} else {
-				document.order.action = "order"
+				document.order.action = "order?m_id=${member.m_id}"
 				document.order.submit();
 			}
 		}

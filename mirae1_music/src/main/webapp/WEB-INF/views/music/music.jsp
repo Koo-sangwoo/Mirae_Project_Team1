@@ -41,7 +41,7 @@
   </c:if>
   <div class="col-md-4 mb-3">
     <div class="card">
-      <img src="${music.music_picture}" class="card-img-top" alt="...">
+      <img src="./resources/images/music/${music.music_picture}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${music.music_title}</h5>
         <p class="card-text">${music.music_artname}</p>
