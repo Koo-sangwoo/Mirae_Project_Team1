@@ -123,7 +123,7 @@ $(".pageInfo a").on("click", function(e){
 </div>
 
 
-<c:if test="${member.m_id != null}">   
+<c:if test="${member.m_code == 123}">   
 <button type="버튼" onclick="location.href='/newswrite';" id="writebtn" >글쓰기</button>
 </c:if>
 

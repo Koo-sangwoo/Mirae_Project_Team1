@@ -24,7 +24,7 @@
 			text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
 		}
 
-		form {
+		.allForm {
 			margin: 0 auto;
 			max-width: 500px;
 			padding: 20px;
@@ -33,29 +33,29 @@
 			box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 		}
 
-		form .form-group {
+		.allForm .form-group {
 			margin-bottom: 20px;
 		}
 
-		form label {
+		.allForm label {
 			font-weight: bold;
 			margin-bottom: 5px;
 		}
 
-		form select {
+		.allForm select {
 			height: 38px;
 		}
 
-		form button {
+		.allForm button {
 			margin-top: 20px;
 		}
 
-		form .btn-primary {
+		.allForm .btn-primary {
 			background-color: #007bff;
 			border-color: #007bff;
 		}
 
-		form .btn-primary:hover {
+		.allForm .btn-primary:hover {
 			background-color: #0069d9;
 			border-color: #0062cc;
 		}
@@ -65,8 +65,8 @@
 	<jsp:include page="../include/header.jsp"></jsp:include>
 
 	<div class="container mt-5">
-		<h2 align="center">Edit Music</h2>
-		<form action="updateMusic" method="POST">
+		<h2 align="center">음악 수정</h2>
+		<form action="updateMusic" method="POST" class="allForm">
 			<input type="hidden" name="music_id" value="${music.music_id}">
 			<div class="form-group">
 				<label for="music_title">음악명</label> <input type="text"

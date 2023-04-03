@@ -24,7 +24,7 @@ pageEncoding="UTF-8"%>
 			text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
 		}
 
-		form {
+		.allForm {
 			margin: 0 auto;
 			max-width: 500px;
 			padding: 20px;
@@ -33,29 +33,29 @@ pageEncoding="UTF-8"%>
 			box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 		}
 
-		form .form-group {
+		.allForm .form-group {
 			margin-bottom: 20px;
 		}
 
-		form label {
+		.allForm label {
 			font-weight: bold;
 			margin-bottom: 5px;
 		}
 
-		form select {
+		.allForm select {
 			height: 38px;
 		}
 
-		form button {
+		.allForm button {
 			margin-top: 20px;
 		}
 
-		form .btn-primary {
+		.allForm .btn-primary {
 			background-color: #007bff;
 			border-color: #007bff;
 		}
 
-		form .btn-primary:hover {
+		.allForm .btn-primary:hover {
 			background-color: #0069d9;
 			border-color: #0062cc;
 		}
@@ -63,9 +63,11 @@ pageEncoding="UTF-8"%>
 </head>
 <body>
 <jsp:include page="../include/header.jsp"></jsp:include>
+
+
 	<h1 style="text-align: center">상품 수정</h1>
 	<hr>
-	<form action="/updateProduct" method="post">
+	<form action="/updateProduct" method="post" class="allForm">
 		<input type="hidden" name="p_id" value="${detail.p_id}">
 		<div class="form-group">
 			<label for="p_name">상품명</label>
