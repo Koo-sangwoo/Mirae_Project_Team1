@@ -4,12 +4,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link rel="stylesheet"
-	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
-<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
-<script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
-<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+	integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <head>
@@ -144,19 +155,20 @@
 			basketSumInput = $('#totalPrice'); //총 가격
 
 			basketAmountInput.on('input', function() {
-				var basketAmount = parseInt(basketAmountInput.val()) * ${detail.p_price};
+				var basketAmount = parseInt(basketAmountInput.val()) * $
+				{
+					detail.p_price
+				}
+				;
 				basketSumInput.val(basketAmount);
 
 			});
 		});
 
-
-
 		/*아임포트를 활용한 결제 api*/
 		var amount = parseInt($("#totalPrice").val());
 		$("#buyNow").click(function() {
-			
-			
+
 			var m_id = $("#m_id").val();
 			var p_quantity = $("#p_quantity").val();
 			if (m_id == null || m_id == "") {
@@ -173,8 +185,8 @@
 					showCancelButton : true,
 					confirmButtonText : "확인",
 					cancelButtonText : "취소"
-				}, function(data){
-					if(data){
+				}, function(data) {
+					if (data) {
 						var amount = basketSumInput.val();
 						var IMP = window.IMP;
 						IMP.init("imp75381885");
@@ -205,8 +217,6 @@
 				});
 			}
 		});
-		
-		
 	</script>
 </body>
 </html>
