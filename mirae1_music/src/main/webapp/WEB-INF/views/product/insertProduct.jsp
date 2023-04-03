@@ -8,28 +8,74 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품 추가 폼</title>
-<link rel="stylesheet"
-	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
-<script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
-<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+	integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+	crossorigin="anonymous"></script>
 <style>
-h1 {
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
+		h1 {
+			margin-top: 50px;
+			margin-bottom: 30px;
+			font-size: 36px;
+			font-weight: bold;
+			text-align: center;
+			color: #555;
+			text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+		}
 
-form {
-	margin-bottom: 50px;
-}
-</style>
+		.allForm {
+			margin: 0 auto;
+			max-width: 500px;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+		}
+
+		.allForm .form-group {
+			margin-bottom: 20px;
+		}
+
+		.allForm label {
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		.allForm select {
+			height: 38px;
+		}
+
+		.allForm button {
+			margin-top: 20px;
+		}
+
+		.allForm .btn-primary {
+			background-color: #007bff;
+			border-color: #007bff;
+		}
+
+		.allForm .btn-primary:hover {
+			background-color: #0069d9;
+			border-color: #0062cc;
+		}
+	</style>
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"></jsp:include>
 	<div class="container">
 		<h1 style="text-align: center"><b>상품 추가</b></h1>
 		<hr>
-		<form action="insertProduct" method="post">
+		<form action="insertProduct" method="post" class="allForm">
 			<div class="form-group">
 				<label for="p_name">상품명</label> <input type="text"
 					class="form-control" id="p_name" name="p_name">
@@ -60,7 +106,7 @@ form {
 			</div>
 			<div style="text-align: center">
 				<button type="submit" class="btn btn-primary">상품 추가</button>
-				<a href="/" class="btn btn-danger">취소</a>
+				<a href="/"><button class="btn btn-danger">취소</button></a>
 			</div>
 		</form>
 	</div>
