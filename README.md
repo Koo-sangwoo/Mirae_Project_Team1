@@ -78,15 +78,16 @@
 윤민수 : 뉴스탭 구현중<br><br><br>
 
 <h1>3/31 실행 업무</h1><br>
-구상우 :  <br>
+구상우 :  주문목록 디버깅<br>
 박승범 : 마이페이지 요청 방식 및 스크립트 수정, 음악 추가 및 메인 화면  <br>
 윤민수 : 뉴스<br><br><br>
 
 <h1>4/03 실행 업무</h1><br>
-구상우 :  <br>
+구상우 :  헤더 js,음악,상품추가,주문목록 db오류 디버깅 및 db최종 erd 출력<br>
 박승범 :  <br>
 윤민수 : <br><br><br>
 
 <h1>데이터 ERD</h1> <br>
 
-![erd-최종](https://user-images.githubusercontent.com/109846153/225850987-48e8a62a-084a-4103-8372-260db6416a55.png)
+![미래IT1팀-PROJECT-ERD최종](https://user-images.githubusercontent.com/109846153/229451862-8b56ea9f-260a-4c8c-9d6a-4d5d0efbc78d.PNG)
+
