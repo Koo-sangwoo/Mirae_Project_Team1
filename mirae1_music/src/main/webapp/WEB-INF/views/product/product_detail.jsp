@@ -156,6 +156,8 @@
 		/*아임포트를 활용한 결제 api*/
 		var amount = parseInt($("#totalPrice").val());
 		$("#buyNow").click(function() {
+			
+			
 			var m_id = $("#m_id").val();
 			var p_quantity = $("#p_quantity").val();
 			if (m_id == null || m_id == "") {
@@ -165,28 +167,41 @@
 				swal("", "수량을 선택해주세요.", "warning");
 				return false;
 			} else {
-				var amount = basketSumInput.val();
-				var IMP = window.IMP;
-				IMP.init("imp75381885");
-				IMP.request_pay({
-					pg : "kakaopay",//결제 대행을 해야하는 pg사
-					pay_method : "card",
-					merchant_uid : 'merchant_' + new Date().getTime(), // 주문번호
-					name : '${detail.p_name}', //품목이름
-					amount : amount,//가격
-					buyer_email : "gildong@gmail.com",//여기 까진 이상없음
-					buyer_name : "${member.m_name}",
-					buyer_tel : '${member.m_phonenum}',
-					buyer_addr : '${member.m_address}',
-				}, function(rsp) { // callback
-					if (rsp.success) {
-						alert("결제가 완료되었습니다!")
-						document.items.action = "order_completeInsert";
-						document.items.submit();
+				swal({
+					title : "",
+					text : "구매하시겠습니까? 확인을 누를시 결제창이 나타납니다.",
+					type : "info",
+					showCancelButton : true,
+					confirmButtonText : "확인",
+					cancelButtonText : "취소"
+				}, function(data){
+					if(data){
+						var amount = basketSumInput.val();
+						var IMP = window.IMP;
+						IMP.init("imp75381885");
+						IMP.request_pay({
+							pg : "kakaopay",//결제 대행을 해야하는 pg사
+							pay_method : "card",
+							merchant_uid : 'merchant_' + new Date().getTime(), // 주문번호
+							name : '${detail.p_name}', //품목이름
+							amount : amount,//가격
+							buyer_email : "gildong@gmail.com",//여기 까진 이상없음
+							buyer_name : "${member.m_name}",
+							buyer_tel : '${member.m_phonenum}',
+							buyer_addr : '${member.m_address}',
+						}, function(rsp) { // callback
+							if (rsp.success) {
+								alert("결제가 완료되었습니다!")
+								document.items.action = "order_completeInsert";
+								document.items.submit();
 
+							} else {
+								var msg = "결제가 실패했습니다!"
+								swal("", msg, "fail");
+							}
+						});
 					} else {
-						var msg = "결제가 실패했습니다!"
-						swal("", msg, "fail");
+						return false;
 					}
 				});
 			}

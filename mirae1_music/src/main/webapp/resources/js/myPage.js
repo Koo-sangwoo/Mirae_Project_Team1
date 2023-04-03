@@ -76,15 +76,6 @@ function deleteMember() { // 회원 탈퇴
 					"m_id" : m_id
 				},
 				success : function(data) {
-					/*swal({
-	                    title: "",
-	                    text: "그동안 이용해주셔서 감사합니다.",
-	                    type: "success",
-	                    closeOnClickOutside: false
-	                }, function(data){
-	                    console.log(data);
-	                    window.location.replace("home");
-	                });*/
 					alert("그동안 이용해주셔서 감사합니다.");
 					window.location.replace("home");
 				}
