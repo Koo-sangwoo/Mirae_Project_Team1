@@ -85,34 +85,9 @@
 </style>
 <body>
 
-	<%@ include file="include/header.jsp"%>
-	<!--  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 100%; height: 300px">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="./resources/images/logo.png" class="d-block w-100" alt="..." style="width: 100%; height: 300px">
-    </div>
-    <div class="carousel-item">
-      <img src="./resources/images/person-outline.png" class="d-block w-100" alt="..." style="width: 100%; height: 300px">
-    </div>
-    <div class="carousel-item">
-      <img src="./resources/images/search-outline.png" class="d-block w-100" alt="..." style="width: 100%; height: 300px">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div> 
-<hr>  
-
-<div>
-<h1 style="text-align: center"><b>뉴스</b></h1>
-</div> -->
-
+	<jsp:include page="./include/header.jsp"></jsp:include>
+	
+	
 	<div id="carouselExampleDark" class="carousel carousel-dark slide"
 		data-bs-ride="carousel">
 		<div class="carousel-indicators">

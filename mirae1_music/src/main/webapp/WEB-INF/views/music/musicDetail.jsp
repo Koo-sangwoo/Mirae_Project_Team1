@@ -62,7 +62,7 @@
 			</div>
 		</c:if>
 		<div class="music-info">
-			<img alt="음악사진" src="${musicDetail.music_picture}">
+			<img alt="음악사진" src="../resources/images/music/${musicDetail.music_picture}">
 			<div>
 				<h2>곡명 : ${musicDetail.music_title}</h2>
 				<p>가수명 : ${musicDetail.music_artname}</p>

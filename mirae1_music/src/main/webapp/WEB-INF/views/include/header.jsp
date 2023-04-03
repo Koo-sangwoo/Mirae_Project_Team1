@@ -5,18 +5,23 @@
 <html>
 <head>
 <!-- <link rel="stylesheet" href="../resources/css/bootstrap.min.css"> -->
-<link rel="stylesheet"
-	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
+<! <link rel="stylesheet"
+	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css"> 
+	<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script> -->
+	
 <link rel="stylesheet" href="./resources/css/custom.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
-<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+ <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script> 
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="./resources/js/login.js"></script>
 <script type="text/javascript">
+
+
 function goCart(){
 	var m_id = $("#m_id").val();
 	console.log(m_id);
@@ -86,6 +91,7 @@ function myPage(){
           
          <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
        <c:if test="${ member.m_id == null }">
+
 				<a class=header_login onclick="location.href='login_form'"> <img
 					src="./resources/images/person-outline.png">
 				</a>
