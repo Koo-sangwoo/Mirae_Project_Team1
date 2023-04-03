@@ -67,4 +67,10 @@ public class UserServiceImpl implements UserService {
 		securityPWD(vo);
 		return userDAO.checkPw(vo);
 	}
+
+	@Override
+	public List<UserVO> getMemberList(UserVO vo) {
+		System.out.println("리스트 불러오기");
+		return userDAO.getMemberList(vo);
+	}
 }

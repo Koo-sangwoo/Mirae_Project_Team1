@@ -1,5 +1,7 @@
 package com.music.pro.vo.user;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -50,5 +52,10 @@ public class UserDAO {
 		System.out.println("비밀번호 체크~~");
 		int result = sqltemplate.selectOne("User.checkPw", vo);
 		return result;
+	}
+	
+	public List<UserVO> getMemberList(UserVO vo){
+		System.out.println("회원 리스트 불러오기DAO");
+		return sqltemplate.selectList("User.getMemberList", vo);
 	}
 }

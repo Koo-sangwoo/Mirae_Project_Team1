@@ -11,7 +11,7 @@ public class Criteria {
        private String[] typeArr; //검색 타입 배열 반환
        
        public Criteria() {    //기본생성자 -> 기본세팅 : pageNum = 1, amount = 10
-          this(1,10); 
+          this(1,20); 
        }
        
        public Criteria(int pageNum, int amount) { //생성자 => 원하는 pageNum, 원하는 amount 

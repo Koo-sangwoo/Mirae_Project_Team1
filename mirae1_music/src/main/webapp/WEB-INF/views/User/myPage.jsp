@@ -12,7 +12,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <script src="./resources/js/myPage.js" charset="UTF-8"></script>
 <style>
-body {
+.myPage {
 	background-color: #fff;
 	color: #000;
 	font-family: Arial, sans-serif;
@@ -85,7 +85,7 @@ h5 {
 <head>
 <title>Home</title>
 </head>
-<body>
+<body class="myPage">
 	<%@ include file="../include/header.jsp"%>
 	<div class="container">
 		<div class="check-box">

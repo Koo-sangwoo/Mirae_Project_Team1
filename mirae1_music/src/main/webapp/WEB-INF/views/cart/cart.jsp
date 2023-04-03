@@ -30,7 +30,7 @@
 		<div class="container">
 			<table align="center" class="nullCart">
 			<td><a href="product?p_category=k-pop" class="nullBasket"><p style="margin: 14px 20px; color: black;">
-					<span style="font-weight: bold;">장바구니가 비었습니다. 상품 보러가기 클릭!</span>
+					<span style="font-weight: bold;">장바구니가 비었습니다. 굿즈 보러가기 클릭!</span>
 					<img src="/resources/images/User/click.png">
 				</p> </a></td>
 			</table>
@@ -49,7 +49,7 @@
 					<th>수량</th>
 					<th>선택</th>
 				</tr>
-				<input type="hidden" id="m_id" name="m_id" value="${member.m_id}" /> 
+				 
 				<c:forEach items="${cartPrd}" var="cartprd">
 					<tr align="center">
 						<!--체크박스-->
