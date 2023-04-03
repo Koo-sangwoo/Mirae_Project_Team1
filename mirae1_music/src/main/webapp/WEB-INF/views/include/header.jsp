@@ -83,44 +83,10 @@ function myPage(){
         </ul>
        
 
-<<<<<<< HEAD
-	<div class="collapse navbar-collapse" id="navbarsExample03">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="news">뉴스
-					<span class="sr-only">(current)</span>
-			</a></li>
-		
-			<li class="nav-item dropdown show"><a
-				class="nav-link dropdown-toggle" href="#" id="dropdown03"
-				data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">커뮤니티</a>
-				<div class="dropdown-menu show" aria-labelledby="dropdown03">
-					<a class="dropdown-item" href="/board">pop게시판</a> <a
-						class="dropdown-item" href="#">k-pop게시판</a> <a
-						class="dropdown-item" href="#">j-pop게시판</a>
-				</div></li>
-			<li class="nav-item dropdown show"><a
-				class="nav-link dropdown-toggle" href="#" id="dropdown03"
-				data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">Music</a>
-				<div class="dropdown-menu show" aria-labelledby="dropdown03">
-					<a class="dropdown-item" href="/music?music_genre=hiphop">HIPHOP</a>
-					<a class="dropdown-item" href="/music?music_genre=k-pop">k-pop</a>
-					<a class="dropdown-item" href="/music?music_genre=ballard">발라드</a>
-				</div></li>
-			<li class="nav-item dropdown show"><a
-				class="nav-link dropdown-toggle" href="#" id="dropdown03"
-				data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">굿즈</a>
-				<div class="dropdown-menu show" aria-labelledby="dropdown03">
-					<a class="dropdown-item" href="/product?p_category=k-pop">k-pop</a>
-					<a class="dropdown-item" href="/product?p_category=hiphop">HIPHOP</a>
-					<a class="dropdown-item" href="/product?p_category=ballard">발라드</a>
-				</div></li>
-		</ul>
-		<c:if test="${ member.m_id == null }">
-=======
           
          <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
        <c:if test="${ member.m_id == null }">
->>>>>>> branch 'main' of https://github.com/Koo-sangwoo/Mirae_Project_Team1.git
+
 				<a class=header_login onclick="location.href='login_form'"> <img
 					src="./resources/images/person-outline.png">
 				</a>

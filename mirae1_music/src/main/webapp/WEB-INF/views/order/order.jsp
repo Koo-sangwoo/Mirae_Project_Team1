@@ -73,7 +73,7 @@ h1 {
 				type="hidden" name="p_quantity" value="${p_quantity}">
 			<div class="form-group">
 				<label for="nameInput">실명</label> <input type="text"
-					class="form-control" id="cname" name=" value="${cus_info.m_name}">
+					class="form-control" id="cname" name="m_name" value="${cus_info.m_name}">
 			</div>
 			<div class="form-group">
 				<label for="phoneInput">전화번호</label> <input type="tel"
@@ -82,7 +82,7 @@ h1 {
 			</div>
 			<div class="form-group">
 				<label for="addressInput">주소</label> <input type="text"
-					class="form-control" id="address" name="address"
+					class="form-control" id="address" name="m_address"
 					value="${cus_info.m_address}">
 			</div>
 
