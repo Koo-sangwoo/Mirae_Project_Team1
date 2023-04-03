@@ -51,7 +51,7 @@
 	<select id="checkPw" resultType="java.lang.Integer"> <!-- 비밀번호 확인 -->
 		SELECT COUNT(*) FROM MEMBER WHERE m_id=#{m_id} AND m_password=#{m_password}
 	</select>
-	<select id="getMemberList" resultType="com.music.pro.vo.user.UserVO"> <!-- 회원 전체 리스트 -->
+	<select id="getMemberList" parameterType="java.lang.Integer" resultType="com.music.pro.vo.user.UserVO"> <!-- 회원 전체 리스트 -->
 		SELECT * FROM MEMBER where m_code=#{m_code}
 	</select>
 </mapper>

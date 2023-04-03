@@ -23,10 +23,12 @@
 		<h5>회원 정보 페이지</h5>
 			<%-- <a href="order_complete?m_id=${member.m_id}">주문 내역 바로가기</a> --%>
 			<div class="buttons">
+			<div>
 				<button class="orderList" name="orderList" id="orderList" onclick="window.location.href='order_complete?m_id=${member.m_id}'">주문내역</button>
 				<c:if test="${ member.m_code == 123 }">
 					<button class="adminPage" name="adminPage" id="adminPage" onclick="window.location.href='adminPage'">회원관리</button>
 				</c:if>
+			</div>
 			</div>	
 		</div>
 		<hr>
