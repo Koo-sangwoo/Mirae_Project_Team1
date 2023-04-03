@@ -30,63 +30,52 @@ function myPage(){
 	document.frm.submit();
 }
 </script>
-<style>
-.navbar {
-  height: 140px;
-}
-
-.bg-custom {
-	background:black;
-}
-
-
-</style>
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="frm" id="frm" style="width: 100%;margin-bottom:0px;">
-	<nav class="navbar navbar-expand-lg bg-custom">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/"><img src="./resources/images/logo_dark.png"  width="150px"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page"  href="/news" style="color: white">뉴스</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="/board" style="color: white">커뮤니티</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
-            Music
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/music?music_genre=k-pop">k-pop</a></li>
-            <li><a class="dropdown-item" href="/music?music_genre=hiphop">HIPHOP</a></li>
-            <li><a class="dropdown-item"href="/music?music_genre=ballard">발라드</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
-            굿즈
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/product?p_category=k-pop">k-pop</a></li>
-            <li><a class="dropdown-item" href="/product?p_category=hiphop">HIPHOP</a></li>
-            <li><a class="dropdown-item" href="/product?p_category=ballard">발라드</a></li>
-          </ul>
-        </li>
-        </ul>
-       
+	<form name="frm" id="frm" style="width: 100%">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-custom"> <a
+		class="navbar-brand" href="/"> <img
+		src="./resources/images/logo_dark.png" width="150px">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarsExample03" aria-controls="navbarsExample03"
+		aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-          
-         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-       <c:if test="${ member.m_id == null }">
-
+	<div class="collapse navbar-collapse" id="navbarsExample03">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"><a class="nav-link" href="news">뉴스
+					<span class="sr-only">(current)</span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">뮤비</a></li>
+			<li class="nav-item dropdown show"><a
+				class="nav-link dropdown-toggle" href="#" id="dropdown03"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">커뮤니티</a>
+				<div class="dropdown-menu show" aria-labelledby="dropdown03">
+					<a class="dropdown-item" href="/board">pop게시판</a> <a
+						class="dropdown-item" href="#">k-pop게시판</a> <a
+						class="dropdown-item" href="#">j-pop게시판</a>
+				</div></li>
+			<li class="nav-item dropdown show"><a
+				class="nav-link dropdown-toggle" href="#" id="dropdown03"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Music</a>
+				<div class="dropdown-menu show" aria-labelledby="dropdown03">
+					<a class="dropdown-item" href="/music?music_genre=hiphop">HIPHOP</a>
+					<a class="dropdown-item" href="/music?music_genre=k-pop">k-pop</a>
+					<a class="dropdown-item" href="/music?music_genre=ballard">발라드</a>
+				</div></li>
+			<li class="nav-item dropdown show"><a
+				class="nav-link dropdown-toggle" href="#" id="dropdown03"
+				data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">굿즈</a>
+				<div class="dropdown-menu show" aria-labelledby="dropdown03">
+					<a class="dropdown-item" href="/product?p_category=k-pop">k-pop</a>
+					<a class="dropdown-item" href="/product?p_category=hiphop">HIPHOP</a>
+					<a class="dropdown-item" href="/product?p_category=ballard">발라드</a>
+				</div></li>
+		</ul>
+		<c:if test="${ member.m_id == null }">
 				<a class=header_login onclick="location.href='login_form'"> <img
 					src="./resources/images/person-outline.png">
 				</a>
@@ -118,16 +107,11 @@ function myPage(){
 				<a class="header-login" onclick="logout()"><img
 					src="./resources/images/User/logout2.png"></a>
 			</c:if>
-			</div>
-			
-    </div>
-  </div>
-</nav>
-		
 		<!--  <form class="form-inline my-2 my-md-0">
       <input class="form-control" type="text" placeholder="Search"> 
     </form>-->
-	
+	</div>
+	</nav>
 	</form>
 </body>
 </html>
