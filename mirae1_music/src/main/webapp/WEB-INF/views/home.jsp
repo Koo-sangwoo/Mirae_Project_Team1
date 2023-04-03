@@ -3,15 +3,73 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!--   <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
 <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">  -->
-<script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
-<script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
+<!-- <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
+ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+
+
 <html>
 <head>
 	<title>Home</title>
 </head>
+
+<style>
+#box * {
+  padding: 10px;
+}
+
+#box .img {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+#box {
+  width: 300px;
+  height: 380px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 100px auto;
+  transition: all 0.3s cubic-bezier(0.42, 0.0, 0.58, 1.0);
+}
+
+#box:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transform: translateY(-10px);
+}
+#box .heading {
+  font-size: 28px;
+}
+
+#box .data {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #666;
+}
+
+#box .data span {
+  padding: 0;
+}
+
+#box .data .date {
+  margin-bottom: 2px;
+}
+
+#box .data .user-id {
+  font-size: 16px;
+  color: #000;
+  font-weight: 600;
+}
+
+#box .texts {
+  font-size: 14px;
+  line-height: 18px;
+}
+</style>
 <body>
 
 <%@ include file="include/header.jsp" %>
@@ -50,21 +108,21 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
-      <img src="./resources/images/banner1.jpg" class="d-block w-100" alt="..." height="420px" width="500px">
+      <img src="./resources/images/banner1.jpg" class="d-block w-100" alt="..." height="420px">
       <div class="carousel-caption d-none d-md-block">
         <h5>뉴스</h5>
         <p>도리, 첫 EP [Cinema Pt. 1] 발표</p>
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
-      <img src="./resources/images/banner1.jpg" class="d-block w-100" alt="..." height="420px" width="500px">
+      <img src="./resources/images/banner1.jpg" class="d-block w-100" alt="..." height="420px">
       <div class="carousel-caption d-none d-md-block">
         <h5>뉴스</h5>
         <p>도리, 첫 EP [Cinema Pt. 1] 발표</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="./resources/images/banner1.jpg" class="d-block w-100" alt="..." height="420px" width="500px">
+      <img src="./resources/images/banner1.jpg" class="d-block w-100" alt="..." height="420px">
       <div class="carousel-caption d-none d-md-block">
         <h5>뉴스</h5>
         <p>도리, 첫 EP [Cinema Pt. 1] 발표.</p>
@@ -79,36 +137,61 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
+</div> 
 
-<!-- <div class="container">
+
+
+<div class="container">
   <div class="row">
+  
+  
     <div class="col-md-4">
-      <div class="card">
-        <img src="./resources/images/search-outline.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
+<div id="box" style="border:1px solid #ccc;">
+    <img class="img" src="./resources/images/banner1.jpg" alt="" width="180" height="210">
+    <h1 class="heading">도리,첫 EP[Cinema Pt.1]발표</h1>
+    <div class="data">
+      <span class="date">Mar.30</span>
+      <span class="user-id">             국내 뉴스</span>
     </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="./resources/images/search-outline.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="./resources/images/search-outline.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
+    <p class="texts">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
   </div>
-</div> -->
+    </div>
+    
+    
+    <div class="col-md-4">
+<div id="box" style="border:1px solid #ccc;">
+    <img class="img" src="./resources/images/banner1.jpg" alt="" width="180" height="210">
+    <h1 class="heading">도리,첫 EP[Cinema Pt.1]발표</h1>
+    <div class="data">
+      <span class="date">Mar.30</span>
+      <span class="user-id">             국내 뉴스</span>
+    </div>
+    <p class="texts">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+  </div>
+    </div>
+    
+    
+    <div class="col-md-4">
+<div id="box" style="border:1px solid #ccc;">
+    <img class="img" src="./resources/images/banner1.jpg" alt="" width="180" height="210">
+    <h1 class="heading">도리,첫 EP[Cinema Pt.1]발표</h1>
+    <div class="data">
+      <span class="date">Mar.30</span>
+      <span class="user-id">             국내 뉴스</span>
+    </div>
+    <p class="texts">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+  </div>
+    </div>
+    
+    
+  </div>
+</div>
 
 
 <div>
