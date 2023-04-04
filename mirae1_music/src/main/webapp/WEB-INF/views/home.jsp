@@ -260,11 +260,23 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card">
+					<img src="/resources/images/goods/ive_goods1.jpg"
+						class="card-img-top" alt="...">
+					<div class="card-body">
+						<p class="card-text">IVE 앨범커버2</p>
+						<a href="/product_detail?p_id=2">
+							<button class="btn btn-primary" type="submit">구매하기</button>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
 					<img src="/resources/images/goods/bangtan_goods1.jpg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
-						<p class="card-text">방탄 굿즈 개추ㅋㅋ</p>
-						<a href="/product_detail?p_id=2">
+						<p class="card-text">방탄소년단 포토카드</p>
+						<a href="/product_detail?p_id=3">
 							<button class="btn btn-primary" type="submit">구매하기</button>
 						</a>
 					</div>
@@ -275,19 +287,7 @@
 					<img src="/resources/images/goods/ive_goods1.jpg"
 						class="card-img-top" alt="...">
 					<div class="card-body">
-						<p class="card-text">아이브는 씹추ㅋㅋ</p>
-						<a href="/product_detail?p_id=3">
-							<button class="btn btn-primary" type="submit">구매하기</button>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card">
-					<img src="/resources/images/goods/ive_goods2.jpg"
-						class="card-img-top" alt="...">
-					<div class="card-body">
-						<p class="card-text">아이브 씹추2ㅋㅋ</p>
+						<p class="card-text">IVE 앨범커버</p>
 						<a href="/product_detail?p_id=4">
 							<button class="btn btn-primary" type="submit">구매하기</button>
 						</a>
