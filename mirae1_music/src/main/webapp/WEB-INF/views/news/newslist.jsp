@@ -75,45 +75,95 @@ $(".pageInfo a").on("click", function(e){
 </script>
 
 <body>
-<div class="container" width="200">
-<!-- <div class="row"> -->
-<table class="table table-hover">
-<thead>
-<tr>
-<th>번호</th>
-<th>카테고리</th>
-<th>제목</th>
-<th>이미지</th>
-<th>글쓴이</th>
-<th>날짜</th>
-</tr>
-<c:forEach var="row" items="${map.list}">
-         <tr>
-            <td>${row.news_id}</td>
-            <td>${row.category} 
-            <td><a href="${row.news_id}" class="move">
-             ${row.news_title}</a><c:if test="${row.replycnt > 0}">[${row.replycnt}]</c:if>
-            </td>
-            <td><img src="./resources/images/${row.thumnail}"></td>
-            <td>${row.news_writer}</td> 
-             <td>
-              ${row.news_date}
-            </td>
-      <%--    <td>${row.viewcnt}</td> --%>
-         </tr>
-   </c:forEach>
-</thead>
-<tbody>
 
-<!-- list페이지에 출력될것 board_id , category , title , writer , date -->
 
-</tbody>
-</table>
+<div class="container" style="padding-top:15px;">
+  <c:forEach var="row" items="${map.list}">
+    <a href="${row.news_id}" class="move" style="text-decoration-line:none;">
+      <div class="NewsWrapper" style="display: flex; align-items: center; padding-top: 35px; padding-bottom: 35px;">
+        <img src="./resources/images/${row.thumnail}" width="500px" height="260px" style="margin-right: 20px;">
+        <div>
+          <h2>${row.news_title}<c:if test="${row.replycnt > 0}"><span style="color:crimson;font-size:20px;">&nbsp${row.replycnt}</span></c:if></h2>
+          <p>${row.news_date}</p>
+        </div>
+      </div>
+    </a>
+  </c:forEach>
 </div>
 
+<!--  <div class="container" style="padding-top:15px;">
+<c:forEach var="row" items="${map.list}">
+<a href="${row.news_id}" class="move"><div class="NewsWrapper" style="padding-top:35px;padding-bottom:35px;">
+         <img src="./resources/images/${row.thumnail}" width="500px" height="260px">
+           ${row.news_title}<c:if test="${row.replycnt > 0}">[${row.replycnt}]</c:if>
+              ${row.news_date}
+         </div></a>
+         
+   </c:forEach>
+
+</div> -->
 <hr/>
  
+ 
+ <!-- Button trigger modal -->
+<button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" id="searchbtn">
+  검색
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">검색</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <!-- <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
 <div class="search_wrap">
+<div class="search_area">
+ <select name="type" id="keywordtype">
+                <%-- <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option> --%>
+                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+            </select>
+            <input type="text" name="keyword" value="${pageMaker.cri.keyword}" placeholder="검색어를 입력하세요" id="keyword">
+            <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="submit" class="btn btn-primary" id="button1">검색</button>
+        </div>
+          </div>
+          </div>
+         <%--  <div class="mb-3">
+           <!--  <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1"> -->
+            <input type="text" name="keyword" value="${pageMaker.cri.keyword}" placeholder="검색어를 입력하세요">
+            </div> --%>
+          </div>
+         <!--  <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div> -->
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="submit" class="btn btn-primary">검색</button>
+        </div> -->
+        </div>
+      </div>
+    </div>
+ 
+ 
+<%-- <div class="search_wrap">
 <div class="search_area">
  <select name="type">
                 <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
@@ -127,7 +177,7 @@ $(".pageInfo a").on("click", function(e){
 <input type="text" name="keyword" value="${pageMaker.cri.keyword}">
 <button>검색</button>
 </div>
-</div>
+</div> --%>
 
 
 <c:if test="${member.m_code == 123}">   
@@ -195,7 +245,9 @@ height: 35px;
 .pageInfo{
       list-style : none;
       display: inline-block;
-    margin: 50px 0 0 100px;      
+    margin: 50px 0 0 100px; 
+    position:relative;
+    right:75px;     
   }
   .pageInfo li{
       float: left;
@@ -204,13 +256,63 @@ height: 35px;
     padding: 7px;
     font-weight: 500;
   }
- a:link {color:black; text-decoration: none;}
- a:visited {color:black; text-decoration: none;}
- a:hover {color:black; text-decoration: underline;}
+
+  a:link {color:black; text-decoration: none;}
+  a:visited {color:black; text-decoration: none;}
+  a:hover {color:black; text-decoration: underline;} 
  
-  .active{
-      background-color: #cdd5ec;
+  .active1{
+       background-color: #cdd5ec; 
   }
+  #writebtn {
+  position: absolute;
+ float:right;
+ right: 220px;
+ background-color:crimson;
+ color:white;
+ border-radius:50px;
+ border:none;
+ height:30px;
+ width:70px;
+ }
+ 
+  #keyword {
+ border-width:0;
+ border:1px solid transparent;
+ border-bottom: 1px solid #ccc;
+ border-radius: 3px;
+ background-color:#fff;
+ padding:0.375rem 0.75rem;
+ line-height:1.5;
+ height: 2.75em;
+ width:268px;
+  }
+  
+  #keywordtype {
+  border-width:0;
+  border:1px solid transparent;
+  border-bottom:1px solid #ccc;
+  border-radius:3px;
+  background-color:#fff;
+  padding:0.375rem 0.75rem;
+  line-height:1.5;
+  height:2.75em;
+  width:268px;
+  }
+  
+  #searchbtn{
+ position: absolute;
+ left:215px;
+ background-color:crimson;
+ color:white;
+ border-radius:50px;
+ border:none;
+ height:30px;
+ width:55px;
+    }
+    .NewsWrapper:hover{
+    background-color:#f1f3f5;
+    }
 </style>
 
 

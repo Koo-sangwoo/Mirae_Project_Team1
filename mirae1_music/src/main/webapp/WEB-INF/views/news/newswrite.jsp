@@ -92,6 +92,30 @@ $(document).ready(function(){
 })
 </script>
 <style>
+#writebtn {
+  position: absolute;
+ float:right;
+ right: 360px;
+ background-color:crimson;
+ color:white;
+ border-radius:50px;
+ border:none;
+ height:30px;
+ width:70px;
+ bottom:0px
+ }
+ .listp{
+   position: absolute;
+ float:right;
+ right: 100px;
+ background-color:crimson;
+ color:white;
+ border-radius:50px;
+ border:none;
+ height:30px;
+ width:70px;
+ bottom:0px
+ }
 .ck.ck-editor {
 max-width:700px;
 }
@@ -168,7 +192,7 @@ min-height:450px;
          </tr>
       </table>
       <br/><br/>
-      <input type="submit" class="write" value="작성하기">
+      <input type="submit" class="write" id="writebtn" value="작성하기">
       <!-- <input type="button" class="write" value="작성하기" onClick="createB()" /> -->
    </form>
    

@@ -87,6 +87,31 @@ max-width:700px;
 .ck-editor__editable {
 min-height:450px;
 }
+
+#writebtn {
+  position: absolute;
+ float:right;
+ right: 380px;
+ background-color:crimson;
+ color:white;
+ border-radius:50px;
+ border:none;
+ height:30px;
+ width:70px;
+ bottom:30px
+ }
+ .listp{
+   position: absolute;
+ float:right;
+ right: 100px;
+ background-color:crimson;
+ color:white;
+ border-radius:50px;
+ border:none;
+ height:30px;
+ width:70px;
+ bottom:30px
+ }
 </style>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -155,7 +180,7 @@ min-height:450px;
          </tr>
       </table>
       <br/><br/>
-      <input type="submit" class="write" value="작성하기">
+      <input type="submit" class="write" id="writebtn" value="작성하기">
       <!-- <input type="button" class="write" value="작성하기" onClick="createB()" /> -->
    </form>
    

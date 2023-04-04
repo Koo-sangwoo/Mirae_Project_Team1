@@ -7,6 +7,10 @@
 <head>
 <jsp:include page="../include/header.jsp"></jsp:include>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css">
 <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
  --><link rel="stylesheet" href="./resources/css/custom.css">
@@ -78,16 +82,28 @@ $(".pageInfo a").on("click", function(e){
 <body>
 
 <div class="container" style="padding-top:50px;">
-<div><b>자유게시판</b></div>
-<div>
-<button type="button"  id="category">
-  검색
+<div style="margin-bottom:10px;"><b>자유게시판</b></div>
+<div style="margin-bottom:10px;">
+<button type="button"  id="category" onclick = "location.href = 'board' ">
+  전체
+</button>
+<button type="button"  id="category" onclick = "location.href = 'board2' ">
+ k-pop
 </button>
 <button type="button"  id="category">
-  검색
+ hiphop
 </button>
 <button type="button"  id="category">
-  검색
+  발라드
+</button>
+<button type="button"  id="category">
+  음악
+</button>
+<button type="button"  id="category">
+  리뷰
+</button>
+<button type="button"  id="category">
+  일반
 </button>
 </div>
 
@@ -222,7 +238,7 @@ $(".pageInfo a").on("click", function(e){
         
         
   <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
- <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+ <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active1":"" }"><a href="${num}">${num}</a></li>
 </c:forEach>
 
                 
@@ -282,12 +298,13 @@ height: 35px;
     padding: 7px;
     font-weight: 500;
   }
- a:link {color:black; text-decoration: none;}
- a:visited {color:black; text-decoration: none;}
- a:hover {color:black; text-decoration: underline;}
+  
+  a:link {color:black; text-decoration: none;}
+  a:visited {color:black; text-decoration: none;}
+  a:hover {color:black; text-decoration: underline;} 
  
-  .active{
-      background-color: #cdd5ec;
+  .active1{
+       background-color: #cdd5ec; 
   }
   #writebtn {
   position: absolute;
@@ -326,12 +343,13 @@ height: 35px;
   }
  
   #category{
-  background-color:crimson;
- color:white;
+  background-color:white;
+ color:;
  border-radius:2em;
- border:none;
+ border:1px solid #ccc;
  height:30px;
  width:70px;
+ font-family: 'Nanum Gothic Coding', monospace;
   }
  #sdf{
  }
