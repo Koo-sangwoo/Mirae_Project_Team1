@@ -119,7 +119,7 @@ padding-right:5px;
          <a href="write">글쓰기</a>&nbsp;&nbsp;&nbsp;
       </c:if> --%>
       <!-- 본인만 수정,삭제 버튼 표시 -->
-      <c:if test="${member.m_nickname == board.board_writer}"> 
+      <c:if test="${member.m_nickname == board.board_writer or member.m_code == 123}"> 
          <a href="#" id="modify_btn">수정</a>&nbsp;&nbsp;&nbsp;
          <a href="#" onClick="deletecheck()">삭제</a>&nbsp;&nbsp;&nbsp;
       </c:if>

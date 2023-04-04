@@ -137,7 +137,7 @@ padding-right:5px;
       <div style="display:flex;justify-content:flex-end;">
     
       <!-- 본인만 수정,삭제 버튼 표시 -->
-      <c:if test="${member.m_nickname == news.news_writer}"> 
+      <c:if test="${member.m_nickname == news.news_writer or member.m_code == 123}"> 
          <a href="#" id="modify_btn">수정</a>&nbsp;&nbsp;&nbsp;
          <a href="#" onClick="deletecheck()">삭제</a>&nbsp;&nbsp;&nbsp;
       </c:if>
