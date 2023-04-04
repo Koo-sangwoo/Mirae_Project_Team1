@@ -148,7 +148,7 @@
 				<div id="box" style="border: 1px solid #ccc;">
 					<img class="img" src="./resources/images/banner1.jpg" alt=""
 						width="180" height="210">
-					<h1 class="heading"><a href="/newsview?pageNum=1&amount=20&keyword=&type=&news_id=19">도리,첫 EP[Cinema Pt.1]발표</a></h1>
+					<h1 class="heading"><a href="http://localhost:8282/newsview?pageNum=1&amount=20&keyword=&type=&news_id=1">도리,첫 EP[Cinema Pt.1]발표</a></h1>
 					<div class="data">
 						<span class="date">Mar.30</span> <span class="user-id"> 국내
 							뉴스</span>
@@ -163,7 +163,7 @@
 				<div id="box" style="border: 1px solid #ccc;">
 					<img class="img" src="./resources/images/황세현.jpg" alt=""
 						width="180" height="210">
-					<h1 class="heading"><a href="http://localhost:8181/newsview?pageNum=1&amount=20&keyword=&type=&news_id=28&news_id=24&news_id=21">황세현, 더블 싱글 [HOW?] 발표</a></h1>
+					<h1 class="heading"><a href="http://localhost:8282/newsview?pageNum=1&amount=20&keyword=&type=&news_id=3">황세현, 더블 싱글 [HOW?] 발표</a></h1>
 					<div class="data">
 						<span class="date">Mar.30</span> <span class="user-id"> 국내
 							뉴스</span>
@@ -178,7 +178,7 @@
 				<div id="box" style="border: 1px solid #ccc;">
 					<img class="img" src="./resources/images/안경잽이.jpg" alt=""
 						width="180" height="210">
-					<h1 class="heading"><a href="http://localhost:8181/newsview?pageNum=1&amount=20&keyword=&type=&news_id=28">안경잽이, 새 싱글 "필요해" 발표</a></h1>
+					<h1 class="heading"><a href="http://localhost:8282/newsview?pageNum=1&amount=20&keyword=&type=&news_id=6">안경잽이, 새 싱글 "필요해" 발표</a></h1>
 					<div class="data">
 						<span class="date">Mar.30</span> <span class="user-id"> 국내
 							뉴스</span>
