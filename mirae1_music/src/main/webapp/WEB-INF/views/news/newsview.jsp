@@ -95,7 +95,11 @@ padding-right:5px;
  height:30px;
  width:70px;
  }
- 
+ #list_btn {
+ background-color:crimson;
+ color:white;
+ border:none;
+ }
  
 </style>
 <body>
@@ -145,7 +149,7 @@ padding-right:5px;
       <input type="hidden" name="keyword" value="${cri.keyword}"> 
       </form>
       
-      <a id="list_btn" onClick="location.href='news'">목록</a>
+      
       </div>
     
    
@@ -176,6 +180,7 @@ padding-right:5px;
     </a>
 </div>
 </c:if>   
+ <a id="list_btn" onClick="location.href='board'" style="position:relative;top:15px;left:450px;">목록</a>
    
    <br/><br/><br/>
    <!-- 현재 글을 기준으로 이전글,다음글 리스트 -->
@@ -214,7 +219,7 @@ padding-right:5px;
       <tr>
       
          <td style="height:90px;padding-bottom:70px;">${row.reply_writer}
-              (${row.reply_date}<%-- <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd a HH:mm:ss" /> --%> )<a style="display:inline;left:350px;position:relative;" onclick="toggle()">수정</a><a class="replyDelete" data-reply_id="${row.reply_id}" style="display:inline;position:relative;left:365px;">삭제</a><br> 
+              (${row.reply_date}<%-- <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd a HH:mm:ss" /> --%> )<c:if test="${row.reply_writer == member.m_nickname}"> <a style="display:inline;left:350px;position:relative;" onclick="toggle()">수정</a><a class="replyDelete" data-reply_id="${row.reply_id}" style="display:inline;position:relative;left:365px;">삭제</a><br></c:if> 
              ${str}
          </td>
          
