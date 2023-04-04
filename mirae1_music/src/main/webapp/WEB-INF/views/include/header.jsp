@@ -5,9 +5,7 @@
 <html>
 <head>
 <!-- <link rel="stylesheet" href="../resources/css/bootstrap.min.css"> -->
-<link rel="stylesheet"
-<<<<<<< HEAD
-	href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css"> 
+<link rel="stylesheet" href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css"> 
 	<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 =======
    href="//unpkg.com/bootstrap@4/dist/css/bootstrap.min.css"> 

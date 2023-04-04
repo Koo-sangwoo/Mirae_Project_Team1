@@ -46,7 +46,32 @@ $("#list_btn").on("click", function(e) {
 });
 
 </script>
-
+<style>
+#writebtn {
+  position: absolute;
+ float:right;
+ right: 380px;
+ background-color:crimson;
+ color:white;
+ border-radius:50px;
+ border:none;
+ height:30px;
+ width:70px;
+ bottom:30px
+ }
+ .listp{
+   position: absolute;
+ float:right;
+ right: 100px;
+ background-color:crimson;
+ color:white;
+ border-radius:50px;
+ border:none;
+ height:30px;
+ width:70px;
+ bottom:30px
+ }
+</style>
 <body>
 <center>
    <div style="width:800px;">
@@ -99,7 +124,7 @@ $("#list_btn").on("click", function(e) {
          </tr>
       </table>
       <br/><br/>
-      <input type="submit" class="write" value="작성하기">
+      <input type="submit" class="write" id="writebtn" value="작성하기">
       <!-- <input type="button" class="write" value="작성하기" onClick="createB()" /> -->
    </form>
    
