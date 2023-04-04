@@ -89,5 +89,6 @@
 
 <h1>데이터 ERD</h1> <br>
 
-![미래IT1팀-PROJECT-ERD최종](https://user-images.githubusercontent.com/109846153/229451862-8b56ea9f-260a-4c8c-9d6a-4d5d0efbc78d.PNG)
+
+![erd진짜진짜최종](https://user-images.githubusercontent.com/109846153/229665676-cb515a1c-71fb-4480-969c-264c8b27edd1.PNG)
 
