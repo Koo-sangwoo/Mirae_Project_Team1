@@ -134,7 +134,7 @@ padding-right:5px;
       
       </div>
     
-   
+   <hr>
    <!-- 댓글 작성 -->
 <c:if test="${member.m_id != null}">
 <div style="disply:flex">
