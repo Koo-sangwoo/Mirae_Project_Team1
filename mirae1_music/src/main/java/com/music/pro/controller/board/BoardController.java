@@ -80,6 +80,25 @@ public class BoardController {
       return "board/list";
    }
    
+   @RequestMapping("/board2")
+   public String listAllBoard2(Model model, HttpSession session, Criteria cri)
+         throws Exception {
+
+   /*   List<BoardVO> list = boardService.listAllBoard(); // 게시글 목록
+*/
+      HashMap<String, Object> map = new HashMap<String, Object>();
+   /*   map.put("list", list); // map에 자료 저장
+*/      map.put("list", boardService.listAllBoardPaging2(cri));
+      model.addAttribute("map", map);
+      
+      int total = boardService.getTotal(cri);
+      
+      PageVO pageMake = new PageVO(cri, total);
+      
+      model.addAttribute("pageMaker",pageMake);
+
+      return "board/list";
+   }
    
    
    

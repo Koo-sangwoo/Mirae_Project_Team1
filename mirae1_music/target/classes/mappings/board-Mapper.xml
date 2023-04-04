@@ -29,6 +29,26 @@
      ]]>
     </select>
     
+    
+    <select id="listAllBoardPaging2" resultType="com.music.pro.vo.board.BoardVO">
+     <![CDATA[
+    select board_id, board_title, board_content, board_writer, board_date,category,replycnt from(
+  select /*+INDEX_DESC(vam_board pk_board) */ rownum  as rn, board_id, board_title, board_content, board_writer, board_date,category,replycnt 
+     from (select * from board where category='k-pop') board where rownum <= #{pageNum} * #{amount}        
+        ]]>
+         <if test="keyword != null">
+     <include refid="criteria"></include>
+     </if>
+     <![CDATA[
+     
+              order by board_id desc)   
+                 
+     where rn > (#{pageNum} -1) * #{amount}
+     
+     ]]>
+    </select>
+    
+    
     <!-- 검색 조건문 -->
     <sql id="criteria">
         <trim prefix="AND (" suffix=")" prefixOverrides="OR">

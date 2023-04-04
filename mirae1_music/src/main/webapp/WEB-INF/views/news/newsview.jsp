@@ -36,14 +36,24 @@
            location.href='newsdelete?news_id='+${news.news_id};
         }
    }
+   function toggle() {
+	   var div = document.getElementById("myDiv");
+	   if (div.style.display === "none") {
+	     div.style.display = "block";
+	   } else {
+	     div.style.display = "none";
+	   }
+	 }
+   
    // 댓글 삭제  확인
    $(function () {
    $(".replyDelete").click(function(){
-      var result = confirm("게시물을 삭제하시겠습니까?")
-        if(result) 
+      var result = confirm("댓글을 삭제하시겠습니까?")
+        if(result==true) {
            alert("삭제되었습니다.");
       location.href="newsreplyDelete?news_id=${news.news_id}"
             + "&reply_id=" + $(this).attr("data-reply_id");
+        }
    });
    });
    $(function () {
@@ -67,47 +77,48 @@
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>${news.news_id}</title>
 </head>
+<style>
+#span:before{
+content:"|";
+color:#ccc;
+font-size:13px;
+padding-right:5px;
+}
+.replywritebtn {
+ position: absolute;
+ float:right;
+ right: 220px;
+ background-color:crimson;
+ color:white;
+ border-radius:50px;
+ border:none;
+ height:30px;
+ width:70px;
+ }
+ 
+ 
+</style>
 <body>
-<%-- <%@ include file="../include/menu.jsp" %> --%>
-<center>
-   <div style="width:800px;">
-      
-      <script>
-      
-      </script>
-      
-      <br/><br/>
-   <form>
+
+   <div style="display:flex;justify-content:center;min-height:650px;padding-top:55px;position:relative;left:70px">
+   <form style="width:800px">
       <!-- 수정,삭제에 필요한 글번호를 hidden 태그에 저장 -->
       <input type="hidden" name="news_id" value="${news.news_id}">
-      <table border="1" bordercolor="#E1DCDC" class="view" cellpadding="0" cellspacing="0" width="100%">
-         <tr>
-         <td width="70">제목</td>
-         <td colspan='3' align="left">${news.news_title}</td>
-         </tr>
-            
-         <tr>
-         <td>작성자</td>
-         <td colspan='3' align="left">${news.news_writer}</td>
-         </tr>
-            
-         <tr>
-         <td>작성일</td>
-         <td colspan='3' align="left">
-         <div style="width:150px;float:left;">
-          ${news.news_date}  
+    <div style="border-bottom:1px solid #f4f4f4;padding-bottom:7px;">
+         <h1 style="padding-bottom:15px;">${news.news_title}</h1>
+         <img src="./resources/images/adminicon.png" width="25px">${news.news_writer}
+          <span id="span">${news.news_date}</span>  
+               <span id="span">댓글<span style="color:crimson">${news.replycnt}</span></span>
+                   <span id="span">  조회수 :<span style="color:crimson">${news.viewcnt}</span></span>
          </div>
-         <div>
-         &nbsp;&nbsp;&nbsp;조회수 : ${news.viewcnt}
-         </div>
-         </td>
-         </tr>
-            
-         <tr valign="top">
-         <td colspan='4' height="500px">${news.news_content}</td>
-         </tr>
-      </table>
+       <p style="padding-top:45px;">${news.news_content}</p>
+       
    </form>
+   <hr>
+   <div>
+   <hr>
+   </div>
+ </div>
    <%-- <div style="margin-top: 10px; margin-bottom:20px;">
    <div align="center" style="float:left;">
          <c:if test=<%-- "${map.previousB != null}" >
@@ -116,14 +127,11 @@
          <c:if test=<%-- "${map.nextB != null}" >
          <button class="next" onClick="location.href='view?bno=${map.nextB.bno}&show=Y'">다음글</button>
          </c:if> --%>
-         &nbsp;&nbsp;&nbsp;게시글 번호 : ${news.news_id}
-      </div>
+         
+      
 
-      <div style="float:right;">
-      <!-- 관리자만 공지 -->
-       <c:if test="${member.m_id != null}"> 
-         <a href="write">글쓰기</a>&nbsp;&nbsp;&nbsp;
-      </c:if>
+      <div style="display:flex;justify-content:flex-end;">
+    
       <!-- 본인만 수정,삭제 버튼 표시 -->
       <c:if test="${member.m_nickname == news.news_writer}"> 
          <a href="#" id="modify_btn">수정</a>&nbsp;&nbsp;&nbsp;
@@ -137,28 +145,32 @@
       <input type="hidden" name="keyword" value="${cri.keyword}"> 
       </form>
       
-      <button type="button" id="list_btn" onClick="location.href='news'">목록</button>
+      <a id="list_btn" onClick="location.href='news'">목록</a>
       </div>
-      </div>
-      </div>
-   </div>
+    
+   
    
    <!-- 댓글 작성 -->
 <c:if test="${member.m_id != null}">
+<div style="disply:flex">
 <form action="/newsreplyWrite" method="post">
 <input type="hidden" name="reply_writer" value="${member.m_nickname}">
 <input type="hidden" name="news_id" value="${news.news_id}">
-<div style="width:700px; text-align:center;">
+<div style="display:flex;justify-content:center;">
    <%-- <c:if test="${sessionScope.userid != null}"> 로그인상태일때 --%>
     <textarea rows="5" cols="80" id="content" name="reply_content" placeholder="댓글을 작성하세요"></textarea>
     <br>
-    <button type="submit">댓글 쓰기</button>
+ 
+</div>
+<div style="position:absolute;right:233px;padding:15px">
+<button type="submit" class="replywritebtn">등록</button>
 </div>
 </form>
+</div>
 </c:if>
 
 <c:if test="${member.m_id ==null}">
-<div style="width:700px; text-align:center;">
+<div style="text-align:center;">
    <%-- <c:if test="${sessionScope.userid != null}"> 로그인상태일때 --%>
     <a href="login_form"><textarea rows="5" cols="80" id="content" name="reply_content" placeholder="로그인 후 이용가능합니다 .로그인하시겠습니까?"></textarea>
     </a>
@@ -190,7 +202,7 @@
       </table>
    </div> --%>
    
-   <table style="width: 700px">
+   <table style="width: 700px;display:flex;justify-content:center;position:relative;left:250px;height:550px;">
    <c:forEach var="row" items="${list}">
     <c:set var="str" value="${fn:replace(row.reply_content,'<','&lt;') }" />
     <c:set var="str" value="${fn:replace(str,'>','&gt;') }" />
@@ -198,24 +210,32 @@
     <c:set var="str" value="${fn:replace(str,newLineChar,'<br>') }" />
     
       <tr>
-         <td>${row.reply_writer}
-              (${row.reply_date}<%-- <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd a HH:mm:ss" /> --%> )<br> 
+      <td><hr>
+      <tr>
+      
+         <td style="height:90px;padding-bottom:70px;">${row.reply_writer}
+              (${row.reply_date}<%-- <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd a HH:mm:ss" /> --%> )<a style="display:inline;left:350px;position:relative;" onclick="toggle()">수정</a><a class="replyDelete" data-reply_id="${row.reply_id}" style="display:inline;position:relative;left:365px;">삭제</a><br> 
              ${str}
          </td>
+         
       </tr>
+      </div>
       <tr>
       <td><form action="newsreplyUpdate" method="post">
       <input type="hidden" name="news_id" value="${news.news_id}">
       <input type="hidden" name="reply_id" value="${row.reply_id}">
       
-      <textarea name="reply_content"></textarea>
+      <div style="display:none;" id="myDiv">
+      <textarea name="reply_content" style="height:120px;width:620px;"></textarea>
       <c:if test="${row.reply_writer == member.m_nickname}"> 
       <button type="submit">수정</button>
-      </c:if>
+       <!-- <button type="button" class="replyDelete" data-reply_id="${row.reply_id}">삭제</button>-->
+      </c:if> 
+      </div>
       </form>
-      <c:if test="${row.reply_writer == member.m_nickname}">
+    <!--  <c:if test="${row.reply_writer == member.m_nickname}">
       <button type="button" class="replyDelete" data-reply_id="${row.reply_id}">삭제</button>
-      </c:if>
+      </c:if>-->
       
    </c:forEach>
    

@@ -59,4 +59,8 @@ import com.music.pro.model.board.BoardService;
        public int getTotal(Criteria cri) throws Exception {
          return boardDAO.getTotal(cri);
        }
+       public List<BoardVO> listAllBoardPaging2(Criteria cri) {
+           return boardDAO.listAllBoardPaging2(cri);
+       }    
+       
    }

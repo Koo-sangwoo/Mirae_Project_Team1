@@ -65,4 +65,9 @@ public class BoardDAO {
       public void replyCnt(int board_id) {
          mybatis.update("Board.replyCnt", board_id);
       }
+      
+    //게시물 목록(페이징)
+      public List<BoardVO> listAllBoardPaging2(Criteria cri) {
+         return mybatis.selectList("Board.listAllBoardPaging2" , cri);
+      }
 }
