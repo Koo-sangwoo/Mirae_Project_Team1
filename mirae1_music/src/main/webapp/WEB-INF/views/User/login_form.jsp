@@ -23,7 +23,7 @@
 <!-- <script src="./resources/js/login.js"></script> -->
 <html>
 <head>
-<title>Home</title>
+<title>login</title>
 </head>
 <body>
 	<%-- <jsp:include page="../include/header.jsp"></jsp:include> --%>

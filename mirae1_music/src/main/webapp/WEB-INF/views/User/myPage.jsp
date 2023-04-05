@@ -92,7 +92,7 @@ h5 {
 </style>
 <html>
 <head>
-<title>Home</title>
+<title>myPage</title>
 </head>
 <body class="myPage">
 	<%@ include file="../include/header.jsp"%>

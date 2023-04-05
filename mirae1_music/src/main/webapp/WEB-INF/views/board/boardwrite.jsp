@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-   <link rel="stylesheet" href="./resources/css/board.css">
+<link rel="stylesheet" href="./resources/css/board.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <!-- <script src="./resources/ckeditor/ckeditor.js"></script> -->
 <!-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> -->

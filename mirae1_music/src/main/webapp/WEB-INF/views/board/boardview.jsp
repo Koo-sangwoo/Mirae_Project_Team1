@@ -11,7 +11,6 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" type="text/css"
    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/view.css?">
 <jsp:include page="../include/header.jsp"></jsp:include>
 <script>
    // 게시물 삭제 확인

@@ -20,7 +20,7 @@
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
 	integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
 	crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>adminPage</title>
 <style type="text/css">
 .adminFrm {
   flex-grow: 1;

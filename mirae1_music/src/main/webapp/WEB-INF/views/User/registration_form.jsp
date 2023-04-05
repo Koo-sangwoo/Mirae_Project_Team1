@@ -23,7 +23,7 @@
 
 <html>
 <head>
-<title>Home</title>
+<title>registration</title>
 </head>
 <body>
 	<jsp:include page="../include/header.jsp"></jsp:include>

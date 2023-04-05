@@ -11,7 +11,7 @@
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
 <html>
 <head>
-<title>Home</title>
+<title>releaseNote</title>
 </head>
 <body>
 	<%@ include file="include/header.jsp"%>

@@ -22,7 +22,7 @@
 
 <html>
 <head>
-<title>Home</title>
+<title>myPage</title>
 </head>
 <body>
 	<%@ include file="../include/header.jsp"%>
