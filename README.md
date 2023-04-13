@@ -100,7 +100,7 @@
 <br>
 <h2>관리자 유즈케이스</h2>
 <hr>
-![관리자 유즈케이스](https://user-images.githubusercontent.com/109846153/231619475-44ea1afe-3b6b-45c6-9e67-3a91595ccddb.png)
+![관리자 유즈케이스](https://user-images.githubusercontent.com/109846153/231619788-497d6314-3bad-499a-bf2e-b0a579311a57.png)
 <br>
 
 <h1>상품 기능 클래스 다이어그램</h1>
