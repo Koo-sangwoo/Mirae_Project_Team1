@@ -93,11 +93,20 @@
 ![erd진짜진짜최종](https://user-images.githubusercontent.com/109846153/229665676-cb515a1c-71fb-4480-969c-264c8b27edd1.PNG)
 
 <h1>상품 기능 유즈케이스</h1>
-![image](https://user-images.githubusercontent.com/109846153/231618579-6714e95e-37dc-4abb-878d-81f1f6546156.png)
+<hr><br>
+<h2>사용자 유즈케이스</h2>
+<hr>
+![사용자유즈케이스](https://user-images.githubusercontent.com/109846153/231619435-4e50f323-5a25-46a0-994f-2f819ba9a6a7.png)
+<br>
+<h2>관리자 유즈케이스</h2>
+<hr>
+![관리자 유즈케이스](https://user-images.githubusercontent.com/109846153/231619475-44ea1afe-3b6b-45c6-9e67-3a91595ccddb.png)
+<br>
 
 <h1>상품 기능 클래스 다이어그램</h1>
-![image](https://user-images.githubusercontent.com/109846153/231618767-d9755fcb-802e-4059-aa2d-fbcc910ec1ab.png)
-
+<hr>
+![상품 클래스 다이어그램](https://user-images.githubusercontent.com/109846153/231619508-e4f4e256-a56e-486f-be3a-a7fdc6a74edd.png)
+<br>
 <h1>상품 기능 UI 소개</h1>
 ![image](https://user-images.githubusercontent.com/109846153/231618864-62bc0b67-af55-4622-b01e-e16b3c25c04e.png)
 <br>
