@@ -1,4 +1,4 @@
-# Mirae_Project_Team1 <br>Cancel changes
+# Mirae_Project_Team1 <br>
 
 <h1>주제 : 음악 커뮤니티 및 굿즈 구매 사이트</h1> <br>
 담당 파트<br>
@@ -93,9 +93,16 @@
 ![erd진짜진짜최종](https://user-images.githubusercontent.com/109846153/229665676-cb515a1c-71fb-4480-969c-264c8b27edd1.PNG)
 
 <h1>상품 기능 유즈케이스</h1>
+![image](https://user-images.githubusercontent.com/109846153/231618579-6714e95e-37dc-4abb-878d-81f1f6546156.png)
 
 <h1>상품 기능 클래스 다이어그램</h1>
+![image](https://user-images.githubusercontent.com/109846153/231618767-d9755fcb-802e-4059-aa2d-fbcc910ec1ab.png)
 
 <h1>상품 기능 UI 소개</h1>
+![image](https://user-images.githubusercontent.com/109846153/231618864-62bc0b67-af55-4622-b01e-e16b3c25c04e.png)
+<br>
+![image](https://user-images.githubusercontent.com/109846153/231618925-c0c684ec-876a-4d5a-9ea3-a7e294eab9ef.png)
+
+
 
 
